@@ -1,10 +1,12 @@
 ### Poddhype 
 MVP 0:
- * 0.1 - landing page and sign up
- * 0.2 - brand and podcast info pages
+ * 0.1 - Landing page and sign up
+ * 0.2 - Brand and podcast info pages
+ * 0.2.1 - Add Google Analytics'
+ - (ready soft launch here?)
  * 0.3 - podcast login and edit possibilities
- * 0.4 ? - Blog to drive SEO / Email-list for brands
- - release for podcast sign ups
+ * 0.4 - ? Blog to drive SEO / Email-list for brands
+ - Release for podcast sign ups
  
 MVP Beta - 
  * 0.5 brand-portal with search for podscas / podcast profile pages

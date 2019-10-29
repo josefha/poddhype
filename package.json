@@ -15,7 +15,8 @@
     "react-document-title": "^2.0.3",
     "react-dom": "^16.1.1",
     "react-github-button": "^0.1.11",
-    "react-intl": "^2.4.0"
+    "react-intl": "^2.4.0",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "atool-build": "^1.0.2",

@@ -2,7 +2,9 @@
 import './style.less';
 import React from 'react';
 import * as firebase from "firebase/app";
+
 import "firebase/auth";
+import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
 
 import { Button, Spin, Typography, Divider, Input, Checkbox } from 'antd'
 const { Title, Text } = Typography;
@@ -31,6 +33,7 @@ export default class Step1 extends React.Component {
     createAccountHandler = async () => {
         var email = this.state.email
         var password = this.state.password
+        addPodcastProfileInfo({ id: email, name: this.state.name, podcastTitle: this.state.titel })
 
         if (email.length < 4) {
             alert('Please enter an email address.');
@@ -74,6 +77,7 @@ export default class Step1 extends React.Component {
 
         console.log(this.state)
         console.log("Created account")
+        addPodcastProfileInfo({ id: email, name: this.state.name, podcastTitle: this.state.titel })
         this.hideLoading()
         this.props.nextForm()
     }

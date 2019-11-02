@@ -22,7 +22,7 @@ export default class Step2 extends React.Component {
 
         message.config({
             top: 110,
-            duration: 3,
+            duration: 2.5,
         });
         message.success('Ditt konto är skapat');
     }
@@ -68,7 +68,6 @@ export default class Step2 extends React.Component {
                             </ButtonGroup>
                         </div>
                         <Divider />
-                        <Text> Ladda upp en profilbild:</Text>
                         <Avatar />
                         <Divider />
                         <Button style={{}} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>

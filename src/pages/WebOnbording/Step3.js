@@ -33,7 +33,7 @@ export default class Step3 extends React.Component {
                 <Text> Du kan nå oss på partner@poddhype.com om du har några funderingar.</Text>
                 <br/>
                 <div style={{paddingTop: '20px'}} >
-                <Text> Vi vill tacka dig ännu en gång för du tror på oss, tillsamns kommer vi skapa fantastiska sammarbeten.</Text>
+                <Text> Vi vill tacka dig ännu en gång för du tror på oss, tillsamns kommer vi skapa många fantastiska sammarbeten.</Text>
                 </div>
                 <br />
                 <Text> // Team Poddhype </Text>

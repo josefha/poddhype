@@ -1,7 +1,7 @@
 import './style.less';
 import React from 'react';
 
-import { Button, Steps, Layout, Typography, Divider, Input, Modal, notification } from 'antd'
+import { Button, Alert, Typography, Divider, Input } from 'antd'
 const ButtonGroup = Button.Group;
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -13,22 +13,18 @@ import TagPicker from './TagPicker'
 export default class Step2 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { part: 1, visible: true }
+        this.state = { part: 0, visible: true }
     }
 
     nextPart = () => {
         this.setState({ part: this.state.part + 1 })
-
-
     }
 
     prevPart = () => {
         this.setState({ part: this.state.part - 1 })
-
     }
 
     handleOk = e => {
-        console.log(e);
         this.setState({
             visible: false,
         });
@@ -38,6 +34,7 @@ export default class Step2 extends React.Component {
         const part = this.state.part;
         return (
             <div className='form-content'>
+                <Alert message="Ditt konto är skapat" type="success" />
                 <Title level={2}>Berätta lite mer om din podcast. </Title>
                 <Text>Vissa frågor kan vara svåra att svara på, försök så gott det går. </Text>
                 <Divider />

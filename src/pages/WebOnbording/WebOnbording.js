@@ -14,7 +14,7 @@ import Step3 from './Step3'
 class WebOnbording extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentPage: 1 }
+        this.state = { currentPage: 0 }
     }
 
     nextForm = () => {

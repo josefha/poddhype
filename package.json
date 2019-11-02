@@ -7,6 +7,7 @@
     "antd": "^3.0.0",
     "bisheng": "^0.28.2",
     "enquire-js": "^0.1.0",
+    "firebase": "^7.2.3",
     "prop-types": "^15.6.0",
     "rc-menu": "^7.5.3",
     "rc-queue-anim": "^1.4.0",

@@ -1,6 +1,6 @@
 ### Poddhype 
 MVP 0:
- * 0.1 - Landing page and sign up
+ * 0.1 - Landing page and podcast sign up
  * 0.2 - Brand and podcast info pages
  * 0.2.1 - Add Google Analytics'
  - (ready soft launch here?)

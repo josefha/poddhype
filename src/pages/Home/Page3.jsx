@@ -1,27 +1,6 @@
 import React from 'react';
-import { Row, Col } from 'antd';
-import QueueAnim from 'rc-queue-anim';
-import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { FormattedMessage } from 'react-intl';
 import svgBgToParallax from './util';
-
-const page3Data = [
-  {
-    title: <FormattedMessage id="app.home.tool-package-title" />,
-    content: <FormattedMessage id="app.home.tool-package-content" />,
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/qggKjIGNFlVmMpwDUXPU.svg',
-  },
-  {
-    title: <FormattedMessage id="app.home.tool-library-title" />,
-    content: <FormattedMessage id="app.home.tool-library-content" />,
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/dgjVqwkJvptQEtlfctvk.svg',
-  },
-  {
-    title: <FormattedMessage id="app.home.tool-kitchen-title" />,
-    content: <FormattedMessage id="app.home.tool-kitchen-content" />,
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/vUxYuDdsbBBcMDxSGmwc.svg',
-  },
-];
+import { Divider, Input, Button } from 'antd'
 
 const svgBg = [
   <circle id="Oval-8" stroke="#13C2C2" cx="530" cy="195" r="5" />,
@@ -36,17 +15,7 @@ const svgBg = [
   <rect id="Rectangle-14" stroke="#CED4D9" transform="translate(111.673081, 158.673081) rotate(30.000000) translate(-111.673081, -158.673081) " x="107.288047" y="254.288047" width="8.77006914" height="8.77006914" rx="1" />,
 ];
 const svgChildren = svgBgToParallax(svgBg);
-const children = page3Data.map((item, i) => (
-  <Col key={i.toString()} md={8} xs={24} className="page3-block">
-    <div className="page3-img-wrapper">
-      <img src={item.img} />
-    </div>
-    <div className="page3-text-wrapper">
-      <h3>{item.title}</h3>
-      <p>{item.content}</p>
-    </div>
-  </Col>
-));
+
 export default function Page3() {
   return (
     <div className="home-page-wrapper page3" id="page3">
@@ -56,13 +25,13 @@ export default function Page3() {
         </svg>
       </div>
       <div className="page" >
-        <h2>工具&资源</h2>
-        <ScrollOverPack location="page3">
-          <QueueAnim key="queue" component={Row} type="bottom" leaveReverse>
-            {children}
-          </QueueAnim>
-        </ScrollOverPack>
+        <div style={{ margin: 'auto', textAlign: 'center' }}>
+          <h2 id='email-block-title'>Prenumerera på vårt nyhetsbrev</h2>
+          <p> Håll koll kommande releaser och när vi är redo för att brands att testa platformen</p>
+          <Input size="large" style={{ marginBottom: '20px', maxWidth: '200px', alignSelf: 'center' }} placeholder="Din bästa email" />
+          <Button style={{ marginLeft: '5px' }} onClick={() => console.log("click")} type="primary" size='large'>Skicka</Button>
+        </div>
       </div>
-    </div>
+    </div >
   );
 }

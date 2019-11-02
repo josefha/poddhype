@@ -5,8 +5,8 @@ module.exports = {
   locale: 'zh-CN',
   data: appLocaleData,
   messages: {
-    'app.home.introduce': 'introduce',
-    'app.home.design-language': 'esign-language',
+    'app.home.introduce': 'Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.',
+    'app.home.design-language': 'Varför bli medlem?',
     'app.home.solution': 'solution',
     'app.home.components-explain': 'components-explain',
     'app.home.product-pro-slogan': '开箱即用的中台前端/设计解决方案',
@@ -49,7 +49,7 @@ module.exports = {
     'app.footer.more-product': '更多产品',
     'app.footer.privacy': '隐私权政策',
     'app.footer.commitment': '权益保障承诺书',
-    'app.footer.company': 'Poddhype',
+    'app.footer.company': 'Poddhype | Stationsgatan 44, 75440, Uppsala',
     'app.footer.ant-design': '蚂蚁 UI 体系',
   },
 };

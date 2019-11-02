@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link } from 'bisheng/router';
+import { Button } from 'antd'
+import { Link } from "react-router-dom";
 
 export default function Header(props) {
   return (
     <header {...props} id="header">
-      <Link id="logo">
+      <div id="logo">
         <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-        <img alt="Ant Design" src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg" />
-      </Link>
-    </header>
+      </div>
+      {props.isMobile != true &&
+        <div style={{ float: 'right', margin: 'auto', marginTop: '15px' }}>
+          <Button onClick={() => console.log("click")} type="primary" size='large'><Link to="/bli-en-partner"></Link>Bli partner</Button>
+        </div>}
+    </header >
   );
 }

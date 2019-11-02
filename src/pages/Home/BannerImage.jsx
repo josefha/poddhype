@@ -60,7 +60,7 @@ function TweenOneG(props) {
 export default function BannerImage() {
   return (
     <svg width="482px" height="500px" viewBox="0 0 482 500" >
-      <defs>
+      {/* <defs>
         <path d="M151,55 C129.666667,62.6666667 116,74.3333333 110,90 C104,105.666667 103,118.5 107,128.5 L225.5,96 C219.833333,79 209.666667,67 195,60 C180.333333,53 165.666667,51.3333333 151,55 L137,0 L306.5,6.5 L306.5,156 L227,187.5 L61.5,191 C4.5,175 -12.6666667,147.833333 10,109.5 C32.6666667,71.1666667 75,34.6666667 137,0 L151,55 Z" id="mask" />
       </defs>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(0, 30)">
@@ -133,7 +133,7 @@ export default function BannerImage() {
             </TweenOneG>
           </g>
         </g>
-      </g>
+      </g> */}
     </svg >
   );
 }

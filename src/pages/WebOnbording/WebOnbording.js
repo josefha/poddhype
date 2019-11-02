@@ -39,9 +39,9 @@ class WebOnbording extends React.Component {
                     </Steps>
 
                     {currentPage == 0 && (<div className='form-content'>
-                        <Title style={{textAlign: 'center'}} level={2}>Det glädjer oss att du vill bli en Poddhype podcast partner! </Title>
+                        <Title style={{textAlign: 'center'}} level={2}>Det glädjer oss att du vill bli en Poddhype partner! </Title>
                         <Text>För att vi ska kunna erbjuda en så bra tjänst som möjligt så måste vi veta lite mer om dig och din podcast.
-                            Efter 5 minuter har vi beheöver för att kunna matcha dig med de brands på jakt efter ett sponsorskap </Text>
+                            Efter 5 bara minuter har vi allt beheöver för att kunna matcha dig med de brands på jakt efter ett sponsorskap </Text>
                         <Divider />
                         <Input style={{marginBottom: '20px'}} placeholder="Ditt namn" />
                         <Input placeholder="Din podcasts titel" />

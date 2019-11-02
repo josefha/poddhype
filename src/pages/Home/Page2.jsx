@@ -99,6 +99,10 @@ export default function Page2({ isMobile }) {
   return (
     <div className="home-page-wrapper page2" id="page2">
       <div className="page" >
+        <h2>Lansering April 2020</h2>
+        <h3 key="h3"> Vi har fullt upp med att bygga upp Poddhypes företags platform. </h3>
+        <p> Bli partner redan nu så du och din podcast är listad i vår tjänst redan vid release </p>
+        {/* 
         <h2><FormattedMessage id="app.home.solution" /></h2>
         <ScrollOverPack component={Row} className="page2-content" playScale="0.4">
           <QueueAnim
@@ -130,6 +134,7 @@ export default function Page2({ isMobile }) {
       </div>
       <div className="parallax-bg top" >
         {svgBgChildArray[1]}
+      </div> */}
       </div>
     </div>
   );

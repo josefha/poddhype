@@ -38,7 +38,7 @@ class Home extends React.PureComponent {
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper home">
-          <Header />
+          <Header isMobile={this.state.isMobile} />
           <Banner isMobile={this.state.isMobile} />
           <Page1 isMobile={this.state.isMobile} />
           <Page2 isMobile={this.state.isMobile} />

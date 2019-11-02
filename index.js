@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './src/pages/Home';
-import WebOnbording from './src/pages/WebOnbording'
+import AppWrapper from './src/pages/Router.js';
 
 function App() {
   return (
-    <WebOnbording />
+    <AppWrapper />
   );
 }
 

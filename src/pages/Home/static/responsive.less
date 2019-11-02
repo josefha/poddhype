@@ -18,16 +18,19 @@
   }
   .banner {
     display: block;
-    height: 632px;
+    height: 400px;
     &-bg-wrapper {
       display: none;
     }
     .img-wrapper,
     .text-wrapper {
       width: 100%;
-      display: inline-block;
       text-align: center;
       margin: auto;
+
+      span {
+        text-align: center;
+      }
     }
     .img-wrapper {
       position: initial;
@@ -41,8 +44,15 @@
       margin-top: 48px;
       min-height: 200px;
       padding: 0 16px;
+      h2 {
+        margin: 20px 0 40px 0;
+        line-height: 28px;
+        text-align: center !important;
+        font-size: 20px !important;
+        
+      }
       h1 {
-        display: none;
+        line-height: 48px;
       }
       p {
         font-size: 14px;
@@ -117,11 +127,14 @@
     }
   }
   .page3 {
-    min-height: 688px;
+    min-height: 300px;
     background: url('https://gw.alipayobjects.com/zos/rmsportal/qICoJIqqQRMeRGhPHBBS.svg') no-repeat;
     background-size: cover;
     .ant-row {
       margin: 0 8px;
+    }
+    #email-block-title {
+      margin: 50px 0 0 0;
     }
     .page3-block {
       padding: 24px;
@@ -138,6 +151,7 @@
       }
       p {
         font-size: 12px;
+        margin-bottom: 40px;
       }
       .page3-img-wrapper {
         width: 20%;

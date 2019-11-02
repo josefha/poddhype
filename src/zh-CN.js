@@ -50,6 +50,5 @@ module.exports = {
     'app.footer.privacy': '隐私权政策',
     'app.footer.commitment': '权益保障承诺书',
     'app.footer.company': 'Poddhype | Stationsgatan 44, 75440, Uppsala',
-    'app.footer.ant-design': '蚂蚁 UI 体系',
   },
 };

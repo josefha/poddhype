@@ -2,11 +2,14 @@ import './style.less';
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
 
-import { Button, Steps, Layout, Typography, Divider, Input} from 'antd'
+import { Button, Steps, Layout, Typography, Divider, Input } from 'antd'
 const { Content } = Layout;
 const { Title, Text } = Typography;
 const { Step } = Steps;
 
+import Step1 from './Step1'
+import Step2 from './Step2'
+import Step3 from './Step3'
 
 class WebOnbording extends React.Component {
     constructor(props) {
@@ -19,7 +22,7 @@ class WebOnbording extends React.Component {
         this.setState({ currentPage: nextPage })
     }
     prevForm = () => {
-        if (this.state.currentPage > 0){
+        if (this.state.currentPage > 0) {
             const nextPage = this.state.currentPage - 1
             this.setState({ currentPage: nextPage })
         }
@@ -29,8 +32,7 @@ class WebOnbording extends React.Component {
         return (
             <Layout style={{
                 height: '100vh',
-            }}
-            >
+            }}>
                 <Content className='content'>
                     <Steps current={currentPage} className='steps'>
                         <Step title="Berätta om dig själv" />
@@ -38,38 +40,14 @@ class WebOnbording extends React.Component {
                         <Step title="Färdig!" />
                     </Steps>
 
-                    {currentPage == 0 && (<div className='form-content'>
-                        <Title style={{textAlign: 'center'}} level={2}>Det glädjer oss att du vill bli en Poddhype partner! </Title>
-                        <Text>För att vi ska kunna erbjuda en så bra tjänst som möjligt så måste vi veta lite mer om dig och din podcast.
-                            Efter 5 bara minuter har vi allt beheöver för att kunna matcha dig med de brands på jakt efter ett sponsorskap </Text>
-                        <Divider />
-                        <Input style={{marginBottom: '20px'}} placeholder="Ditt namn" />
-                        <Input placeholder="Din podcasts titel" />
-                        <Divider />
-                        <Button style={{}} onClick={() => this.nextForm()} type="primary" size='large'>Nästa</Button>
-                    </div>)
-                    }{currentPage == 1 && (<div className='form-content'>
-                        <Title level={2}>Berätta lite mer om din podcast </Title>
-                        <Text>Vissa frågor kan vara svåra att svara på, men försök så gott det går! All info är viktig för annonsöerar  </Text>
-                        <Divider />
-                        <Button style={{}} onClick={() => this.prevForm()} type="secondary" size='large'>Tillbaka</Button>
-                        <Button style={{marginLeft: '50px'}} onClick={() => this.nextForm()} type="primary" size='large'>Nästa</Button>
-                    </div>)
-                    }{currentPage == 2 && (<div className='form-content'>
-                        <Title level={2}>Du är nu en Poddhype partner! </Title>
-                        <Text> Vi planerar att släppa våra platformen för annonsörer senare i vår.</Text>
-
-                        <Text> hör gärna av dig till parter@poddhype.com om du har några funderingar</Text>
-                        <Text> Vi vill tacka dig ännu en gång för du tror på oss, tillsamns är vi </Text>
-                        <Text> // teamet på poddhype </Text>
-                        <Divider />
-                        <Button style={{}} onClick={() => this.prevForm()} type="secondary" size='large'>Tillbaka</Button>
-                        <Button style={{marginLeft: '50px'}} onClick={() => this.nextForm()} type="primary" size='large'>Slutför</Button>
-                    </div>)
-                    }{currentPage == 3 && (<div className='form-content'>
-                    <Title level={2}>Tack! </Title>
-                </div>)
-                }
+                    {currentPage == 0 && (<Step1 nextForm={() => this.nextForm()} />)}
+                    {currentPage == 1 && (<Step2 nextForm={() => this.nextForm()} prevForm={() => this.prevForm()} />)}
+                    {currentPage == 2 && (<Step3 nextForm={() => this.nextForm()} prevForm={() => this.prevForm()} />)}
+                    {currentPage == 3 &&
+                        (<div className='form-content'>
+                            <Title level={2}>Tack för din feedback! Vi kommer höra av oss. </Title>
+                        </div>)
+                    }
                 </Content>
             </Layout >
         );

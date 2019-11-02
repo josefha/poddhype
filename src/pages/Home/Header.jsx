@@ -10,7 +10,9 @@ export default function Header(props) {
       </div>
       {props.isMobile != true &&
         <div style={{ float: 'right', margin: 'auto', marginTop: '15px' }}>
-          <Button onClick={() => console.log("click")} type="primary" size='large'><Link to="/bli-en-partner"></Link>Bli partner</Button>
+          <Link to="/bli-en-partner">
+            <Button onClick={() => console.log("")} type="primary" size='large'>Bli partner</Button>
+          </Link>
         </div>}
     </header >
   );

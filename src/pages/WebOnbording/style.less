@@ -3,18 +3,41 @@
 }
 
 .content {
-  margin: 24px 16px;
+  margin: 16px;
   padding: 0 50px;
   background: #fff;
   min-height: 280;
+  overflow: auto; 
 }
 
+.ant-steps-horizontal {
+  margin-bottom: 0 !important;
+}
+.ant-layout-content {
+  padding: 0 25px;
+}
 .form-content {
   max-width: 600px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
+
+  @media only screen and (max-width: 767.99px) {
+  margin: auto;
+  margin-top: 20px;
+  }
+  h2 {
+    text-align: left;
+  }
 }
 
+#createAccountButton {
+  float: right;
+  @media only screen and (max-width: 767.99px) {
+    float: none;
+    margin: 20px 0;
+    width: 100%;
+    }
+}
 .steps {
   margin: 24px 16px;
   padding-bottom: 10px;

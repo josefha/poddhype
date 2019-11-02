@@ -13,12 +13,21 @@ export default function AppWrapper() {
     return (
         <Router>
             <Switch>
-                <Route path="/">
+                <Route exact path="/about">
                     <Home />
                 </Route>
-                <Route path="/bli-en-partner">
+                <Route exact path="/">
                     <WebOnbording />
                 </Route>
+                {/* <Route
+                path="/bli-en-partner"
+                render={() => (<Home />)}
+            />
+            <Route
+                exact={true}
+                path="/"
+                render={() => (<WebOnbording />)}
+            /> */}
             </Switch>
         </Router >
     );

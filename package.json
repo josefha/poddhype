@@ -8,6 +8,7 @@
     "bisheng": "^0.28.2",
     "enquire-js": "^0.1.0",
     "prop-types": "^15.6.0",
+    "rc-menu": "^7.5.3",
     "rc-queue-anim": "^1.4.0",
     "rc-scroll-anim": "^2.2.1",
     "rc-tween-one": "^1.7.0",

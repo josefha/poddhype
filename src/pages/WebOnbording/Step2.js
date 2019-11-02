@@ -1,7 +1,7 @@
 import './style.less';
 import React from 'react';
 
-import { Button, Alert, Typography, Divider, Input } from 'antd'
+import { Button, message, Typography, Divider, Input } from 'antd'
 const ButtonGroup = Button.Group;
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -14,6 +14,17 @@ export default class Step2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = { part: 0, visible: true }
+    }
+
+    componentDidMount = () => {
+        if (this.props.notFirstTime)
+            return
+
+        message.config({
+            top: 110,
+            duration: 3,
+        });
+        message.success('Ditt konto är skapat');
     }
 
     nextPart = () => {
@@ -34,7 +45,6 @@ export default class Step2 extends React.Component {
         const part = this.state.part;
         return (
             <div className='form-content'>
-                <Alert message="Ditt konto är skapat" type="success" />
                 <Title level={2}>Berätta lite mer om din podcast. </Title>
                 <Text>Vissa frågor kan vara svåra att svara på, försök så gott det går. </Text>
                 <Divider />

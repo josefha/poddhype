@@ -13,7 +13,7 @@ export default function AppWrapper() {
     return (
         <Router>
             <Switch>
-                <Route exact path="/about">
+                <Route exact path="/asd">
                     <Home />
                 </Route>
                 <Route exact path="/">

@@ -33,7 +33,6 @@ export default class Step1 extends React.Component {
     createAccountHandler = async () => {
         var email = this.state.email
         var password = this.state.password
-        addPodcastProfileInfo({ id: email, name: this.state.name, podcastTitle: this.state.titel })
 
         if (email.length < 4) {
             alert('Please enter an email address.');
@@ -43,6 +42,17 @@ export default class Step1 extends React.Component {
             alert('Please enter a password.');
             return;
         }
+
+        if (this.state.name.length < 3) {
+            alert('Please enter a name.');
+            return;
+        }
+
+        if (this.state.title.length < 4) {
+            alert('Please enter a title.');
+            return;
+        }
+
         if (password != this.state.repeatPassword) {
             alert('Password do not match');
             return;
@@ -77,7 +87,7 @@ export default class Step1 extends React.Component {
 
         console.log(this.state)
         console.log("Created account")
-        addPodcastProfileInfo({ id: email, name: this.state.name, podcastTitle: this.state.titel })
+        addPodcastProfileInfo({ id: email, name: this.state.name, podcastTitle: this.state.title })
         this.hideLoading()
         this.props.nextForm()
     }
@@ -109,8 +119,8 @@ export default class Step1 extends React.Component {
                         value={this.state.name}
                         onChange={(e) => this.handleChange(e, "name")} />
                     <Input placeholder="Din podcasts titel"
-                        value={this.state.titel}
-                        onChange={(e) => this.handleChange(e, "titel")} />
+                        value={this.state.title}
+                        onChange={(e) => this.handleChange(e, "title")} />
                     <Divider />
                     {this.state.part == 0 ?
                         (<Button style={{}} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>)

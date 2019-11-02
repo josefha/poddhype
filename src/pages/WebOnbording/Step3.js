@@ -30,7 +30,7 @@ export default class Step3 extends React.Component {
             <div className='form-content'>
                 <Title level={2}>Grattis! Du är nu en Poddhype partner. </Title>
                 <Text> Vi planerar att släppa vår platform för annonsörer senare i vår. </Text>
-                <Text> Du kan nå oss på partner@poddhype.com om du har några funderingar</Text>
+                <Text> Du kan nå oss på partner@poddhype.com om du har några funderingar.</Text>
                 <br/>
                 <div style={{paddingTop: '20px'}} >
                 <Text> Vi vill tacka dig ännu en gång för du tror på oss, tillsamns kommer vi skapa fantastiska sammarbeten.</Text>

@@ -13,7 +13,7 @@ import TagPicker from './TagPicker'
 export default class Step2 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { part: 0, visible: true }
+        this.state = { part: 1, visible: true }
     }
 
     nextPart = () => {
@@ -52,7 +52,7 @@ export default class Step2 extends React.Component {
                         <TagPicker placeholder="Kategori" />
                         <TagPicker placeholder="Välj några taggar" />
                         <div style={{ margin: '20px 0', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                            <Text style={{ margin: '5px 0' }}> Anatal lyssnare per avsnitt: </Text>
+                            <Text style={{ margin: '5px 0' }}> Antal lyssnare per avsnitt: </Text>
 
                             <ButtonGroup style={{ float: 'right' }}>
                                 <Button>Under 1000</Button>
@@ -70,9 +70,43 @@ export default class Step2 extends React.Component {
                 {part == 1 && (
                     <React.Fragment>
                         <h3>Dina lyssnare</h3>
+                        <div className="text-and-buttons-box">
+                            <Text style={{ margin: '5px 0' }}> Ålder: </Text>
+                            <ButtonGroup style={{ float: 'right' }}>
+                                <Button>12-18</Button>
+                                <Button>18-27</Button>
+                                <Button>28-40</Button>
+                                <Button>40+</Button>
+                            </ButtonGroup>
+                        </div>
+                        <div className="text-and-buttons-box">
+                            <Text style={{ margin: '5px 0' }}> Kön: </Text>
+                            <ButtonGroup style={{ float: 'right' }}>
+                                <Button>Fler män</Button>
+                                <Button>Fler kvinnor</Button>
+                                <Button>Blandat</Button>
+                            </ButtonGroup>
+                        </div>
+                        <Text>Beskriv dina lyssnare:</Text>
+                        <TextArea
+                            style={{ margin: '10px 0' }}
+                            placeholder="Vilka är det som lyssnar?"
+                            autoSize={{ minRows: 2, maxRows: 6 }}>
+                        </TextArea>
                         <Divider />
                         <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>
-                        <Button style={{ float: 'right' }} onClick={() => this.props.nextForm()} type="primary" size='large'>Nästa</Button>
+                        <Button style={{ float: 'right' }} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>
+                    </React.Fragment>
+                )}
+                {part == 2 && (
+                    <React.Fragment>
+                        <h3>Länkar</h3>
+                        <Input style={{ marginBottom: '20px' }} placeholder="Itunes" />
+                        <Input style={{ marginBottom: '20px' }} placeholder="Spotify" />
+                        <Input style={{ marginBottom: '20px' }} placeholder="Ett avsnitt du är extra stolt över" />
+                        <Divider />
+                        <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>
+                        <Button style={{ float: 'right' }} onClick={() => this.props.nextForm()} type="primary" size='large'>Klar</Button>
                     </React.Fragment>
                 )}
             </div >)

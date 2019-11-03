@@ -6,7 +6,7 @@ import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { FormattedMessage } from 'react-intl';
 import BannerImage from './BannerImage';
 import { Button, Icon } from 'antd'
-import { Redirect } from "react-router-dom";
+import { Link } from "@reach/router"
 
 
 const loop = {
@@ -21,20 +21,6 @@ class Banner extends React.PureComponent {
   }
   static defaultProps = {
     className: 'banner',
-  }
-
-  state = {
-    redirect: false
-  }
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/target' />
-    }
   }
 
   render() {
@@ -60,12 +46,13 @@ class Banner extends React.PureComponent {
             <h2 key="h2" style={{ fontSize: '32px', textAlign: 'left' }}>
               <FormattedMessage id="app.home.introduce" />
             </h2>
-            {this.renderRedirect()}
-            <Button onClick={() => this.setRedirect}
-              type="primary"
-              size='large'>
-              Bli partner nu<Icon type="right" />
+            <Link to="/bli-en-partner">
+              <Button
+                type="primary"
+                size='large'>
+                Bli partner nu
             </Button>
+            </Link>
           </QueueAnim>
           {/* {!isMobile && (
             <div className="img-wrapper" key="image">

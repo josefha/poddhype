@@ -3,7 +3,6 @@ import { TweenOneGroup } from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import { Row, Col } from 'antd';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 
 
@@ -188,7 +187,6 @@ export default class Page1 extends React.PureComponent {
           <QueueAnim
             className="page1-block"
             type="bottom"
-            component={Link}
             componentProps={{ to: item.to }}
             onMouseEnter={() => { this.onMouseOver(item.nameEn); }}
             onMouseLeave={this.onMouseOut}

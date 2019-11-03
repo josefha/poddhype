@@ -110,7 +110,7 @@ export default class Step1 extends React.Component {
         return (
             <div className='form-content' >
                 <Spin spinning={this.state.isLoading} tip="Skapar konto...">
-                    <Title level={2}>Kul att du vill bli en Poddhype partner! </Title>
+                    <Title level={2}>Bli en Poddhype partner</Title>
                     <Text>För att vi ska kunna erbjuda en så bra tjänst som möjligt så måste vi veta lite mer om dig och din podcast.
                         Efter 5 bara minuter har vi allt beheöver för att kunna matcha dig med brands som letar efter partnerskap. </Text>
                     <Divider />
@@ -126,7 +126,7 @@ export default class Step1 extends React.Component {
                         (<Button style={{}} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>)
                         : (
                             <div >
-                                <Text> Första steget är att skapa ditt konto hos oss, oroa dig inte det är helt gratis. </Text>
+                                <Text> Första steget är att skapa ditt konto hos oss. </Text>
                                 <Input style={{ margin: '20px 0' }} placeholder="Email"
                                     value={this.state.email}
                                     onChange={(e) => this.handleChange(e, "email")} />

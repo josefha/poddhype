@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
@@ -16,9 +15,6 @@ const loop = {
 };
 
 class Banner extends React.PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-  }
   static defaultProps = {
     className: 'banner',
   }

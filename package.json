@@ -6,10 +6,8 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "antd": "^3.0.0",
-    "bisheng": "^0.28.2",
     "enquire-js": "^0.1.0",
     "firebase": "^7.2.3",
-    "prop-types": "^15.6.0",
     "rc-menu": "^7.5.3",
     "rc-queue-anim": "^1.4.0",
     "rc-scroll-anim": "^2.2.1",
@@ -17,9 +15,7 @@
     "react": "^16.1.1",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.1.1",
-    "react-github-button": "^0.1.11",
     "react-intl": "^2.4.0",
-    "react-router-dom": "^5.1.2",
     "react-transition-group": "^4.3.0"
   },
   "devDependencies": {
@@ -37,7 +33,6 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "expect": "^21.2.1",
-    "gh-pages": "^1.1.0",
     "husky": "^3.0.9",
     "pre-commit": "^1.2.2",
     "redbox-react": "^1.5.0"

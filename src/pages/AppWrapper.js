@@ -24,7 +24,7 @@ import WebOnbording from './WebOnbording'
 export default function AppWrapper() {
     return (
         <Router>
-            <WebOnbording path="/bli-en-partner" />
+            <WebOnbording path="/" />
             <Login path="/login" />
             <Home path="/" />
         </Router >

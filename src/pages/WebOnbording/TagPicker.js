@@ -49,7 +49,7 @@ const tags = [
 
 const children = [];
 for (let i = 10; i < categories.length; i++) {
-    children.push(<Option key={i.toString(36) + i}>{categories[i]}</Option>);
+    children.push(<Option key={categories[i]}>{categories[i]}</Option>);
 }
 
 function handleChange(value) {
@@ -70,7 +70,7 @@ export default class TagPicker extends React.Component {
                 mode="multiple"
                 style={{ margin: "10px 0", width: "100%" }}
                 placeholder={this.props.placeholder}
-                onChange={handleChange}
+                onChange={(e) => this.props.onChange(e)}
             >
                 {children}
             </Select>)

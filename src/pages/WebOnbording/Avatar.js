@@ -2,6 +2,8 @@ import React from 'react';
 import './style.less';
 import { Upload, Icon, message } from 'antd';
 
+import { putFile } from '../../common/api/storage'
+
 function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
@@ -38,6 +40,8 @@ export default class Avatar extends React.Component {
                     loading: false,
                 }),
             );
+
+            putFile("userid-icon.jpeg", "podcast_icons/", info.file.originFileObj)
         }
     };
 
@@ -45,7 +49,7 @@ export default class Avatar extends React.Component {
         const uploadButton = (
             <div>
                 <Icon type={this.state.loading ? 'loading' : 'plus'} />
-                <div className="ant-upload-text">Profilbild</div>
+                <div className="ant-upload-text">Poddcast bild</div>
             </div>
         );
         const { imageUrl } = this.state;

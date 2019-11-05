@@ -17,7 +17,7 @@ export default class Step2 extends React.Component {
             part: 0,
             // Step 1
             description: "",
-            category: "",
+            category: [],
             tags: [],
             listenersAmount: "",
             profilePicture: "",
@@ -54,7 +54,6 @@ export default class Step2 extends React.Component {
 
     handleChange = (e, field) => {
         this.setState({ [field]: e.target.value });
-        console.log(this.state)
     }
 
     handlePickerChange = (value, field) => {
@@ -93,17 +92,6 @@ export default class Step2 extends React.Component {
         }
     }
 
-    defualtValue = (stateName, defualt) => {
-        let stateValue = this.state[stateName]
-        console.log(stateName)
-        console.log(stateValue)
-        if (stateValue != "") {
-            return stateValue
-        } else {
-            return defualt
-        }
-    }
-
     onButtonGroupGenderClick = (n) => {
         this.setState({ selectedGenderButton: n })
         switch (n) {
@@ -138,16 +126,20 @@ export default class Step2 extends React.Component {
                         <h3>Din podcast</h3>
                         <TextArea
                             style={{ margin: '10px 0' }}
-                            placeholder={this.defualtValue("description", "Vad handlar din podcast om?")}
+                            placeholder="Vad handlar din podcast om?"
                             autoSize={{ minRows: 2, maxRows: 6 }}
+                            value={this.state.description}
                             onChange={(e) => this.handleChange(e, "description")}>
                         </TextArea>
                         <TagPicker
+                            categories={true}
                             placeholder="Kategori"
-                            onChange={(v) => this.handlePickerChange(v, "category")} />
+                            onChange={(v) => this.handlePickerChange(v, "category")}
+                            value={this.state.category} />
                         <TagPicker
                             placeholder="Välj några taggar"
-                            onChange={(v) => this.handlePickerChange(v, "tags")} />
+                            onChange={(v) => this.handlePickerChange(v, "tags")}
+                            value={this.state.tags} />
                         <div style={{ margin: '20px 0', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                             <Text style={{ margin: '5px 0' }}> Antal lyssnare per avsnitt: </Text>
 
@@ -169,7 +161,7 @@ export default class Step2 extends React.Component {
                         <Divider />
                         <Avatar />
                         <Divider />
-                        <Button style={{}} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>
+                        <Button onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>
                     </React.Fragment>)
                 }
                 {part == 1 && (
@@ -202,11 +194,11 @@ export default class Step2 extends React.Component {
                                 <Button
                                     type={this.state.selectedGenderButton == 1 ? "primary" : "default"}
                                     onClick={() => this.onButtonGroupGenderClick(1)}>
-                                    Fler män</Button>
+                                    Mestadels män</Button>
                                 <Button
                                     type={this.state.selectedGenderButton == 2 ? "primary" : "default"}
                                     onClick={() => this.onButtonGroupGenderClick(2)}>
-                                    Fler kvinnor</Button>
+                                    Mestadels kvinnor</Button>
                                 <Button
                                     type={this.state.selectedGenderButton == 3 ? "primary" : "default"}
                                     onClick={() => this.onButtonGroupGenderClick(3)}>
@@ -218,6 +210,7 @@ export default class Step2 extends React.Component {
                             style={{ margin: '10px 0' }}
                             placeholder="Vilka är det som lyssnar?"
                             autoSize={{ minRows: 2, maxRows: 6 }}
+                            value={this.state.listenersDescription}
                             onChange={(e) => this.handleChange(e, "listenersDescription")}>
                         </TextArea>
                         <Divider />
@@ -227,8 +220,10 @@ export default class Step2 extends React.Component {
                 )}
                 {part == 2 && (
                     <React.Fragment>
-                        <h3>Länkar</h3>
-                        <Input style={{ marginBottom: '20px' }} placeholder="Vart kan vi hitta mer info om din podcast"
+                        <h3>Länk till din podd</h3>
+                        <Input style={{ marginBottom: '20px' }}
+                            value={this.state.podcastLink}
+                            placeholder="Vart kan vi hitta mer info om din podcast?"
                             onChange={(e) => this.handleChange(e, "podcastLink")} />
                         <Divider />
                         <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>

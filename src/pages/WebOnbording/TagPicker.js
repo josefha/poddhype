@@ -47,6 +47,11 @@ const tags = [
     "Government"
 ]
 
+const categoriesOptions = [];
+for (let i = 10; i < categories.length; i++) {
+    categoriesOptions.push(<Option value={categories[i]}>{categories[i]}</Option>);
+}
+
 const children = [];
 for (let i = 10; i < categories.length; i++) {
     children.push(<Option key={categories[i]}>{categories[i]}</Option>);
@@ -63,16 +68,26 @@ export default class TagPicker extends React.Component {
     }
 
     render() {
-        let listData = this.props.categories ? categories : tags;
-
         return (
-            <Select
-                mode="multiple"
-                style={{ margin: "10px 0", width: "100%" }}
-                placeholder={this.props.placeholder}
-                onChange={(e) => this.props.onChange(e)}
-            >
-                {children}
-            </Select>)
+            this.props.categories ?
+                <Select
+                    style={{ margin: "10px 0", width: "100%" }}
+                    value={this.props.value}
+                    placeholder={this.props.placeholder}
+                    onChange={(e) => this.props.onChange(e)}
+                >
+                    {categoriesOptions}
+                </Select>
+                :
+                < Select
+                    mode="multiple"
+                    style={{ margin: "10px 0", width: "100%" }}
+                    value={this.props.value}
+                    showArrow={true}
+                    placeholder={this.props.placeholder}
+                    onChange={(e) => this.props.onChange(e)}
+                >
+                    {children}
+                </Select >)
     }
 }

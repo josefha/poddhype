@@ -127,7 +127,7 @@ export default class Step2 extends React.Component {
                         <TextArea
                             style={{ margin: '10px 0' }}
                             placeholder="Vad handlar din podcast om?"
-                            autoSize={{ minRows: 2, maxRows: 6 }}
+                            autoSize={{ minRows: 4, maxRows: 4 }}
                             value={this.state.description}
                             onChange={(e) => this.handleChange(e, "description")}>
                         </TextArea>

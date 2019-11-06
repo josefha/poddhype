@@ -1,13 +1,16 @@
 import './style.less';
 import React from 'react';
 
-import { Button, message, Typography, Divider, Input } from 'antd'
+import { Button, message, Typography, Divider, Input, Spin } from 'antd'
 const ButtonGroup = Button.Group;
 const { Title, Text } = Typography;
 const { TextArea } = Input;
 
+
 import Avatar from './Avatar'
 import TagPicker from './TagPicker'
+import { putFile } from '../../common/api/storage'
+import { putPodcastProfileInfo } from '../../common/api/db/podcastProfile'
 
 
 export default class Step2 extends React.Component {
@@ -20,7 +23,7 @@ export default class Step2 extends React.Component {
             category: [],
             tags: [],
             listenersAmount: "",
-            profilePicture: "",
+            avatar: null,
             selectedButton: -1,
             // Step 2
             age: "",
@@ -30,6 +33,7 @@ export default class Step2 extends React.Component {
             selectedGenderButton: -1,
             //Step 3
             podcastLink: "",
+            isLoading: false,
         }
     }
 
@@ -58,6 +62,10 @@ export default class Step2 extends React.Component {
 
     handlePickerChange = (value, field) => {
         this.setState({ [field]: value });
+    }
+
+    setAvatar = (file) => {
+        this.setState({ avatar: file })
     }
 
     onButtonGroupClick = (n) => {
@@ -107,12 +115,47 @@ export default class Step2 extends React.Component {
         }
     }
 
-    sendDataToServer = () => {
-        console.log(this.state)
+    showLoading = () => this.setState({ isLoading: true })
+    hideLoading = () => this.setState({ isLoading: false })
 
-        this.props.nextForm()
+    sendDataToServer = async () => {
+        this.showLoading()
+
+        // adding avatar image to cloud-storage 
+        // TODO - get current user and change file name based on user id
+        let avatarLocation = await putFile("userid-icon-5.jpeg", "podcast_icons/", this.state.avatar)
+        if (avatarLocation) {
+            const data = (({
+                description,
+                category,
+                tags,
+                listenersAmount,
+                age,
+                gender,
+                listenersDescription,
+                podcastLink }) => ({
+                    description,
+                    category,
+                    tags,
+                    listenersAmount,
+                    age,
+                    gender,
+                    listenersDescription,
+                    podcastLink,
+                }))(this.state);
+
+            // adding the path in cloud-storage to db data obj 
+            data["AvatarPath"] = avatarLocation;
+
+            //TODO: Fix error handling
+            putPodcastProfileInfo(data)
+            this.hideLoading()
+            this.props.nextForm()
+        } else {
+            this.hideLoading()
+            console.log("could not upload image")
+        }
     }
-
 
     render() {
         const part = this.state.part;
@@ -159,7 +202,7 @@ export default class Step2 extends React.Component {
                             </ButtonGroup>
                         </div>
                         <Divider />
-                        <Avatar />
+                        <Avatar setAvatar={(a) => this.setAvatar(a)} />
                         <Divider />
                         <Button onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>
                     </React.Fragment>)
@@ -219,16 +262,18 @@ export default class Step2 extends React.Component {
                     </React.Fragment>
                 )}
                 {part == 2 && (
-                    <React.Fragment>
-                        <h3>Länk till din podd</h3>
-                        <Input style={{ marginBottom: '20px' }}
-                            value={this.state.podcastLink}
-                            placeholder="Vart kan vi hitta mer info om din podcast?"
-                            onChange={(e) => this.handleChange(e, "podcastLink")} />
-                        <Divider />
-                        <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>
-                        <Button style={{ float: 'right' }} onClick={() => this.sendDataToServer()} type="primary" size='large'>Klar</Button>
-                    </React.Fragment>
+                    <Spin spinning={this.state.isLoading} tip="Laddar..">
+                        <React.Fragment>
+                            <h3>Länk till din podd</h3>
+                            <Input style={{ marginBottom: '20px' }}
+                                value={this.state.podcastLink}
+                                placeholder="Vart kan vi hitta mer info om din podcast?"
+                                onChange={(e) => this.handleChange(e, "podcastLink")} />
+                            <Divider />
+                            <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>
+                            <Button style={{ float: 'right' }} onClick={() => this.sendDataToServer()} type="primary" size='large'>Klar</Button>
+                        </React.Fragment>
+                    </Spin>
                 )}
             </div >)
     }

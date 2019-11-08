@@ -14,8 +14,6 @@ import { firebaseConfig } from '../../env'
 firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 
-import FadeTransitionRouter from '../common/components/FadeTransitionRouter'
-
 const Login = () => <div>Login</div>
 
 import Home from './Home'
@@ -24,7 +22,7 @@ import WebOnbording from './WebOnbording'
 export default function AppWrapper() {
     return (
         <Router>
-            <WebOnbording path="/" />
+            <WebOnbording path="/bli-en-partner" />
             <Login path="/login" />
             <Home path="/" />
         </Router >

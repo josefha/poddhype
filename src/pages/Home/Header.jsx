@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd'
 import { Link } from "@reach/router"
 
-const logo = require('./../../common/assets/logo-with-text2.png');
+const logo = require('./../../common/assets/poddhype-logo-dark.png');
 
 export default function Header(props) {
 

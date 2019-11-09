@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'antd'
 import { Link } from "@reach/router"
+import { ButtonCta } from '../../common/components/Buttons/index'
 
 const logo = require('./../../common/assets/poddhype-logo-dark.png');
 
@@ -12,14 +13,16 @@ export default function Header(props) {
         <img alt="logo" src={logo} />
       </div>
       {props.isMobile != true &&
-        <div style={{ float: 'right', margin: 'auto', marginTop: '15px' }}>
-          {/* <Link to="/bli-en-partner">
-            <Button onClick={() => console.log("")} type="primary" size='large'>Bli partner</Button>
-          </Link> */}
-          {/* <Link to="/login"> Brands </Link>
-          <Link to="/login"> Podcasts </Link> */}
-          <Link style={{ color: '#000' }} to="/login"> Logga in </Link>
+        <div style={{ float: 'right', margin: 'auto' }}>
+          <Link to="/brands"> Brands </Link>
+          <Link to="/podcasts"> Podcasts </Link>
+          <Link to="/Blogg"> Blogg </Link>
 
+          <ButtonCta
+            size="small"
+            to="/bli-en-partner"
+            title="Skapa konto"
+          />
         </div>}
     </header >
   );

@@ -5,6 +5,7 @@ import { Link } from "@reach/router"
 
 export const ButtonCta = (props) => {
     const btnCtaColor = '#8940fa';
+    const btnGreenColor = '#3BD59B';
     return (
         <Link to={props.to}>
             {props.size == "small" ?

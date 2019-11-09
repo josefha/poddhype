@@ -37,7 +37,6 @@ export const ButtonCta = (props) => {
                         fontWeight: '600',
                         fontSize: '16px',
                         margin: '20px',
-                        marginLeft: '15px',
                     }}
                     type="primary"
                     size='large'>
@@ -61,7 +60,6 @@ export const ButtonTransparent = (props) => (
                 fontWeight: '600',
                 fontSize: '16px',
                 margin: '20px',
-                marginRight: '15px',
             }}
             type="primary"
             size='large'>

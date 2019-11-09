@@ -6,7 +6,7 @@ module.exports = {
   data: appLocaleData,
   messages: {
     'app.home.introduce': 'Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.',
-    'app.home.design-language': 'Hur funkar det?',
+    'app.home.design-language': 'Hur det funkar',
     'app.footer.company': 'Poddhype | Stationsgatan 44, 75440, Uppsala',
   },
 };

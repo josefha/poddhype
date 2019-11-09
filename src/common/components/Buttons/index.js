@@ -19,6 +19,7 @@ export const ButtonCta = (props) => {
                         fontSize: '16px',
                         margin: '20px',
                         marginLeft: '15px',
+                        fontFamily: 'Source_Sans_Pro'
                     }}
                     type="primary"
                     size='large'>

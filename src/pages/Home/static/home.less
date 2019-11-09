@@ -58,6 +58,7 @@
     flex: 1;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   display: flex;
   align-items: center;
@@ -125,11 +126,11 @@ svg {
     width: auto;
   }
   .ant-row {
-    left: 10%;
+    left: 12%;
   }
   min-height: 784px;
   background: @home-bg-color;
-  background: linear-gradient(to bottom, @home-bg-color 0%, #1e2328 100%);
+  background: linear-gradient(to bottom, @home-bg-color 0%, #1e2328 70%);
   h2 {
     color: #fff !important;
   }
@@ -190,6 +191,8 @@ svg {
     position: relative;
     z-index: 1;
     h2 {
+      color: black;
+      margin: 100px 0 60px; 
     }
   }
   &-content {
@@ -304,7 +307,9 @@ svg {
 
   #email-block-title {
     margin: 100px 0 8px 0;
+    color: black;
   }
+
   p {
     margin-bottom: 40px;
   }
@@ -313,25 +318,9 @@ svg {
     justify-content: center;
     padding: 24px 32px;
   }
-  &-img-wrapper,
-  &-text-wrapper {
-    display: inline-block;
-  }
+
   &-img-wrapper {
     margin-top: 8px;
-  }
-  &-text-wrapper {
-    max-width: 182px;
-    margin-left: 32px;
-    line-height: 24px;
-    h3 {
-      font-size: 20px;
-      line-height: 28px;
-      margin-bottom: 4px;
-    }
-  }
-  .parallax-bg.top {
-    margin: 0;
   }
 }
 

@@ -62,7 +62,6 @@ export const ButtonTransparent = (props) => (
                 fontSize: '16px',
                 margin: '20px',
                 marginRight: '15px',
-                float: 'right'
             }}
             type="primary"
             size='large'>

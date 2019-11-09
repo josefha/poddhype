@@ -21,7 +21,7 @@
       color: @home-text-color;
       text-align: center;
       font-weight: 400;
-      margin: 140px auto 100px;
+      margin: 120px auto 100px;
     }
     h1,
     h2,
@@ -65,7 +65,13 @@
   height: 476px;
 
   &.page {
-    height: 506px;
+    margin-top: 40px;
+    height: 530px;
+    
+    @media only screen and (min-width: 1300px) {
+      height: 580px;
+    }
+
     
   }
   &-wrapper {

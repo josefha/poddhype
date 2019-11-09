@@ -5,7 +5,7 @@ import { ButtonCta } from '../../common/components/Buttons/index'
 import { HeaderLink } from '../../common/components/HeaderLink/index'
 import './static/header.less';
 
-const logo = require('./../../common/assets/poddhype-logo-black-09.png');
+const logo = require('./../../common/assets/poddhype-logo-blackandwhite.png');
 
 export default function Header(props) {
 

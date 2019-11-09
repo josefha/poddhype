@@ -32,11 +32,12 @@ class Banner extends React.PureComponent {
             key="text"
             type="bottom"
           >
-            <h1 key="h1" className="lp-title">
-              Matchar Podcasts med Brands
+            <h1 key="h1" id="lp-title">
+              Matchar Brands med Podcasts
             </h1>
-            <h2 key="h2">
-              <FormattedMessage id="app.home.introduce" />
+            <h2 id="banner_description">
+              Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.
+              t över och ger värde  Hitta sponsorskap du är stoltill dina lyssnare
             </h2>
             <div className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
               <span className="ant-divider-inner-text">Bli medlem</span>

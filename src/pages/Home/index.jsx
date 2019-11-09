@@ -44,7 +44,7 @@ class Home extends React.PureComponent {
           <Page2 isMobile={this.state.isMobile} />
           <Page3 />
           <Footer />
-          <DocumentTitle title="Poddhype - Matchar Podcasts med Brands" key="title" />
+          <DocumentTitle title="Poddhype - Matchar Brands med Podcasts" key="title" />
         </div>
       </IntlProvider>
     );

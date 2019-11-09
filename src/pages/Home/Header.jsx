@@ -3,8 +3,9 @@ import { Button } from 'antd'
 import { Link } from "@reach/router"
 import { ButtonCta } from '../../common/components/Buttons/index'
 import { HeaderLink } from '../../common/components/HeaderLink/index'
+import './static/header.less';
 
-const logo = require('./../../common/assets/poddhype-logo-dark.png');
+const logo = require('./../../common/assets/poddhype-logo-purple.png');
 
 export default function Header(props) {
 
@@ -14,10 +15,11 @@ export default function Header(props) {
         <img alt="logo" src={logo} />
       </div>
       {props.isMobile != true &&
-        <div style={{ float: 'right', margin: 'auto' }}>
+        <div className="header-right">
           <HeaderLink to="/brands" >Brands</HeaderLink>
           <HeaderLink to="/podcasts"> Podcasts </HeaderLink>
           <HeaderLink to="/blogg"> Blogg </HeaderLink>
+          {/* <div className="underbar"></div> */}
           <ButtonCta
             size="small"
             to="/bli-en-partner"

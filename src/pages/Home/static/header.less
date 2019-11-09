@@ -2,19 +2,28 @@
 @header-height: 64px;
 @menu-item-border: 2px;
 
+.underbar{
+  width: 0;
+  height: 5px;
+  background: rgba(100,100,200,0);
+  left: 5px;
+  top: 8px;
+  position: relative;
+  -webkit-transition: 0.5s ease;
+}
+
+.header-right {
+  float: right;
+}
+
 .lp-title {
   font-family: 'Montserrat'
 }
 
 #header,
 header {
-  #sign-up-button {
-    margin-left: 20px; 
-  }
   transition: all 0.3s;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
-  position: relative;
   z-index: 10;
   overflow: hidden;
   & #logo {
@@ -27,11 +36,12 @@ header {
     white-space: nowrap;
     transition: padding .3s @ease-in-out;
     img {
-      height: 32px;
+      height: 38px;
       margin-right: 16px;
+      margin-bottom: 12px;
     }
     img+img {
-      height: 16px;
+      height: 20px;
       position: relative;
       top: 1px;
     }

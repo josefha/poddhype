@@ -17,7 +17,7 @@ export const ButtonCta = (props) => {
                         height: '40px',
                         fontWeight: '400',
                         fontSize: '16px',
-                        margin: '20px',
+                        margin: '10px',
                         marginLeft: '15px',
                         fontFamily: 'Source_Sans_Pro'
                     }}

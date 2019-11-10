@@ -16,8 +16,8 @@ const themeColor = '#009E7E' // bb5a5f
 const page1Data = [
   {
     img: one,
-    name: 'Sponsorskap',
-    nameEn: 'Sammarbeten för din lyssnare.',
+    name: 'Pocasts',
+    nameEn: 'Du besriver din podd och din målgrupp.',
     svgBg: (
       <svg width="213px" height="303px" viewBox="0 0 213 303" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-6" fill={themeColor} opacity="0.45" cx="60" cy="157" r="25" />
@@ -31,8 +31,8 @@ const page1Data = [
   },
   {
     img: two,
-    name: 'Inga krav',
-    nameEn: 'Företag kontaktar dig, du tar sen ett beslut.',
+    name: 'Brands',
+    nameEn: 'Hittar dig i portalen och skickar förslag.',
     svgBg: (
       <svg width="207px" height="295px" viewBox="0 0 207 295" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-2" fill={themeColor} opacity="0.45" cx="21.5" cy="90.5" r="21.5" />
@@ -46,8 +46,8 @@ const page1Data = [
   },
   {
     img: three,
-    name: 'Tidseffektift',
-    nameEn: 'Tar bara några minuter att komma igång.',
+    name: 'Sammarbete',
+    nameEn: 'Om du är nöjd, kan sammarbetet börja.',
     svgBg: (
       <svg width="215px" height="286px" viewBox="0 0 215 286" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" style={{ transform: 'translateX(-30px)' }}>
         <circle id="Oval-12-Copy-4" fill={themeColor} opacity="0.35" cx="77" cy="152" r="10" />
@@ -58,22 +58,7 @@ const page1Data = [
         <circle id="Path" fill={themeColor} opacity="0.6" cx="147.5" cy="182.5" r="1.5" />
       </svg>
     ),
-  },
-  // {
-  //   img: four,
-  //   name: 'Verktygslåda',
-  //   nameEn: 'Verktyg som gör ditt sammarbete lättsamt.',
-  //   svgBg: (
-  //     <svg width="193px" height="286px" viewBox="0 0 193 286" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" style={{ transform: 'translateY(-20px)' }}>
-  //       <circle id="Oval-12-Copy-4" fill={themeColor} opacity="0.35" cx="71" cy="65" r="10" />
-  //       <circle id="Oval-12-Copy-5" fill={themeColor} opacity="0.45" cx="172.5" cy="154.5" r="20.5" />
-  //       <circle id="Path" fill={themeColor} opacity="0.5" cx="44.5" cy="117.5" r="3.5" />
-  //       <circle id="Path" fill={themeColor} opacity="0.5" cx="132" cy="2" r="2" />
-  //       <circle id="Path" fill={themeColor} opacity="0.6" cx="39" cy="34" r="2" />
-  //       <circle id="Path" fill={themeColor} opacity="0.6" cx="147.5" cy="182.5" r="1.5" />
-  //     </svg>
-  //   ),
-  // },
+  }
 ];
 
 const getTransformXY = (t) => {

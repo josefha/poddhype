@@ -10,22 +10,22 @@ import svgBgToParallax from './util';
 const page2Data = [
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/eYNnmGagLWdrkdMHVUuA.svg',
-    name: 'Ant Design Components',
+    name: 'Poddhype för Brands ',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/EPaPtDVGnJhyqyBAUZMl.svg',
-    name: 'Ant Design Pro',
-    slogan: (<FormattedMessage id="app.home.product-pro-slogan" />),
+    name: 'Inga distraktioner',
+    slogan: (<FormattedMessage id="app.home.spons-1" />),
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/GobRAKexhfTSJdLFzDFY.svg',
-    name: 'Ant Design Mobile',
-    slogan: (<FormattedMessage id="app.home.product-mobile-slogan" />),
+    name: 'Storytelling',
+    slogan: (<FormattedMessage id="app.home.spons-2" />),
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/slVtnOCcgeAcLEPwtewY.svg',
-    name: 'AntV',
-    slogan: (<FormattedMessage id="app.home.product-antv-slogan" />),
+    name: 'Hitta rätt direkt',
+    slogan: (<FormattedMessage id="app.home.spons-3" />),
   },
 ];
 
@@ -58,8 +58,7 @@ export default function Page2({ isMobile }) {
       return null;
     }
     const content = isMobile && !i ? componentButton : [
-      <p key="p">{item.slogan}</p>,
-      <a key="a">learn more <Icon type="right" /></a>,
+      <p key="p">{item.slogan}</p>
     ];
     return (
       <Row className="product-block" key={i.toString()}>
@@ -90,8 +89,8 @@ export default function Page2({ isMobile }) {
             type="bottom"
             leaveReverse
           >
-            <h3 key="h1">Ant Design Components</h3>
-            <p key="p"><FormattedMessage id="app.home.components-explain" /></p>
+            <h3 key="h1">Poddhype för Brands</h3>
+            <p key="p"><FormattedMessage id="app.home.brand-selling" /></p>
             {componentButton}
           </QueueAnim>
           <QueueAnim

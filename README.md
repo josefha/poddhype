@@ -1,6 +1,5 @@
 ### Poddhype 
 TODO 0.1:
-* Fix button hover
 * Match design on landing page with webonboarding (use ant theme?)
 * feedback field onboardning
 * Fix footer

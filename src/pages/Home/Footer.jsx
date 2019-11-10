@@ -13,17 +13,17 @@ function Footer() {
             <div className="footer-center">
               <h2>PODDHYPE</h2>
               <div>
-                <a target="_blank " href="https://github.com/ant-design/ant-design">
+                <a target="_blank " href="">
                   För brands
                 </a>
               </div>
               <div>
-                <a target="_blank " href="https://github.com/ant-design/ant-design">
+                <a target="_blank " href="">
                   För podcasts
                 </a>
               </div>
               <div>
-                <a target="_blank " href="https://github.com/ant-design/ant-design">
+                <a target="_blank " href="">
                   Kontakt
                 </a>
               </div>

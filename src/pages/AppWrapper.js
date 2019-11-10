@@ -17,12 +17,15 @@ firebase.initializeApp(firebaseConfig);
 const Login = () => <div>Login</div>
 
 import Home from './Home'
+import Brands from './Brands'
 import WebOnbording from './WebOnbording'
+
 
 export default function AppWrapper() {
     return (
         <Router>
             <WebOnbording path="/bli-en-partner" />
+            <Brands path="/brands" />
             <Login path="/login" />
             <Home path="/" />
         </Router >

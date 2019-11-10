@@ -18,12 +18,15 @@ export default function Page3() {
       <div className="page" >
         <div style={{ margin: 'auto', textAlign: 'center' }}>
           <h2 id='email-block-title'>Bli medlem</h2>
+          {/* <div style={{ marginTop: '140px' }} className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
+            <span className="ant-divider-inner-text">Bli medlem</span>
+          </div> */}
           <ButtonCta
             to="/bli-en-partner"
             title="För Podcasts"
           />
           <ButtonTransparent
-            to="/brand-sponring"
+            to="/brands"
             title="För Brands"
           />
         </div>

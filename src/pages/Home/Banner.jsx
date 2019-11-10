@@ -48,7 +48,7 @@ class Banner extends React.PureComponent {
                 title="För Podcasts"
               />
               <ButtonTransparent
-                to="/brand-sponring"
+                to="/brands"
                 title="För Brands"
               />
             </div>

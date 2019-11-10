@@ -16,8 +16,8 @@ export default function Header(props) {
       </div>
       {props.isMobile != true &&
         <div className="header-right">
-          <HeaderLink to="/brands" >Brands</HeaderLink>
-          <HeaderLink to="/podcasts"> Podcasts </HeaderLink>
+          <HeaderLink type='normal' to="#page1"> Podcasts </HeaderLink>
+          <HeaderLink type='normal' to="#page2" >Brands</HeaderLink>
           <HeaderLink to="/blogg"> Blogg </HeaderLink>
           {/* <div className="underbar"></div> */}
           <ButtonCta

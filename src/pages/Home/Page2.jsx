@@ -7,6 +7,9 @@ import { FormattedMessage } from 'react-intl';
 
 import svgBgToParallax from './util';
 
+const selected_icon = require('./../../common/assets/selected_icon-purple.png');
+
+
 const page2Data = [
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/eYNnmGagLWdrkdMHVUuA.svg',
@@ -23,7 +26,7 @@ const page2Data = [
     slogan: (<FormattedMessage id="app.home.spons-2" />),
   },
   {
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/slVtnOCcgeAcLEPwtewY.svg',
+    img: selected_icon,
     name: 'Hitta rätt direkt',
     slogan: (<FormattedMessage id="app.home.spons-3" />),
   },

@@ -26,7 +26,22 @@ class Home extends React.PureComponent {
       isMobile,
     };
   }
+
+  setUpSmothScrolling = async () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
   componentDidMount() {
+    this.setUpSmothScrolling()
+
     enquireScreen((b) => {
       this.setState({
         isMobile: !!b,

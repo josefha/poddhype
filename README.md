@@ -1,4 +1,10 @@
 ### Poddhype 
+TODO:
+    * Fix button hover
+    * /Brands page 
+    * Match design on landing page with webonboarding (use ant theme?)
+    * Fix footer
+    
 MVP 0:
  * 0.1 - Landing page and podcast sign up
  * 0.2 - Brand and podcast info pages

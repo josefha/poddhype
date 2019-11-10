@@ -1,9 +1,11 @@
 ### Poddhype 
-TODO:
+TODO 0.1:
 * Fix button hover
-* /Brands page 
 * Match design on landing page with webonboarding (use ant theme?)
+* feedback field onboardning
 * Fix footer
+* Användarvilkor och GDPR? 
+* /Brands page 
 
 MVP 0:
  * 0.1 - Landing page and podcast sign up

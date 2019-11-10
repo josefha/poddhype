@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'antd'
 import { Link } from "@reach/router"
+import './buttons.less'
 
 
 export const ButtonCta = (props) => {
@@ -10,6 +11,7 @@ export const ButtonCta = (props) => {
         <Link to={props.to}>
             {props.size == "small" ?
                 <Button
+                    className="btn-cta-purple-small"
                     style={{
                         borderRadius: '25px',
                         background: btnCtaColor,
@@ -27,6 +29,7 @@ export const ButtonCta = (props) => {
                     {props.title}
                 </Button> :
                 <Button
+                    className="btn-cta-purple"
                     style={{
                         borderRadius: '25px',
                         background: btnCtaColor,
@@ -49,12 +52,14 @@ export const ButtonCta = (props) => {
 export const ButtonTransparent = (props) => (
     <Link to={props.to}>
         <Button
+            className="btn-cta-transparent"
             style={{
                 borderRadius: '25px',
                 background: 'rgba(255, 255, 255, 0)',
                 transition: 'all 0.4s ease 0s',
-                border: '2px solid #314659',
-                color: '#314659',
+                border: '2px solid #292F37',
+                color: '#292F37',
+                textShadow: 'none',
                 height: '50px',
                 width: '210px',
                 fontWeight: '600',
@@ -65,4 +70,4 @@ export const ButtonTransparent = (props) => (
             size='large'>
             {props.title}
         </Button>
-    </Link>)
+    </Link >)

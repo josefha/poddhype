@@ -8,30 +8,44 @@ function Footer() {
   return (
     <footer id="footer" className="dark">
       <div className="footer-wrap">
-        <Row>
+        <Row style={{ padding: '86px 24px 0px 24px' }}>
           <Col md={6} sm={24} xs={24}>
             <div className="footer-center">
-              <h2>PODDHYPE</h2>
+              <span className="foter-logo">
+                <img style={{ height: '34px', marginLeft: '0px' }} alt="logo" src={logo} />
+              </span>
               <div>
-                <a target="_blank " href="">
-                  För brands
-                </a>
+                <p>hej@poddhype.com</p>
               </div>
               <div>
-                <a target="_blank " href="">
-                  För podcasts
-                </a>
-              </div>
-              <div>
-                <a target="_blank " href="">
-                  Kontakt
-                </a>
               </div>
             </div>
           </Col>
+          <Col offset={12} md={6} sm={24} xs={24}>
+            <div className="footer-center">
+              <a href="">
+                Podcasts
+                </a>
+            </div>
+            <div>
+              <a href="">
+                Brands
+                </a>
+            </div>
+          </Col>
+
+          <Col md={24} sm={24} xs={24}>
+            <div
+              style={{ margin: '20 50px' }}
+              className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
+            </div>
+          </Col>
+        </Row>
+        <Row style={{ height: '60px', padding: '10px' }}>
+          <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
         </Row>
       </div>
-      <Row className="bottom-bar">
+      {/* <Row className="bottom-bar">
         <Col md={4} sm={24} >
           <span className="foter-logo">
             <img style={{ height: '24px', marginLeft: '90px' }} alt="logo" src={logo} />
@@ -40,7 +54,7 @@ function Footer() {
         <Col md={20} sm={24}>
           <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
         </Col>
-      </Row>
+      </Row> */}
     </footer>
   );
 }

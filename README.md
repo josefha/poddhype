@@ -1,8 +1,8 @@
 ### Poddhype 
 TODO 0.1:
+* Fix footer
 * Match design on landing page with webonboarding (use ant theme?)
 * feedback field onboardning
-* Fix footer
 * Användarvilkor och GDPR? 
 * /Brands page 
 

@@ -171,7 +171,7 @@ export default class Page1 extends React.PureComponent {
       <div className="home-page-wrapper page1" id="page1">
         <div className="page" >
           <h2><FormattedMessage id="app.home.design-language" /></h2>
-          <ArrowDown />
+          {!this.props.isMobile && <ArrowDown />}
           <ScrollOverPack playScale="0.3">
             <QueueAnim
               justify="center"

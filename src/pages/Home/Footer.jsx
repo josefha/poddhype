@@ -21,7 +21,7 @@ function Footer() {
               </div>
             </div>
           </Col>
-          <Col offset={12} md={6} sm={24} xs={24}>
+          {/* <Col offset={12} md={6} sm={24} xs={24}>
             <div className="footer-center">
               <a href="">
                 Podcasts
@@ -32,7 +32,7 @@ function Footer() {
                 Brands
                 </a>
             </div>
-          </Col>
+          </Col> */}
 
           <Col md={24} sm={24} xs={24}>
             <div

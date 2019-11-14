@@ -17,6 +17,10 @@
     }
   }
   .banner {
+    &.page {
+      height: 620px;
+      margin-top: 20px;
+    }
     display: block;
     height: 400px;
     &-bg-wrapper {
@@ -41,7 +45,7 @@
       }
     }
     .text-wrapper {
-      margin-top: 48px;
+      margin-top: 20px;
       min-height: 200px;
       padding: 0 16px;
       h2 {
@@ -68,6 +72,19 @@
       >div {
         margin-bottom: 48px;
       }
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        left: calc(50% - 5px);
+        top: -1;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #fff;
+        clear: both;
+        
     }
   }
   .page2 {
@@ -158,18 +175,12 @@
   .home #footer {
     .footer-wrap {
       .ant-row {
-        padding: 0;
-        >div {
-          &:nth-child(2),
-          &:nth-child(4) {
-            display: none;
-          }
+        padding: 20px 0 0 0 !important;
           a {
             font-weight: 300;
           }
         }
       }
-    }
     .bottom-bar {
       > div > span {
         display: block;

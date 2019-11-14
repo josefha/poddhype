@@ -57,7 +57,7 @@ class Home extends React.PureComponent {
           <Banner isMobile={this.state.isMobile} />
           <Page1 isMobile={this.state.isMobile} />
           <Page2 isMobile={this.state.isMobile} />
-          <Page3 />
+          <Page3 isMobile={this.state.isMobile} />
           <Footer />
           <DocumentTitle title="Poddhype - Matchar Brands med Podcasts" key="title" />
         </div>

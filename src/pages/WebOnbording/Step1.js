@@ -38,8 +38,8 @@ export default class Step1 extends React.Component {
             alert('Please enter an email address.');
             return;
         }
-        if (password.length < 4) {
-            alert('Please enter a password.');
+        if (password.length < 7) {
+            alert('Password must be longer than 6 characters .');
             return;
         }
 
@@ -70,11 +70,11 @@ export default class Step1 extends React.Component {
         } catch (error) {
             if (error.code == 'auth/weak-password') {
                 alert('The password is too weak.');
-                return;
             } else {
                 alert(error.message);
-                return;
             }
+            this.hideLoading()
+            return;
         }
 
         try {
@@ -82,6 +82,7 @@ export default class Step1 extends React.Component {
             console.log("email sent")
         } catch (error) {
             alert(error.message);
+            this.hideLoading()
             return;
         }
 
@@ -110,9 +111,8 @@ export default class Step1 extends React.Component {
         return (
             <div className='form-content' >
                 <Spin spinning={this.state.isLoading} tip="Skapar konto...">
-                    <Title level={2}>Bli en Poddhype partner</Title>
-                    <Text>För att vi ska kunna erbjuda en så bra tjänst som möjligt så måste vi veta lite mer om dig och din podcast.
-                        Efter 5 bara minuter har vi allt beheöver för att kunna matcha dig med brands som letar efter partnerskap. </Text>
+                    <Title style={{ textAlign: 'center' }} level={2}>Bli en Partner Podd</Title>
+                    <Text>Bertätta lite om dig och din podcast så sköter vi resten.</Text>
                     <Divider />
                     <Input style={{ marginBottom: '20px' }}
                         placeholder="Ditt namn"
@@ -123,10 +123,10 @@ export default class Step1 extends React.Component {
                         onChange={(e) => this.handleChange(e, "title")} />
                     <Divider />
                     {this.state.part == 0 ?
-                        (<Button style={{}} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>)
+                        (<Button style={{ margin: 'auto' }} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>)
                         : (
                             <div >
-                                <Text> Första steget är att skapa ditt konto hos oss. </Text>
+                                <Text> Skapa ett konto hos oss. </Text>
                                 <Input style={{ margin: '20px 0' }} placeholder="Email"
                                     value={this.state.email}
                                     onChange={(e) => this.handleChange(e, "email")} />

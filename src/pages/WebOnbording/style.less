@@ -2,9 +2,25 @@
   margin: 0px;
 }
 
+#onboarding-header {
+  img {
+    margin-bottom: 0 !important;
+  }
+  margin-top: 10px;
+  background-color: rgb(240, 242, 245);
+  text-align: center;
+}
+
+.onboarding-logo {
+  padding-left: 0px !important;
+  margin: auto;
+  float: none !important;
+}
+
 .content {
   margin: 16px;
   padding: 0 50px;
+  border-radius: 25px;
   background: #fff;
   min-height: 280;
   overflow: auto; 
@@ -20,13 +36,29 @@
   max-width: 600px;
   margin: auto;
   margin-top: 100px;
+  text-align: center;
 
   @media only screen and (max-width: 767.99px) {
   margin: auto;
   margin-top: 20px;
   }
-  h2 {
+  
+  h1, h2, h3 {
     text-align: left;
+    font-family: 'Montserrat', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  p.ant-typography {
+    font-size: 18px;
+    font-family: 'Source_Sans_Pro', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
+  span.ant-typography {
+    font-size: 18px;
+    font-family: 'Source_Sans_Pro', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   }
 }
 

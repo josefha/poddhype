@@ -1,5 +1,8 @@
 import './style.less';
 import React from 'react';
+import { Link } from "@reach/router"
+
+const logo = require('./../../common/assets/poddhype-logo-blackandwhite.png');
 
 import { Steps, Layout, Typography } from 'antd'
 const { Content } = Layout;
@@ -32,11 +35,18 @@ class WebOnbording extends React.Component {
             <Layout style={{
                 height: '100vh',
             }}>
+                <header id="onboarding-header">
+                    <Link to="/">
+                        <div id="logo" class="onboarding-logo">
+                            <img alt="logo" src={logo} />
+                        </div>
+                    </Link>
+                </header>
                 <Content className='content'>
                     <Steps current={currentPage} className='steps'>
                         <Step title="Berätta om dig själv" />
                         <Step title="Berätta om din podcast" />
-                        <Step title="Färdig" />
+                        <Step title="Klar!" />
                     </Steps>
 
                     {currentPage == 0 && (<Step1 nextForm={() => this.nextForm()} />)}

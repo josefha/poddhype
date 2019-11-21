@@ -4,47 +4,89 @@ import { Link } from "@reach/router"
 import './buttons.less'
 
 
+const btnCtaColor = '#8940fa';
+
+
+const SmallButtonTransparent = (props) => (<Button
+    className="btn-cta-transparent-small"
+    style={{
+        background: 'rgba(255, 255, 255, 0)',
+        border: '1px solid #292F37',
+        color: '#292F37',
+        textShadow: 'none',
+        fontWeight: '300',
+        borderRadius: '25px',
+        transition: 'all 0.4s ease 0s',
+        height: '40px',
+        fontSize: '16px',
+        margin: '10px',
+        marginLeft: '15px',
+        fontFamily: 'Source_Sans_Pro'
+    }}
+    size='large'
+    onClick={() => props.onClick()}>
+    {props.title}
+</Button>)
+
+const SmallButtonPurple = (props) => (<Button
+    className="btn-cta-purple-small"
+    style={{
+        borderRadius: '25px',
+        background: btnCtaColor,
+        transition: 'all 0.4s ease 0s',
+        borderColor: btnCtaColor,
+        height: '40px',
+        fontWeight: '400',
+        fontSize: '16px',
+        margin: '10px',
+        marginLeft: '15px',
+        fontFamily: 'Source_Sans_Pro'
+    }}
+    type="primary"
+    size='large'
+    onClick={() => props.onClick()}>
+    {props.title}
+</Button>)
+
+const LargeButtonPurple = (props) => (
+    <Button
+        className="btn-cta-purple"
+        style={{
+            borderRadius: '25px',
+            background: btnCtaColor,
+            transition: 'all 0.4s ease 0s',
+            borderColor: btnCtaColor,
+            height: '50px',
+            width: '210px',
+            fontWeight: '600',
+            fontSize: '16px',
+            margin: '20px',
+        }}
+        type="primary"
+        size='large'>
+        {props.title}
+    </Button>
+)
+
+export const SecondaryButton = (props) => (
+    <SmallButtonTransparent
+        title={props.title}
+        onClick={() => props.onClick()}
+    />)
+
+export const DefaultButton = (props) => (
+    <SmallButtonPurple
+        title={props.title}
+        onClick={() => props.onClick()}
+    />)
+
 export const ButtonCta = (props) => {
-    const btnCtaColor = '#8940fa';
-    const btnGreenColor = '#3BD59B';
     return (
         <Link to={props.to}>
             {props.size == "small" ?
-                <Button
-                    className="btn-cta-purple-small"
-                    style={{
-                        borderRadius: '25px',
-                        background: btnCtaColor,
-                        transition: 'all 0.4s ease 0s',
-                        borderColor: btnCtaColor,
-                        height: '40px',
-                        fontWeight: '400',
-                        fontSize: '16px',
-                        margin: '10px',
-                        marginLeft: '15px',
-                        fontFamily: 'Source_Sans_Pro'
-                    }}
-                    type="primary"
-                    size='large'>
-                    {props.title}
-                </Button> :
-                <Button
-                    className="btn-cta-purple"
-                    style={{
-                        borderRadius: '25px',
-                        background: btnCtaColor,
-                        transition: 'all 0.4s ease 0s',
-                        borderColor: btnCtaColor,
-                        height: '50px',
-                        width: '210px',
-                        fontWeight: '600',
-                        fontSize: '16px',
-                        margin: '20px',
-                    }}
-                    type="primary"
-                    size='large'>
-                    {props.title}
-                </Button>
+                <SmallButtonPurple title={props.title}> </SmallButtonPurple>
+                :
+                <LargeButtonPurple title={props.title}> </LargeButtonPurple>
             }
         </Link>)
 }

@@ -6,9 +6,10 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
 
-import { Button, Spin, Typography, Divider, Input, Checkbox } from 'antd'
+import { Spin, Typography, Divider, Input, Checkbox } from 'antd'
 const { Title, Text } = Typography;
 
+import { DefaultButton } from '../../common/components/Buttons'
 
 
 
@@ -123,7 +124,7 @@ export default class Step1 extends React.Component {
                         onChange={(e) => this.handleChange(e, "title")} />
                     <Divider />
                     {this.state.part == 0 ?
-                        (<Button style={{ margin: 'auto' }} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>)
+                        (<DefaultButton title="Nästa" style={{ margin: 'auto' }} onClick={() => this.nextPart()} size='large'></DefaultButton>)
                         : (
                             <div >
                                 <Text> Skapa ett konto hos oss. </Text>
@@ -136,9 +137,14 @@ export default class Step1 extends React.Component {
                                 <Input.Password style={{ marginBottom: '20px' }} placeholder="Upprepa lösenord"
                                     value={this.state.repeatPassword}
                                     onChange={(e) => this.handleChange(e, "repeatPassword")} />
-                                <a style={{ textDecoration: 'underline' }}>Användarvilkor</a><br />
-                                <Checkbox style={{ marginTop: '10px' }} onChange={this.checkBoxChange}>Jag accepterar användatvilkor och GDPR </Checkbox>
-                                <Button id="createAccountButton" onClick={() => this.createAccountHandler()} type="primary" size='large'>Skapa konto</Button>
+
+                                <Checkbox style={{ 'width': '100%', margin: '10px 0' }} onChange={this.checkBoxChange}>Jag accepterar <a target="_blank" href="/" style={{ textDecoration: 'underline' }}>användarvilkoren</a> </Checkbox>
+                                <DefaultButton
+                                    style={{ 'float': 'right' }}
+                                    title="Skapa konto"
+                                    id="createAccountButton"
+                                    onClick={() => this.createAccountHandler()}>
+                                </DefaultButton>
                             </div>
                         )
                     }

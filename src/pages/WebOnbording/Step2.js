@@ -11,6 +11,8 @@ import Avatar from './Avatar'
 import TagPicker from './TagPicker'
 import { putFile } from '../../common/api/storage'
 import { putPodcastProfileInfo } from '../../common/api/db/podcastProfile'
+import { DefaultButton, SecondaryButton } from '../../common/components/Buttons'
+
 
 
 export default class Step2 extends React.Component {
@@ -204,7 +206,7 @@ export default class Step2 extends React.Component {
                         <Divider />
                         <Avatar setAvatar={(a) => this.setAvatar(a)} />
                         <Divider />
-                        <Button onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>
+                        <DefaultButton title="Nästa" onClick={() => this.nextPart()} ></DefaultButton>
                     </React.Fragment>)
                 }
                 {part == 1 && (
@@ -257,8 +259,8 @@ export default class Step2 extends React.Component {
                             onChange={(e) => this.handleChange(e, "listenersDescription")}>
                         </TextArea>
                         <Divider />
-                        <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>
-                        <Button style={{ float: 'right' }} onClick={() => this.nextPart()} type="primary" size='large'>Nästa</Button>
+                        <SecondaryButton title="Tillbaka" onClick={() => this.prevPart()} ></SecondaryButton>
+                        <DefaultButton title="Nästa" onClick={() => this.nextPart()} ></DefaultButton>
                     </React.Fragment>
                 )}
                 {part == 2 && (
@@ -270,8 +272,8 @@ export default class Step2 extends React.Component {
                                 placeholder="Vart kan vi hitta mer info om din podcast?"
                                 onChange={(e) => this.handleChange(e, "podcastLink")} />
                             <Divider />
-                            <Button style={{}} onClick={() => this.prevPart()} type="secondary" size='large'>Tillbaka</Button>
-                            <Button style={{ float: 'right' }} onClick={() => this.sendDataToServer()} type="primary" size='large'>Klar</Button>
+                            <SecondaryButton title="Tillbaka" onClick={() => this.prevPart()} ></SecondaryButton>
+                            <DefaultButton title="Klar" onClick={() => this.sendDataToServer()} ></DefaultButton>
                         </React.Fragment>
                     </Spin>
                 )}

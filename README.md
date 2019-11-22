@@ -1,9 +1,9 @@
 ### Poddhype 
 TODO 0.1:
-* Fix footer
 * Match design on landing page with webonboarding (use ant theme?)
 * feedback field onboardning
-* Användarvilkor och GDPR? 
+* Användarvilkor och GDPR?
+* Disible button and validation on weboboarding
 * /Brands page 
 
 MVP 0:

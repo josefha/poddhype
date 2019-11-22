@@ -9,6 +9,8 @@ const { Content } = Layout;
 const { Title, Text } = Typography;
 const { Step } = Steps;
 
+import {SecondaryButton } from '../../common/components/Buttons'
+
 
 export default class Step3 extends React.Component {
     constructor(props) {
@@ -28,23 +30,20 @@ export default class Step3 extends React.Component {
     render() {
         return (
             <div className='form-content'>
-                <Title level={2}>Grattis! Du är nu en Poddhype partner. </Title>
-                <Text> Vi planerar att släppa vår platform för annonsörer senare i vår. </Text>
-                <Text> Du kan nå oss på partner@poddhype.com om du har några funderingar.</Text>
-                <br/>
-                <div style={{paddingTop: '20px'}} >
-                <Text> Vi vill tacka dig ännu en gång för du tror på oss, tillsamns kommer vi skapa många fantastiska sammarbeten.</Text>
-                </div>
+                <Title level={2}>Du är nu en Poddhype partner! </Title>
+                <p > Vi planerar att öppna vår platform för annonsörer senare i vår. </p>
+                <p> Självklart kommer vi hålla dig uppdaterad, du kan nå oss på partner@poddhype.com om du har några funderingar.</p>
                 <br />
-                <Text> // Team Poddhype </Text>
+                <p> // Team Poddhype </p>
                 <br/>
-                <Divider />
-                <Text>Var det något du tyckte saknades? andra förlsag eller funderingar? </Text>
-                <Input.TextArea style={{margin: '20px 0'}} 
-                    placeholder="Lämna feedback"
+                <Divider style={{'marginTop': '0'}}/>
+                <h3> Lämna feedback </h3>
+                <Input.TextArea style={{margin: '5px 0 20px 0'}} 
+                    placeholder="Var det något du tyckte saknades? andra förlsag eller funderingar?"
                     autoSize={{ minRows: 2, maxRows: 6 }}>
                 </Input.TextArea>
-                <Button style={{}} onClick={() => this.props.nextForm()} type="secondary" size='large'>Skicka feedback</Button>
+                <SecondaryButton title="Skicka feeback" onClick={() => this.props.nextForm()} ></SecondaryButton>
+    
             </div>)
-    }
+    }   
 }

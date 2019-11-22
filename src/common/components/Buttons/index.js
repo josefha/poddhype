@@ -11,8 +11,8 @@ const SmallButtonTransparent = (props) => (<Button
     className="btn-cta-transparent-small"
     style={{
         background: 'rgba(255, 255, 255, 0)',
-        border: '1px solid #292F37',
-        color: '#292F37',
+        border: '1px solid #314659',
+        color: '#314659',
         textShadow: 'none',
         fontWeight: '300',
         borderRadius: '25px',

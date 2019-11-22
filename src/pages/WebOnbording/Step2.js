@@ -163,12 +163,11 @@ export default class Step2 extends React.Component {
         const part = this.state.part;
         return (
             <div className='form-content'>
-                <Title level={2}>Berätta lite mer om din podcast. </Title>
-                <Text>Vissa frågor kan vara svåra att svara på, försök så gott det går. </Text>
+                <Title level={2}>Berätta om din podcast </Title>
                 <Divider />
                 {part == 0 && (
                     <React.Fragment>
-                        <h3>Din podcast</h3>
+                        <h3>Podcast bio</h3>
                         <TextArea
                             style={{ margin: '10px 0' }}
                             placeholder="Vad handlar din podcast om?"
@@ -203,7 +202,6 @@ export default class Step2 extends React.Component {
                                     Fler än 5000</Button>
                             </ButtonGroup>
                         </div>
-                        <Divider />
                         <Avatar setAvatar={(a) => this.setAvatar(a)} />
                         <Divider />
                         <DefaultButton title="Nästa" onClick={() => this.nextPart()} ></DefaultButton>

@@ -16,7 +16,7 @@ import Step3 from './Step3'
 class WebOnbording extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentPage: 2 }
+        this.state = { currentPage: 0 }
     }
 
     nextForm = () => {
@@ -45,7 +45,7 @@ class WebOnbording extends React.Component {
                 <Content className='content'>
                     <Steps current={currentPage} className='steps'>
                         <Step title="Skapa Profil" />
-                        <Step title="Beskriv Podcast" />
+                        <Step title="Beskriv Podden" />
                         <Step title="Klar" />
                     </Steps>
 

@@ -163,11 +163,11 @@ export default class Step2 extends React.Component {
         const part = this.state.part;
         return (
             <div className='form-content'>
-                <Title level={2}>Berätta om din podcast </Title>
+                <Title level={2}>Beskriv din Podd </Title>
                 <Divider />
                 {part == 0 && (
                     <React.Fragment>
-                        <h3>Podcast bio</h3>
+                        <h3>Bio</h3>
                         <TextArea
                             style={{ margin: '10px 0' }}
                             placeholder="Vad handlar din podcast om?"

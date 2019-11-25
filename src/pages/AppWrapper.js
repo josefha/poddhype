@@ -19,12 +19,14 @@ const Login = () => <div>Login</div>
 import Home from './Home'
 import Brands from './Brands'
 import WebOnbording from './WebOnbording'
+import TermsOfUse from './TermsOfUse'
 
 
 export default function AppWrapper() {
     return (
         <Router>
             <WebOnbording path="/bli-en-partner" />
+            <TermsOfUse path="/terms-of-use" />
             <Brands path="/brands" />
             <Login path="/login" />
             <Home path="/" />

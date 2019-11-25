@@ -8,6 +8,7 @@ import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
 
 import { Spin, Typography, Divider, Input, Checkbox } from 'antd'
 const { Title, Text } = Typography;
+import { Link } from "@reach/router"
 
 import { DefaultButton } from '../../common/components/Buttons'
 
@@ -113,7 +114,7 @@ export default class Step1 extends React.Component {
             <div className='form-content' >
                 <Spin spinning={this.state.isLoading} tip="Skapar konto...">
                     <Title style={{ textAlign: 'center' }} level={2}>Bli en Partner Podd</Title>
-                    <Text>Bertätta lite om dig och din podcast så sköter vi resten.</Text>
+                    <Text>Beskriv din podd och dina mål så sköter vi resten.</Text>
                     <Divider />
                     <Input style={{ marginBottom: '20px' }}
                         placeholder="Ditt namn"
@@ -138,7 +139,7 @@ export default class Step1 extends React.Component {
                                     value={this.state.repeatPassword}
                                     onChange={(e) => this.handleChange(e, "repeatPassword")} />
 
-                                <Checkbox style={{ 'width': '100%', margin: '10px 0' }} onChange={this.checkBoxChange}>Jag accepterar <a target="_blank" href="/" style={{ textDecoration: 'underline' }}>användarvilkoren</a> </Checkbox>
+                                <Checkbox style={{ 'width': '100%', margin: '10px 0' }} onChange={this.checkBoxChange}>Jag accepterar <Link to="/terms-of-use"><p style={{ color: 'blue', textDecoration: 'underline' }}>användarvilkor</p></Link> </Checkbox>
                                 <DefaultButton
                                     style={{ 'float': 'right' }}
                                     title="Skapa konto"

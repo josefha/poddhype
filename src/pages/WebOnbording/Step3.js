@@ -31,7 +31,7 @@ export default class Step3 extends React.Component {
         return (
             <div className='form-content'>
                 <Title level={2}>Du är nu en Poddhype partner! </Title>
-                <p > Vi planerar att öppna vår platform för annonsörer senare i vår. </p>
+                <p> Vi planerar att öppna vår platform för annonsörer senare i vår. </p>
                 <p> Självklart kommer vi hålla dig uppdaterad, du kan nå oss på partner@poddhype.com om du har några funderingar.</p>
                 <br />
                 <p> // Team Poddhype </p>
@@ -43,7 +43,6 @@ export default class Step3 extends React.Component {
                     autoSize={{ minRows: 2, maxRows: 6 }}>
                 </Input.TextArea>
                 <SecondaryButton title="Skicka feeback" onClick={() => this.props.nextForm()} ></SecondaryButton>
-    
             </div>)
     }   
 }

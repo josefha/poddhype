@@ -1,5 +1,7 @@
 ### Poddhype 
 TODO 0.1:
+* Add coming soon on blogg page
+* Skapa två simpla ikoner till startsidan
 * Match design on landing page with webonboarding (use ant theme?)
 * feedback field onboardning
 * Användarvilkor och GDPR?

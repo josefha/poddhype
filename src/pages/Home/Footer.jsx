@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer id="footer" className="dark">
       <div className="footer-wrap">
-        <Row style={{ padding: '86px 24px 0px 24px' }}>
+        {/*  <Row style={{ padding: '86px 24px 0px 24px' }}>
           <Col md={6} sm={24} xs={24}>
             <div className="footer-center">
               <span className="foter-logo">
@@ -20,8 +20,8 @@ function Footer() {
               <div>
               </div>
             </div>
-          </Col>
-          {/* <Col offset={12} md={6} sm={24} xs={24}>
+          </Col> */}
+        {/* <Col offset={12} md={6} sm={24} xs={24}>
             <div className="footer-center">
               <a href="">
                 Podcasts
@@ -34,14 +34,14 @@ function Footer() {
             </div>
           </Col> */}
 
-          <Col md={24} sm={24} xs={24}>
+        {/* <Col md={24} sm={24} xs={24}>
             <div
               style={{ margin: '20 50px' }}
               className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
             </div>
           </Col>
-        </Row>
-        <Row style={{ height: '60px', padding: '10px' }}>
+        </Row> */}
+        <Row style={{ height: '60px', paddingTop: '90px' }}>
           <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
         </Row>
       </div>

@@ -1,0 +1,55 @@
+@import "../../../pages/Home/static/default.less";
+@import "../../../pages/Home/static/custom.less";
+
+.page-wrapper-component {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  // will-change: transform; // firefox 下渲染占用太大。
+  color: @home-text-color;
+  font-family: 'SF UI Display', "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  .page {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    padding: 0 24px;
+    h2 {
+      font-size: 38px;
+      line-height: 46px;
+      color: @home-text-color;
+      text-align: center;
+      font-weight: 400;
+      margin: 120px auto 100px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      will-change: transform;
+    }
+
+    .wrapper-content-box {
+        text-align: center;
+        margin: 120px auto;
+        max-width: 600px;
+    }
+  }
+  #header,
+  header {
+    box-shadow: none;
+    max-width: 1200px;
+    width: 100%;
+    margin: 26px auto 0;
+    padding: 0 24px;
+    #logo {
+      padding: 0;
+    }
+  }
+}
+
+

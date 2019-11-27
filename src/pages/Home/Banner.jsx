@@ -1,18 +1,7 @@
 import React from 'react';
-import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
-import { FormattedMessage } from 'react-intl';
-import { Button } from 'antd'
-import { Link } from "@reach/router"
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
-
-
-const loop = {
-  duration: 3000,
-  yoyo: true,
-  repeat: -1,
-};
 
 class Banner extends React.PureComponent {
   static defaultProps = {

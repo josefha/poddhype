@@ -12,7 +12,7 @@ export default function Page3() {
     <div className="home-page-wrapper page3" id="page3">
       <div className="page" >
         <div style={{ margin: 'auto', textAlign: 'center' }}>
-          <div style={{ maxWidth: '500px', margin: 'auto', marginTop: '100px' }} >
+          <div style={{ maxWidth: '500px', margin: 'auto' }} >
             <div className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
               <span className="ant-divider-inner-text">Bli medlem</span>
             </div>

@@ -7,26 +7,30 @@ import { FormattedMessage } from 'react-intl';
 
 import svgBgToParallax from './util';
 
-const selected_icon = require('./../../common/assets/selected_icon-purple.png');
+
+const person_sitting = require('./../../common/assets/person-sitting-music.svg');
+const book_with_girl = require('./../../common/assets/book-with-girl.svg');
+const target_with_person = require('./../../common/assets/target-with-person.svg');
+const agreement = require('./../../common/assets/agreement.svg');
 
 
 const page2Data = [
   {
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/eYNnmGagLWdrkdMHVUuA.svg',
+    img: agreement,
     name: 'Poddhype för Brands ',
   },
   {
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/EPaPtDVGnJhyqyBAUZMl.svg',
+    img: person_sitting,
     name: 'Inga distraktioner',
     slogan: (<FormattedMessage id="app.home.spons-1" />),
   },
   {
-    img: 'https://gw.alipayobjects.com/zos/rmsportal/GobRAKexhfTSJdLFzDFY.svg',
+    img: book_with_girl,
     name: 'Storytelling',
     slogan: (<FormattedMessage id="app.home.spons-2" />),
   },
   {
-    img: selected_icon,
+    img: target_with_person,
     name: 'Hitta rätt direkt',
     slogan: (<FormattedMessage id="app.home.spons-3" />),
   },

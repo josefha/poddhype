@@ -81,16 +81,15 @@ export default class Step1 extends React.Component {
 
         try {
             await firebase.auth().currentUser.sendEmailVerification()
-            console.log("email sent")
         } catch (error) {
             alert(error.message);
             this.hideLoading()
             return;
         }
-
-        console.log(this.state)
-        console.log("Created account")
-        addPodcastProfileInfo({ id: email, name: this.state.name, podcastTitle: this.state.title })
+        let uid = firebase.auth().currentUser.uid;
+        let name = this.state.name
+        let title = this.state.title
+        addPodcastProfileInfo({ uid, name, title })
         this.hideLoading()
         this.props.nextForm()
     }

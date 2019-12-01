@@ -1,5 +1,7 @@
 import './style.less';
 import React from 'react';
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 import { Button, message, Typography, Divider, Input, Spin } from 'antd'
 const ButtonGroup = Button.Group;
@@ -47,6 +49,7 @@ export default class Step2 extends React.Component {
             top: 110,
             duration: 2.5,
         });
+
         message.success('Ditt konto är skapat');
     }
 
@@ -122,20 +125,15 @@ export default class Step2 extends React.Component {
 
     sendDataToServer = async () => {
         this.showLoading()
+        let user = firebase.auth().currentUser;
 
-        // adding avatar image to cloud-storage 
-        // TODO - get current user and change file name based on user id
-        let avatarLocation = await putFile("userid-icon-5.jpeg", "podcast_icons/", this.state.avatar)
-        if (avatarLocation) {
-            const data = (({
-                description,
-                category,
-                tags,
-                listenersAmount,
-                age,
-                gender,
-                listenersDescription,
-                podcastLink }) => ({
+        if (user) {
+
+            const filename = user.uid + "-icon.jpeg"
+
+            let avatarLocation = await putFile(filename, "podcast_icons/", this.state.avatar)
+            if (avatarLocation) {
+                const data = (({
                     description,
                     category,
                     tags,
@@ -143,24 +141,37 @@ export default class Step2 extends React.Component {
                     age,
                     gender,
                     listenersDescription,
-                    podcastLink,
-                }))(this.state);
+                    podcastLink }) => ({
+                        description,
+                        category,
+                        tags,
+                        listenersAmount,
+                        age,
+                        gender,
+                        listenersDescription,
+                        podcastLink,
+                    }))(this.state);
 
-            // adding the path in cloud-storage to db data obj 
-            data["AvatarPath"] = avatarLocation;
+                // adding the path in cloud-storage to db data obj 
+                data['AvatarPath'] = avatarLocation;
+                data['uid'] = user.uid;
 
-            //TODO: Fix error handling
-            putPodcastProfileInfo(data)
-            this.hideLoading()
-            this.props.nextForm()
+                // TODO: Fix error handling
+                putPodcastProfileInfo(data)
+                this.hideLoading()
+                this.props.nextForm()
+            } else {
+                this.hideLoading()
+                console.error("could not upload image")
+            }
         } else {
-            this.hideLoading()
-            console.log("could not upload image")
+            console.error("current user not found")
         }
     }
 
     render() {
         const part = this.state.part;
+
         return (
             <div className='form-content'>
                 <Title level={2}>Beskriv din Podd </Title>

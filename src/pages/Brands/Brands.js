@@ -40,9 +40,8 @@ class Brands extends React.Component {
     }
 
     emailSignup = () => {
-        if (!this.state.done) {
-            console.log("Email Signup")
-            const email = this.state.email
+        const email = this.state.email
+        if (!this.state.done && email != "") {
             const date = new Date()
             PostBrandEmailSignUp({ date, email })
             this.setState({ done: true })

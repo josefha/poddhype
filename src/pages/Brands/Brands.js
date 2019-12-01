@@ -39,21 +39,24 @@ class Brands extends React.Component {
     render() {
         return (
             <div>
-                <PageWrapper>
+                <PageWrapper
+                    pageTitle="Poddhype förenklar din podcast marknadsföring "
+                >
                     <div className="page">
                         <div className="wrapper-content-box">
                             <h1 key="h1" id="lp-title">
                                 Vi öppnar snart vår portal för Brands
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '10px' }}>
-                                Signa gärna upp dig på vårt nyhetsbrev undertiden.
+                                Signa gärna upp dig på vårt nyhetsbrev.
                             </h2>
 
                             <Input placeholder="Din email"
+                                style={{ margin: '20px 0' }}
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.value })} />
                             <ButtonTransparent
-                                style={{ marginTop: '40px' }}
+
                                 to="/"
                                 title="Sign-up"
                             />

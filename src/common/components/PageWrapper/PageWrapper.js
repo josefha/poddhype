@@ -23,21 +23,7 @@ export default class PageWrapper extends React.PureComponent {
         };
     }
 
-    setUpSmothScrolling = async () => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    }
-
     componentDidMount() {
-        this.setUpSmothScrolling()
-
         enquireScreen((b) => {
             this.setState({
                 isMobile: !!b,
@@ -51,8 +37,8 @@ export default class PageWrapper extends React.PureComponent {
                 <div className="page-wrapper-component">
                     <Header isMobile={this.state.isMobile} />
                     {this.props.children}
-                    <Footer />
-                    <DocumentTitle title="Poddhype Matchar Brands med Podcasts" key="title" />
+                    {/* <Footer /> */}
+                    <DocumentTitle title={this.props.pageTitle} key="title" />
                 </div>
             </IntlProvider>
         );

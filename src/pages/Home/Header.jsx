@@ -11,9 +11,11 @@ export default function Header(props) {
 
   return (
     <header {...props} id="header">
-      <div id="logo">
-        <img alt="logo" src={logo} />
-      </div>
+      <Link to="/">
+        <div id="logo">
+          <img alt="logo" src={logo} />
+        </div>
+      </Link>
       {props.isMobile != true &&
         <div className="header-right">
           <HeaderLink type='normal' to="/#page1">Podcasters </HeaderLink>

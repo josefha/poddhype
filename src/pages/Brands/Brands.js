@@ -59,10 +59,10 @@ class Brands extends React.Component {
                     <div className="page">
                         <div className="wrapper-content-box">
                             <h1 key="h1" id="lp-title">
-                                Vi öppnar snart vår portal för Brands
+                                Snart öppnar vi vår portal för brands
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '10px' }}>
-                                Signa gärna upp dig på vårt nyhetsbrev.
+                                Prenumerera gärna på vårt nyhetsbrev så länge.
                             </h2>
                             <Input
                                 placeholder="Din Email"

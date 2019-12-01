@@ -139,7 +139,7 @@ export default class Step1 extends React.Component {
                                     value={this.state.repeatPassword}
                                     onChange={(e) => this.handleChange(e, "repeatPassword")} />
 
-                                <Checkbox style={{ 'width': '100%', margin: '10px 0' }} onChange={this.checkBoxChange}>Jag accepterar <Link to="/terms-of-use"><p style={{ color: 'blue', textDecoration: 'underline' }}>användarvilkor</p></Link> </Checkbox>
+                                <Checkbox style={{ 'width': '100%', margin: '10px 0' }} onChange={this.checkBoxChange}> <span style={{ display: 'inline' }}> Jag accepterar <Link to="/terms-of-use"><span style={{ width: '120px', marginBottom: '10px', color: 'black', fontSize: '14px', textDecoration: 'underline' }}>användarvilkoren</span></Link> </span></Checkbox>
                                 <DefaultButton
                                     style={{ 'float': 'right' }}
                                     title="Skapa konto"

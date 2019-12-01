@@ -28,10 +28,12 @@ export const putPodcastProfileInfo = (data) => {
 }
 
 export const PostFeedbackForm = (data) => {
+    const date = new Date()
     var db = firebase.firestore();
+    console.log("adding feedback")
 
     console.log("Added brand email to db")
-    db.collection("podcast-feedback-form").add(data)
+    db.collection("podcast-feedback-form").add({ ...data, date })
         .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
         })

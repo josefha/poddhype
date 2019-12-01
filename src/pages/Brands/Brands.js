@@ -7,6 +7,7 @@ import { enquireScreen } from 'enquire-js';
 import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
+import { CustomInput } from '../../common/components/CustomInput'
 import { Input, Divider } from 'antd'
 
 import './style.less';
@@ -36,6 +37,10 @@ class Brands extends React.Component {
         });
     }
 
+    emailSignup = () => {
+        console.log("sign up to email")
+    }
+
     render() {
         return (
             <div>
@@ -51,14 +56,21 @@ class Brands extends React.Component {
                                 Signa gärna upp dig på vårt nyhetsbrev.
                             </h2>
 
-                            <Input placeholder="Din email"
-                                style={{ margin: '20px 0' }}
-                                value={this.state.email}
-                                onChange={(e) => this.setState({ email: e.value })} />
-                            <ButtonTransparent
 
-                                to="/"
+                            <Input
+                                placeholder="Din Email"
+                                style={{
+                                    fontFamily: 'Montserrat',
+                                    height: '90px',
+                                    height: '40px',
+                                    fontSize: '14px',
+                                    margin: '20px 0'
+                                }}
+                                value={this.state.email}
+                                onChange={(e) => this.setState({ email: e.target.value })} />
+                            <ButtonTransparent
                                 title="Sign-up"
+                                onClick={() => this.emailSignup()}
                             />
                         </div>
                     </div>

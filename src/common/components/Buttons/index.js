@@ -91,25 +91,37 @@ export const ButtonCta = (props) => {
         </Link>)
 }
 
-export const ButtonTransparent = (props) => (
-    <Link to={props.to}>
-        <Button
-            className="btn-cta-transparent"
-            style={{
-                borderRadius: '25px',
-                background: 'rgba(255, 255, 255, 0)',
-                transition: 'all 0.4s ease 0s',
-                border: '2px solid #292F37',
-                color: '#292F37',
-                textShadow: 'none',
-                height: '50px',
-                width: '210px',
-                fontWeight: '600',
-                fontSize: '16px',
-                margin: '20px',
-            }}
-            type="primary"
-            size='large'>
-            {props.title}
-        </Button>
-    </Link >)
+export const ButtonTransparent = (props) => {
+    const StyledButton = (props) => (<Button
+        className="btn-cta-transparent"
+        {...props}
+        style={{
+            borderRadius: '25px',
+            background: 'rgba(255, 255, 255, 0)',
+            transition: 'all 0.4s ease 0s',
+            border: '2px solid #292F37',
+            color: '#292F37',
+            textShadow: 'none',
+            height: '50px',
+            width: '210px',
+            fontWeight: '600',
+            fontSize: '16px',
+            margin: '20px',
+        }}
+        type="primary"
+        size='large'>
+        {props.title}
+    </Button>)
+    const Result = props.onClick ?
+        (
+            <StyledButton
+                title={props.title}
+                onClick={() => props.onClick()} />
+        ) : (
+            < Link to={props.to} >
+                <StyledButton
+                    title={props.title} />
+            </Link >)
+
+    return Result
+}

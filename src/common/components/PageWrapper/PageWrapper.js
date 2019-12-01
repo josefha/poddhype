@@ -3,7 +3,6 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { enquireScreen } from 'enquire-js';
 import Header from '../../../pages/Home/Header';
-import Footer from '../../../pages/Home/Footer';
 import cnLocale from '../../../zh-CN';
 import './style.less';
 

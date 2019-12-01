@@ -40,12 +40,12 @@ class Brands extends React.Component {
         return (
             <div>
                 <PageWrapper
-                    pageTitle="Poddhype blogg"
+                    pageTitle="Poddhypes blogg"
                 >
                     <div className="page">
                         <div className="wrapper-content-box">
                             <h1 style={{ marginBottom: '25px' }} key="h1" id="lp-title">
-                                Poddhype bloggen öppnar snart
+                                bloggen öppnar snart
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '10px' }}>
 

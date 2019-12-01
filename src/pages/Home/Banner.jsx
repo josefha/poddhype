@@ -26,7 +26,7 @@ class Banner extends React.PureComponent {
             </h1>
             <h2 id="banner_description">
               Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.
-              Vi bygger en portal som gör det lättare att hitta värdefulla sammarbeten.
+              Vi bygger en portal som gör det lättare att hitta värdefulla samarbeten.
             </h2>
             <div className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
               <span className="ant-divider-inner-text">Bli medlem</span>

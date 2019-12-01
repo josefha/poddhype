@@ -1,8 +1,6 @@
 import React from "react";
 
-
-import { render } from "react-dom"
-import { Router, Link } from "@reach/router"
+import { Router } from "@reach/router"
 
 import * as firebase from "firebase/app";
 import "firebase/analytics";
@@ -12,7 +10,7 @@ import { firebaseConfig } from '../../env'
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+firebase.analytics();
 
 const Login = () => <div>Login</div>
 

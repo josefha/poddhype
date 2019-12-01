@@ -35,7 +35,6 @@ export default class Step3 extends React.Component {
 
     onChange = (e) => {
         this.setState({feedback: e.target.value})
-        console.log(this.state)
     }
 
     render() {

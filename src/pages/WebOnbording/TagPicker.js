@@ -57,10 +57,6 @@ for (let i = 10; i < categories.length; i++) {
     children.push(<Option key={categories[i]}>{categories[i]}</Option>);
 }
 
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
-
 export default class TagPicker extends React.Component {
     constructor(props) {
         super(props);

@@ -9,6 +9,7 @@ import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
 import { CustomInput } from '../../common/components/CustomInput'
 import { Input, Divider } from 'antd'
+import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
 
 import './style.less';
 import '../Home/static/header.less'
@@ -26,6 +27,7 @@ class Brands extends React.Component {
             appLocale,
             isMobile,
             email: '',
+            done: false
         };
     }
 
@@ -38,10 +40,17 @@ class Brands extends React.Component {
     }
 
     emailSignup = () => {
-        console.log("sign up to email")
+        if (!this.state.done) {
+            console.log("Email Signup")
+            const email = this.state.email
+            const date = new Date()
+            PostBrandEmailSignUp({ date, email })
+            this.setState({ done: true })
+        }
     }
 
     render() {
+        const done = this.state.done
         return (
             <div>
                 <PageWrapper
@@ -55,8 +64,6 @@ class Brands extends React.Component {
                             <h2 id="banner_description" style={{ marginTop: '10px' }}>
                                 Signa gärna upp dig på vårt nyhetsbrev.
                             </h2>
-
-
                             <Input
                                 placeholder="Din Email"
                                 style={{
@@ -69,7 +76,7 @@ class Brands extends React.Component {
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.target.value })} />
                             <ButtonTransparent
-                                title="Sign-up"
+                                title={done ? 'Tack!' : 'Sign up'}
                                 onClick={() => this.emailSignup()}
                             />
                         </div>

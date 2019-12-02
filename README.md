@@ -1,20 +1,16 @@
 ### Poddhype 
-TODO 0.1:
-* Add coming soon on blogg page
-* Skapa två simpla ikoner till startsidan
-* Match design on landing page with webonboarding (use ant theme?)
-* feedback field onboardning
-* Användarvilkor och GDPR?
-* Disible button and validation on weboboarding
-* /Brands page 
+
+TODO:
+ * Confirmation Email styling
+ * Page reload fix
 
 MVP 0:
- * 0.1 - Landing page and podcast sign up
- * 0.2 - Brand and podcast info pages
- * 0.2.1 - Add Google Analytics'
- - (ready soft launch here?)
- * 0.3 - podcast login and edit possibilities
- * 0.4 - ? Blog to drive SEO / Email-list for brands
+ * 0.1 - Landing page and podcast sign up [X]
+ * 0.2 - Brand and podcast info pages []
+ * 0.2.1 - Add Google Analytics [X]
+ * 0.3 - podcast login and edit possibilities []
+ * 0.4 - ? Blog to drive SEO [X]
+ * Email-list for brands [X]
  - Release for podcast sign ups
  
 MVP Beta - 
@@ -28,7 +24,11 @@ Future development:
  * Help brands with contracts
  * Statistics after campain 
 
+
 ## Dev setup
+
+### You will and env file, place it in the root directory
+
 ```
 $ npm i 
 ```

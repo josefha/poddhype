@@ -26,7 +26,7 @@ const page2Data = [
   },
   {
     img: book_with_girl,
-    name: 'Storytelling',
+    name: 'Personligt',
     slogan: (<FormattedMessage id="app.home.spons-2" />),
   },
   {

@@ -55,6 +55,11 @@ html {
   left: 0%;
   transform-origin: 0;
   transform: rotate(-5deg);
+
+  //on really large screens less steap curv 
+  @media only screen and (min-width: 2001px) {
+    transform: rotate(-4deg);
+  }
 }
 
 .banner {

@@ -1,4 +1,6 @@
 @import './default';
+@import '../../../common/theme/theme.less';
+
 @header-height: 64px;
 @menu-item-border: 2px;
 
@@ -17,14 +19,26 @@
 }
 
 #lp-title {
-  font-family: 'Montserrat';
-  margin-bottom: 5px;
+  margin: 5px 5px;
+
+  @media only screen and (max-width: @b-mobile-max) {
+    font-size: @f-large-title-mobile;
+  }
 }
 
 #banner_description{
+
+  color: @home-text-color;
+  font-weight: 300;
   margin-bottom: 30px;
-  font-size: 22px;
-  line-height: 34px;
+  margin-top: 0px;
+  font-size: 24px;
+  line-height: 30px;
+  font-family: 'Source_Sans_Pro';
+
+  @media only screen and (max-width: @b-mobile-max) {
+    font-size: @f-small-title;
+  }
 }
 
 #header,

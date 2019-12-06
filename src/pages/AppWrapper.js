@@ -12,13 +12,11 @@ import { firebaseConfig } from '../../env'
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-const Login = () => <div>Login</div>
-
 import Home from './Home'
-import Blog from './Blog'
 import Brands from './Brands'
 import WebOnbording from './WebOnbording'
 import TermsOfUse from './TermsOfUse'
+import Podcasters from './Podcasters'
 
 
 export default function AppWrapper() {
@@ -26,9 +24,8 @@ export default function AppWrapper() {
         <Router>
             <WebOnbording path="/bli-en-partner" />
             <TermsOfUse path="/terms-of-use" />
+            <Podcasters path="/podcasters" />
             <Brands path="/brands" />
-            <Login path="/login" />
-            <Blog path="blogg" />
             <Home path="/" />
         </Router >
     );

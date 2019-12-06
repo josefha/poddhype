@@ -22,7 +22,7 @@ class Banner extends React.PureComponent {
             type="bottom"
           >
             <h1 key="h1" id="lp-title">
-              Matchar Brands med Podcasts
+              Matchar Podcasters med Brands
             </h1>
             <h2 id="banner_description">
               Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.

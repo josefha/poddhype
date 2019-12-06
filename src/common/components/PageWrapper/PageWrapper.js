@@ -1,8 +1,12 @@
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { enquireScreen } from 'enquire-js';
 import Header from '../../../pages/Home/Header';
+import { Row } from 'antd';
+
+
 import cnLocale from '../../../zh-CN';
 import './style.less';
 
@@ -29,15 +33,25 @@ export default class PageWrapper extends React.PureComponent {
             });
         });
     }
+
+
+
     render() {
+
+        const Footer = () =>
+            <div className="footer-wrapper">
+                <div className="footer-text">Copyright © <FormattedMessage id="app.footer.company" /></div>
+            </div>
+
+
         const { appLocale } = this.state;
         return (
             <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
                 <div className="page-wrapper-component">
+                    <DocumentTitle title={this.props.pageTitle} key="title" />
                     <Header isMobile={this.state.isMobile} />
                     {this.props.children}
-                    {/* <Footer /> */}
-                    <DocumentTitle title={this.props.pageTitle} key="title" />
+                    {this.props.footer == true && Footer()}
                 </div>
             </IntlProvider>
         );

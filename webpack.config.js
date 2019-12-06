@@ -8,5 +8,11 @@ module.exports = function (webpackConfig) {
     style: 'css',
   }]);
 
+  webpackConfig['devServer'] = {
+    port: 8000,
+    historyApiFallback: {
+      index: 'index.html'
+    }
+  }
   return webpackConfig;
 };

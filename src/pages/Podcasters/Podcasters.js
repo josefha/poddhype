@@ -102,7 +102,7 @@ class Podcasters extends React.Component {
                     <div id="podcasters-part3">
                         <div className="wrapper-content">
                             <div>
-                                <p>Fortfarande inte övertygad? Skicka dina funderingar till <span style={{ fontWeight: 600 }}> partner@poddhype.com</span> </p>
+                                <p>Fortfarande inte övertygad? Maila oss! <span style={{ fontWeight: 600 }}> partner@poddhype.com</span> </p>
                             </div>
                         </div>
                     </div>

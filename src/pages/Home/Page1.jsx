@@ -85,6 +85,24 @@ export default class Page1 extends React.PureComponent {
   state = {
     hoverKey: null,
   }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.onScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
+  onScroll = () => {
+    let text = document.getElementById("how-it-works-text")
+    if (text) {
+      setTimeout(function () {
+        text.style.opacity = 1;
+      }.bind(this), 320);
+    }
+  };
+
   onMouseOver = (key) => {
     this.setState({
       hoverKey: key,

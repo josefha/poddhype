@@ -50,7 +50,7 @@ class Podcasters extends React.Component {
             <Row align="middle" gutter={[8, 8]} justify="space-around" className="podcasters-info-box-row" >
                 <Col align="middle" xs={24} md={12} className="podcasters-info-box-column">
                     <div className="podcasters-info-box-column-content">
-                        <h2>Nå ut till fler</h2>
+                        <h2>Nå fler</h2>
                         <p>Vi ger dig möjligheten att bli upptäckt av brands som annars inte skulle ha hitta dig.</p>
 
                     </div>

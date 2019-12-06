@@ -3,6 +3,9 @@ import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
 
+const celebrationIcon = require('./../../common/assets/people-celebration-icon.svg');
+
+
 class Banner extends React.PureComponent {
   static defaultProps = {
     className: 'banner',
@@ -21,6 +24,7 @@ class Banner extends React.PureComponent {
             key="text"
             type="bottom"
           >
+            <img id="home-main-image" src={celebrationIcon}></img>
             <h1 key="h1" id="lp-title">
               Matchar Podcasters med Brands
             </h1>

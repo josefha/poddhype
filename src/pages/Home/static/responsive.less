@@ -20,23 +20,17 @@
   }
   .banner {
     &.page {
-      height: 620px;
       margin-top: 20px;
+      padding: 25px 20px 50px; 
+      margin: 0;
     }
-    display: block;
-    height: 400px;
+    
+    #lp-title {
+      line-height: 40px;
+    }
+
     &-bg-wrapper {
       display: none;
-    }
-    .img-wrapper,
-    .text-wrapper {
-      width: 100%;
-      text-align: center;
-      margin: auto;
-
-      span {
-        text-align: center;
-      }
     }
     .img-wrapper {
       position: initial;
@@ -47,9 +41,17 @@
       }
     }
     .text-wrapper {
+      width: 100%;
+      text-align: center;
+      margin: auto;
       margin-top: 20px;
       min-height: 200px;
       padding: 0 16px;
+
+      span {
+        text-align: center;
+      }
+
       h2 {
         margin: 20px 0 40px 0;
         line-height: 28px;

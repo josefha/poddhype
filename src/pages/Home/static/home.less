@@ -63,6 +63,11 @@ html {
 }
 
 .banner {
+  #home-main-image {
+    width: 260px;
+    margin: 0 5px 30px;
+  }
+
   .button-container {
     margin-top: 30px;
     flex: 1;
@@ -70,35 +75,32 @@ html {
     justify-content: center;
     text-align: center;
   }
-  display: flex;
   align-items: center;
-  height: 476px;
+
 
   &.page {
     margin-top: 40px;
-    height: 530px;
-    
-    @media only screen and (min-width: 1300px) {
-      height: 580px;
-    }
+    padding-bottom: 100px;
+    min-height: 660px;
 
-    
   }
+
+  
   &-wrapper {
     overflow: initial;
     position: relative;
     z-index: 1;
   }
+
   .text-wrapper {
     #banner_description {
       font-size: 20px;
     }
+    color: #0D1A26;
     text-align: center;
     max-width: 660px;
     min-height: 320px;
-    color: #0D1A26;
-    margin: auto;
-    margin-top: 60px;
+    margin: 0 auto 50px;
 
     h1 {
       font-size: 36px;
@@ -124,6 +126,10 @@ html {
 /** page1 **/
 
 .page1 {
+  #how-it-works-text {
+    visibility: hidden;
+  }
+
   .number-icons {
     height: 80px;
     width: auto;

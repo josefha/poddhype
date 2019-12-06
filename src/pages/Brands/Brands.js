@@ -7,12 +7,13 @@ import { enquireScreen } from 'enquire-js';
 import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
-import { CustomInput } from '../../common/components/CustomInput'
 import { Input, Divider } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
 
 import './style.less';
 import '../Home/static/header.less'
+
+const workInProgressIcon = require("../../common/assets/work-in-progress-icon.svg")
 
 let isMobile = false;
 enquireScreen((b) => {
@@ -57,6 +58,7 @@ class Brands extends React.Component {
                 >
                     <div className="page">
                         <div className="wrapper-content-box">
+                            <img className="header-image" src={workInProgressIcon} />
                             <h1 key="h1" id="lp-title">
                                 Vi öppnar snart vår portal för brands
                             </h1>

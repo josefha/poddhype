@@ -19,7 +19,7 @@ export default function Header(props) {
       {props.isMobile != true &&
         <div className="header-right">
           <HeaderLink to="/podcasters">Podcasters </HeaderLink>
-          <HeaderLink type='normal' to="/#page2">Brands</HeaderLink>
+          <HeaderLink to="/brands">Brands</HeaderLink>
           <HeaderLink type='normal' to="https://medium.com/poddhype"> Blogg </HeaderLink>
           <ButtonCta
             size="small"

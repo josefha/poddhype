@@ -32,13 +32,13 @@ class Banner extends React.PureComponent {
               <span className="ant-divider-inner-text">Bli medlem</span>
             </div>
             <div className="button-container">
-              <ButtonCta
-                to="/bli-en-partner"
-                title="För Podcasts"
-              />
               <ButtonTransparent
                 to="/brands"
                 title="För Brands"
+              />
+              <ButtonCta
+                to="/podcasters"
+                title="För Podcasters"
               />
             </div>
           </QueueAnim>

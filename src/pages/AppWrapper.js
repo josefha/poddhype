@@ -17,6 +17,9 @@ import Brands from './Brands'
 import WebOnbording from './WebOnbording'
 import TermsOfUse from './TermsOfUse'
 import Podcasters from './Podcasters'
+import Signup from './Signup'
+
+const DescriptePodcast = () => <WebOnbording page={1} />
 
 
 export default function AppWrapper() {
@@ -24,7 +27,9 @@ export default function AppWrapper() {
         <Router>
             <WebOnbording path="/bli-en-partner" />
             <TermsOfUse path="/terms-of-use" />
-            <Podcasters path="/podcasters" />
+            <DescriptePodcast path="/podcasters/describe" />
+            <Signup path="/podcasters/signup" />
+            <Podcasters path="podcasters" />
             <Brands path="/brands" />
             <Home path="/" />
         </Router >

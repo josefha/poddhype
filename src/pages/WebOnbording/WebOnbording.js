@@ -19,16 +19,24 @@ class WebOnbording extends React.Component {
         this.state = { currentPage: 0 }
     }
 
+    componentDidMount = () => {
+        if (this.props.page) {
+            this.setState({ currentPage: this.props.page })
+        }
+    }
+
     nextForm = () => {
         const nextPage = this.state.currentPage + 1
         this.setState({ currentPage: nextPage })
     }
+
     prevForm = () => {
         if (this.state.currentPage > 0) {
             const nextPage = this.state.currentPage - 1
             this.setState({ currentPage: nextPage })
         }
     }
+
     render() {
         const currentPage = this.state.currentPage
         return (

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import WebOnbording from '../../components/WebOnbording'
+import Signup from '../../components/Signup'
 
 
 const Step3 = function () {
-    return <WebOnbording page={2} />
+    return <Signup page={2} />
 }
 
 export default Step3

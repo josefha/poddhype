@@ -12,7 +12,7 @@ const { Content } = Layout;
 const { Title } = Typography;
 const { Step } = Steps;
 
-class WebOnbording extends React.Component {
+class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.state = { currentPage: 0 }
@@ -68,4 +68,4 @@ class WebOnbording extends React.Component {
         );
     }
 }
-export default WebOnbording;
+export default Signup;

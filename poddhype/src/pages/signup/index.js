@@ -1,3 +1,3 @@
-import WebOnbording from '../../components/WebOnbording'
+import Signup from '../../components/Signup'
 
-export default WebOnbording
+export default Signup

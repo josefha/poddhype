@@ -5,8 +5,8 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 
 import { Button, Steps, Layout, Typography, Divider, Input } from 'antd'
 import { getKeyFromChildrenIndex } from 'rc-menu/lib/util';
-import {SecondaryButton } from '../../common/components/Buttons'
-import {PostFeedbackForm} from '../../common/api/db/podcastProfile.js'
+import { SecondaryButton } from '../../common/components/Buttons'
+import { PostFeedbackForm } from '../../common/api/db/podcastProfile.js'
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -16,25 +16,25 @@ const { Step } = Steps;
 export default class Step3 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             part: 0,
-            feedback:''
-            }
+            feedback: ''
+        }
     }
 
     sendFeedback = () => {
         const feedback = this.state.feedback
-        PostFeedbackForm({feedback})
+        PostFeedbackForm({ feedback })
         this.props.nextForm()
     }
 
     nextPart = () => {
         this.sendFeedback()
-        this.setState({ part: this.state.part + 1})
+        this.setState({ part: this.state.part + 1 })
     }
 
     onChange = (e) => {
-        this.setState({feedback: e.target.value})
+        this.setState({ feedback: e.target.value })
     }
 
     render() {
@@ -44,16 +44,16 @@ export default class Step3 extends React.Component {
                 <p> Vi planerar att öppna vår platform för annonsörer senare i vår. </p>
                 <p> Vi håller självklart dig uppdaterad men under tiden kan du nå oss på partner@poddhype.com</p>
                 <br />
-                <p> // Team Poddhype </p>
-                <br/>
-                <Divider style={{'marginTop': '0'}}/>
+                <span style={{ fontWeight: 600 }}> Team Poddhype</span >
+                <br />
+                <Divider style={{ 'marginTop': '0' }} />
                 <h3> Lämna gärna feedback </h3>
-                <Input.TextArea style={{margin: '5px 0 20px 0'}} 
+                <Input.TextArea style={{ margin: '5px 0 20px 0' }}
                     placeholder="Var det något du tyckte saknades?"
                     autoSize={{ minRows: 2, maxRows: 6 }}
                     onChange={(e) => this.onChange(e)}>
                 </Input.TextArea>
                 <SecondaryButton title="Skicka feeback" onClick={() => this.sendFeedback()} ></SecondaryButton>
             </div>)
-    }   
+    }
 }

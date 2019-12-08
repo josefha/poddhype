@@ -1,6 +1,6 @@
 
 import React from 'react'
-import "../WebOnbording/style.less"
+import "../Signup/style.less"
 
 import { Layout } from 'antd'
 import { Link } from "@reach/router"

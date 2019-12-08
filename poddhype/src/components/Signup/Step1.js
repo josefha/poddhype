@@ -2,6 +2,7 @@
 import './style.less';
 import React from 'react';
 import * as firebase from "firebase/app";
+import { navigate } from "@reach/router"
 
 import "firebase/auth";
 import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
@@ -33,65 +34,65 @@ export default class Step1 extends React.Component {
     hideLoading = () => this.setState({ isLoading: false })
 
     createAccountHandler = async () => {
-        var email = this.state.email
-        var password = this.state.password
+        // var email = this.state.email
+        // var password = this.state.password
 
-        if (email.length < 4) {
-            alert('Please enter an email address.');
-            return;
-        }
-        if (password.length < 7) {
-            alert('Password must be longer than 6 characters .');
-            return;
-        }
+        // if (email.length < 4) {
+        //     alert('Please enter an email address.');
+        //     return;
+        // }
+        // if (password.length < 7) {
+        //     alert('Password must be longer than 6 characters .');
+        //     return;
+        // }
 
-        if (this.state.name.length < 3) {
-            alert('Please enter a name.');
-            return;
-        }
+        // if (this.state.name.length < 3) {
+        //     alert('Please enter a name.');
+        //     return;
+        // }
 
-        if (this.state.title.length < 4) {
-            alert('Please enter a title.');
-            return;
-        }
+        // if (this.state.title.length < 4) {
+        //     alert('Please enter a title.');
+        //     return;
+        // }
 
-        if (password != this.state.repeatPassword) {
-            alert('Password do not match');
-            return;
-        }
+        // if (password != this.state.repeatPassword) {
+        //     alert('Password do not match');
+        //     return;
+        // }
 
-        if (this.state.checkBox == false) {
-            alert('Du måste acceptera användarvilkoren');
-            return;
-        }
+        // if (this.state.checkBox == false) {
+        //     alert('Du måste acceptera användarvilkoren');
+        //     return;
+        // }
 
-        this.showLoading()
+        // this.showLoading()
 
-        try {
-            await firebase.auth().createUserWithEmailAndPassword(email, password)
-        } catch (error) {
-            if (error.code == 'auth/weak-password') {
-                alert('The password is too weak.');
-            } else {
-                alert(error.message);
-            }
-            this.hideLoading()
-            return;
-        }
+        // try {
+        //     await firebase.auth().createUserWithEmailAndPassword(email, password)
+        // } catch (error) {
+        //     if (error.code == 'auth/weak-password') {
+        //         alert('The password is too weak.');
+        //     } else {
+        //         alert(error.message);
+        //     }
+        //     this.hideLoading()
+        //     return;
+        // }
 
-        try {
-            await firebase.auth().currentUser.sendEmailVerification()
-        } catch (error) {
-            alert(error.message);
-            this.hideLoading()
-            return;
-        }
-        let uid = firebase.auth().currentUser.uid;
-        let name = this.state.name
-        let title = this.state.title
-        addPodcastProfileInfo({ uid, name, title })
-        this.hideLoading()
-        this.props.nextForm()
+        // try {
+        //     await firebase.auth().currentUser.sendEmailVerification()
+        // } catch (error) {
+        //     alert(error.message);
+        //     this.hideLoading()
+        //     return;
+        // }
+        // let uid = firebase.auth().currentUser.uid;
+        // let name = this.state.name
+        // let title = this.state.title
+        // addPodcastProfileInfo({ uid, name, title })
+        // this.hideLoading()
+        this.navigate('/step2')
     }
 
 

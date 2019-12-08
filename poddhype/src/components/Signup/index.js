@@ -1,1 +1,1 @@
-export { default } from './WebOnbording';
+export { default } from './signup';

@@ -1,0 +1,42 @@
+@import "../../theme/theme.less";
+
+.podcasters-info-box {
+    &-row {
+      align-self: center;
+      margin: 100px auto !important;
+      text-align: center;
+      max-width: 1000px;
+    }
+
+    &-column {
+      height: 100%;
+      &-content {
+        text-align: left;    
+        padding: 15px;
+        
+        h2 {
+        font-weight: 500;
+          text-align: left; 
+          font-size: @f-large;
+          margin: 0px;
+          color: @c-black;
+        }
+
+        @media only screen and (max-width: @b-mobile-max) { 
+          text-align: center;
+          align-self: center;
+          max-width: 400px;
+          h2 {
+            text-align: center;
+          }
+        }
+      }
+    }
+    &-icon {
+      img {  
+        padding: 5px;
+        margin: auto 25%;
+        width: 50%;
+      }
+    }
+}

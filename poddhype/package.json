@@ -3,7 +3,7 @@
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "josef karakoca",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "antd": "^3.0.0",
@@ -15,6 +15,7 @@
     "gatsby-plugin-less": "^3.0.15",
     "gatsby-plugin-manifest": "^2.2.30",
     "gatsby-plugin-offline": "^3.0.24",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sharp": "^2.3.4",
     "gatsby-source-filesystem": "^2.1.39",

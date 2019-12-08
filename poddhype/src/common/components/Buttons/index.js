@@ -21,12 +21,11 @@ const SmallButtonTransparent = (props) => (<Button
         fontSize: '16px',
         margin: '10px',
         marginLeft: '15px',
-        fontFamily: 'Source_Sans_Pro'
     }}
     size='large'
     onClick={() => props.onClick ? props.onClick() : null}>
     {props.title}
-</Button>)
+</Button >)
 
 const SmallButtonPurple = (props) => (<Button
     className="btn-cta-purple-small"
@@ -36,17 +35,15 @@ const SmallButtonPurple = (props) => (<Button
         transition: 'all 0.4s ease 0s',
         borderColor: btnCtaColor,
         height: '40px',
-        fontWeight: '400',
         fontSize: '16px',
         margin: '10px',
         marginLeft: '15px',
-        fontFamily: 'Source_Sans_Pro'
     }}
     type="primary"
     size='large'
-    onClick={() => props.onClick()}>
+    onClick={() => props.onClick ? props.onClick() : null}>
     {props.title}
-</Button>)
+</Button >)
 
 const LargeButtonPurple = (props) => (
     <Button

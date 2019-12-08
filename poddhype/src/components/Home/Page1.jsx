@@ -14,7 +14,7 @@ const page1Data = [
   {
     img: one,
     name: 'Podcasters',
-    nameEn: 'Beskriver podden och sin målgrupp.',
+    nameEn: 'Podcasters beskriver podden och sin målgrupp.',
     svgBg: (
       <svg width="213px" height="303px" viewBox="0 0 213 303" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-6" fill={themeColor} opacity="0.45" cx="60" cy="157" r="25" />
@@ -29,7 +29,7 @@ const page1Data = [
   {
     img: two,
     name: 'Brands',
-    nameEn: 'Hittar passande poddar i portalen',
+    nameEn: 'Brands hittar passande poddar i portalen.',
     svgBg: (
       <svg width="207px" height="295px" viewBox="0 0 207 295" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-2" fill={themeColor} opacity="0.45" cx="21.5" cy="90.5" r="21.5" />
@@ -155,7 +155,7 @@ export default class Page1 extends React.PureComponent {
     const children = page1Data.map((item, i) => {
       const isHover = item.nameEn === this.state.hoverKey;
       return (
-        <Col key={item.nameEn} md={6} xs={24}>
+        <Col key={item.nameEn} md={8} xs={24}>
           <div
             className="page1-point-wrapper"
             enter={e => this.getEnter(i, e)}
@@ -176,29 +176,24 @@ export default class Page1 extends React.PureComponent {
             <div className="page1-image">
               <img className="number-icons" src={item.img} />
             </div>
-            <h3 >{item.name}</h3>
             <p>{item.nameEn}</p>
           </div>
         </Col>
       );
     });
+
     return (
       <div className="home-page-wrapper page1" id="page1">
         <div className="page" >
           <h2 id="how-it-works-text"><FormattedMessage id="app.home.design-language" /></h2>
           {!this.props.isMobile && <ArrowDown />}
-          <ScrollOverPack playScale="0.3">
-            <div
-              justify="center"
-              component={Row}
-              key="queue"
-              type="bottom"
-              ease={['easeOutQuart', 'easeInQuart']}
-              leaveReverse
-            >
-              {children}
-            </div>
-          </ScrollOverPack>
+          <Row
+            justify="center"
+            key="queue"
+            type="bottom"
+          >
+            {children}
+          </Row>
         </div>
       </div>
     );

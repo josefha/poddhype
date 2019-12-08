@@ -15,7 +15,7 @@ const { Step } = Steps;
 class WebOnbording extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentPage: 1 }
+        this.state = { currentPage: 0 }
     }
 
     componentDidMount = () => {
@@ -39,22 +39,21 @@ class WebOnbording extends React.Component {
     render() {
         const currentPage = this.state.currentPage
         return (
-            <Layout style={{
-                height: '100vh',
-            }}>
-                <header id="onboarding-header">
-                    <Link to="/">
-                        <div id="logo" class="onboarding-logo">
-                            <img alt="logo" src={logo} />
-                        </div>
-                    </Link>
-                </header>
+            <div>
                 <Content className='content'>
                     <Steps current={currentPage} className='steps'>
-                        <Step title="Skapa Profil" />
+                        <Step title="Skapa Konto" />
                         <Step title="Beskriv Podden" />
-                        <Step title="Klar" />
+                        <Step title="Färdig" />
                     </Steps>
+                    <header id="onboarding-header">
+
+                        <div id="logo" class="onboarding-logo">
+                            <a href="/" target="_blanc">
+                                <img alt="logo" src={logo} />
+                            </a>
+                        </div>
+                    </header>
 
                     {currentPage == 0 && (<Step1 nextForm={() => this.nextForm()} />)}
                     {currentPage == 1 && (<Step2 nextForm={() => this.nextForm()} prevForm={() => this.prevForm()} />)}
@@ -65,7 +64,7 @@ class WebOnbording extends React.Component {
                         </div>)
                     }
                 </Content>
-            </Layout >
+            </div>
         );
     }
 }

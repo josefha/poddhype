@@ -1,10 +1,5 @@
 import React from 'react';
-import svgBgToParallax from './util';
-import { Divider, Input, Button } from 'antd'
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index'
-
-
-const readMoreIcon = require('./../../common/assets/read-more-icon.svg');
 
 export default function Page3() {
   return (
@@ -13,18 +8,17 @@ export default function Page3() {
 
         <div style={{ margin: 'auto', textAlign: 'center' }}>
           <div style={{ maxWidth: '500px', margin: 'auto' }} >
-            <img style={{ width: '250px', margin: '0 auto 20px' }} src={readMoreIcon}></img>
             <div className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">
-              <span className="ant-divider-inner-text">Läs mer</span>
+              <span className="ant-divider-inner-text">Bli medlem</span>
             </div>
           </div>
           <ButtonTransparent
             to="/brands"
-            title="Om Brands"
+            title="För Brands"
           />
           <ButtonCta
             to="/podcasters"
-            title="Om Podcasters"
+            title="För Podcasters"
           />
         </div>
       </div>

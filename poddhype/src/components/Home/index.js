@@ -5,7 +5,7 @@ import { enquireScreen } from 'enquire-js';
 import Header from './Header';
 import Banner from './Banner';
 import Page1 from './Page1';
-import Page2 from './Page2';
+import BrandPart from './BrandPart';
 import Page3 from './Page3';
 import Footer from './Footer';
 import cnLocale from '../../zh-CN';
@@ -42,6 +42,7 @@ class Home extends React.PureComponent {
           <Header isMobile={this.state.isMobile} />
           <Banner isMobile={this.state.isMobile} />
           <Page1 isMobile={this.state.isMobile} />
+          <BrandPart />
           <Page3 isMobile={this.state.isMobile} />
           <Footer />
           <DocumentTitle title="Poddhype | Matchar Podcasters med Brands" key="title" />

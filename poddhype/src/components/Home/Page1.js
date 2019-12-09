@@ -96,9 +96,15 @@ export default class Page1 extends React.PureComponent {
     if (text) {
       setTimeout(function () {
         text.style.opacity = 1;
-      }.bind(this), 320);
+      }.bind(this), 420);
     }
-  };
+    let icons = document.getElementById("home-number-icons-container");
+    if (icons) {
+      setTimeout(function () {
+        icons.style.opacity = 1;
+      }.bind(this), 820);
+    };
+  }
 
   onMouseOver = (key) => {
     this.setState({
@@ -188,6 +194,7 @@ export default class Page1 extends React.PureComponent {
           <h2 id="how-it-works-text"><FormattedMessage id="app.home.design-language" /></h2>
           {!this.props.isMobile && <ArrowDown />}
           <Row
+            id="home-number-icons-container"
             justify="center"
             key="queue"
             type="bottom"

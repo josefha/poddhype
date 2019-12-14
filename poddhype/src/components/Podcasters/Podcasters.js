@@ -52,7 +52,7 @@ const Podcasters = () => {
                         Partnerskap för Podcasters
                             </h1>
                     <h2 id="banner_description">
-                        Vi hjälper dig att hitta dom bästa sponsorskapen.
+                        Poddhype gör det lätt för dig att hitta sponsorer till din podcast.
                         </h2>
                 </div>
                 {infoBox1}

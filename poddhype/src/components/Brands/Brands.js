@@ -9,6 +9,7 @@ import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
 import { Input, Divider } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
+import { getFirebase } from "../../common/api/firebase"
 
 import './style.less';
 import '../Home/static/header.less'
@@ -28,7 +29,8 @@ class Brands extends React.Component {
             appLocale,
             isMobile,
             email: '',
-            done: false
+            done: false,
+            firebase: null
         };
     }
 
@@ -38,13 +40,24 @@ class Brands extends React.Component {
                 isMobile: !!b,
             });
         });
+
+
+        const app = import("firebase/app");
+        const db = import("firebase/firestore");
+
+        Promise.all([app, db]).then(([firebase]) => {
+            const f2 = getFirebase(firebase)
+            this.setState({ firebase: f2 })
+        })
+
+
     }
 
     emailSignup = () => {
         const email = this.state.email
         if (!this.state.done && email != "") {
             const date = new Date()
-            PostBrandEmailSignUp({ date, email })
+            PostBrandEmailSignUp(this.state.firebase, { date, email })
             this.setState({ done: true })
         }
     }

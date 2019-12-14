@@ -1,8 +1,6 @@
-import * as firebase from "firebase/app";
-import "firebase/firestore";
 
-export const PostBrandEmailSignUp = (data) => {
-    var db = firebase.firestore();
+export const PostBrandEmailSignUp = (fb, data) => {
+    var db = fb.firestore();
 
     db.collection("brand-email-list").add(data)
         .then(function (docRef) {

@@ -3,10 +3,9 @@ import React from "react";
 import ContentImageBox from '../../common/components/ContentImageBox'
 
 
-const person_sitting = require('./../../common/assets/person-sitting-music.svg');
+const girl_relaxing_icon = require('./../../common/assets/girl-relaxing-icon.svg');
 const book_with_girl = require('./../../common/assets/book-with-girl.svg');
 const target_with_person = require('./../../common/assets/target-with-person.svg');
-const agreement = require('./../../common/assets/agreement.svg');
 
 const BrandPart = () => (
     <div className="brand-part-wrapper">
@@ -19,10 +18,10 @@ const BrandPart = () => (
             <h2 >Varför podcast marknadsföring?</h2>
         </div> */}
         <ContentImageBox
-            img={person_sitting}
+            img={target_with_person}
             textPosition='left'>
-            <h2>Inga distraktioner</h2>
-            <p>Nå kunder på deras villkor, på gymmet, under solsemestern eller på bussen.</p>
+            <h2>Hitta rätt direkt</h2>
+            <p>Nå relevanta kunder genom podcasts med en matchande målgrupp.</p>
         </ContentImageBox>
         <ContentImageBox
             img={book_with_girl}>
@@ -30,11 +29,12 @@ const BrandPart = () => (
             <p>Poddcasters berättar med sin egen röst er story till sina trogna lyssnare.</p>
         </ContentImageBox>
         <ContentImageBox
-            img={target_with_person}
+            img={girl_relaxing_icon}
             textPosition='left'>
-            <h2>Hitta rätt direkt</h2>
-            <p>Nå relevanta kunder genom podcasts med en matchande målgrupp.</p>
+            <h2>Inga distraktioner</h2>
+            <p>Nå kunder på deras villkor, på gymmet, under solsemestern eller på bussen.</p>
         </ContentImageBox>
+
     </div>)
 
 export default BrandPart

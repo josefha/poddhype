@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { FormattedMessage } from 'react-intl';
 import { ArrowDown } from '../../common/components/ArrowDown/ArrowDown'
 
@@ -96,13 +95,13 @@ export default class Page1 extends React.PureComponent {
     if (text) {
       setTimeout(function () {
         text.style.opacity = 1;
-      }.bind(this), 420);
+      }.bind(this), 220);
     }
     let icons = document.getElementById("home-number-icons-container");
     if (icons) {
       setTimeout(function () {
         icons.style.opacity = 1;
-      }.bind(this), 820);
+      }.bind(this), 320);
     };
   }
 

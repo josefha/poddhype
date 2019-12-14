@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "../Home/Header"
 
-import { addLocaleData, IntlProvider } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { enquireScreen } from 'enquire-js';
 import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
-import { ButtonCta, ButtonTransparent } from '../../common/components/Buttons/index.js'
-import { Input, Divider } from 'antd'
+import { ButtonTransparent } from '../../common/components/Buttons/index.js'
+import { Input } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
 import { getFirebase } from "../../common/api/firebase"
 
@@ -34,14 +32,7 @@ class Brands extends React.Component {
         };
     }
 
-    componentDidMount() {
-        enquireScreen((b) => {
-            this.setState({
-                isMobile: !!b,
-            });
-        });
-
-
+    loadFirebase = () => {
         const app = import("firebase/app");
         const db = import("firebase/firestore");
 
@@ -49,8 +40,16 @@ class Brands extends React.Component {
             const f2 = getFirebase(firebase)
             this.setState({ firebase: f2 })
         })
+    }
 
+    componentDidMount() {
+        enquireScreen((b) => {
+            this.setState({
+                isMobile: !!b,
+            });
+        });
 
+        this.loadFirebase()
     }
 
     emailSignup = () => {

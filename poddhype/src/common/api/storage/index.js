@@ -1,8 +1,5 @@
-import * as firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/storage";
 
-export const putFile = async (name, folder, file) => {
+export const putFile = async (firebase, name, folder, file) => {
     var storageRef = firebase.storage().ref();
     let ref = storageRef.child(folder + name);
     try {

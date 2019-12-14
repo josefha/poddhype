@@ -1,12 +1,11 @@
 
 import './style.less';
 import React from 'react';
-import { addLocaleData, IntlProvider } from 'react-intl';
 
-import { Button, Steps, Layout, Typography, Divider, Input } from 'antd'
-import { getKeyFromChildrenIndex } from 'rc-menu/lib/util';
+import { Steps, Layout, Typography, Divider, Input } from 'antd'
 import { SecondaryButton } from '../../common/components/Buttons'
 import { PostFeedbackForm } from '../../common/api/db/podcastProfile.js'
+import { getFirebase } from "../../common/api/firebase"
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -18,13 +17,27 @@ export default class Step3 extends React.Component {
         super(props);
         this.state = {
             part: 0,
-            feedback: ''
+            feedback: '',
+            firebase: null,
         }
     }
 
+    loadFirebase = () => {
+        const app = import("firebase/app");
+        const db = import("firebase/firestore");
+
+        Promise.all([app, db]).then(([firebase]) => {
+            const f2 = getFirebase(firebase)
+            this.setState({ firebase: f2 })
+        })
+    }
+
+    componentDidMount = () => {
+        this.loadFirebase()
+    }
+
     sendFeedback = () => {
-        const feedback = this.state.feedback
-        PostFeedbackForm({ feedback })
+        PostFeedbackForm(this.state.firebase, { feedback: this.state.feedback })
         this.props.nextForm()
     }
 

@@ -1,7 +1,5 @@
-import * as firebase from "firebase/app";
-import "firebase/firestore";
 
-export const addPodcastProfileInfo = (data) => {
+export const addPodcastProfileInfo = (firebase, data) => {
     var db = firebase.firestore();
 
     db.collection("podcast-profiles").add(data)
@@ -14,7 +12,7 @@ export const addPodcastProfileInfo = (data) => {
 }
 
 
-export const putPodcastProfileInfo = (data) => {
+export const putPodcastProfileInfo = (firebase, data) => {
     var db = firebase.firestore();
 
     db.collection("podcast-profiles-data").add(data)
@@ -26,7 +24,7 @@ export const putPodcastProfileInfo = (data) => {
         });
 }
 
-export const PostFeedbackForm = (data) => {
+export const PostFeedbackForm = (firebase, data) => {
     const date = new Date()
     var db = firebase.firestore();
 

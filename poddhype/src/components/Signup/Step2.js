@@ -1,14 +1,14 @@
 import './style.less';
 import React from 'react';
-import * as firebase from "firebase/app";
-import "firebase/auth";
 
-import { Button, message, Typography, Divider, Input, Spin } from 'antd'
+import { Button, Typography, Divider, Input, Spin } from 'antd'
 import Avatar from './Avatar'
 import TagPicker from './TagPicker'
 import { putFile } from '../../common/api/storage'
 import { putPodcastProfileInfo } from '../../common/api/db/podcastProfile'
 import { DefaultButton, SecondaryButton } from '../../common/components/Buttons'
+import { getFirebase } from "../../common/api/firebase"
+import { navigate } from "gatsby"
 
 const ButtonGroup = Button.Group;
 const { Title, Text } = Typography;
@@ -36,19 +36,25 @@ export default class Step2 extends React.Component {
             //Step 3
             podcastLink: "",
             isLoading: false,
+
+            firebase: null
         }
     }
 
+    loadFirebase = () => {
+        const app = import("firebase/app");
+        const db = import("firebase/firestore");
+        const auth = import("firebase/auth");
+        const storage = import("firebase/storage");
+
+        Promise.all([app, db, auth, storage]).then(([firebase]) => {
+            const f2 = getFirebase(firebase)
+            this.setState({ firebase: f2 })
+        })
+    }
+
     componentDidMount = () => {
-        if (this.props.notFirstTime)
-            return
-
-        message.config({
-            top: 110,
-            duration: 2.5,
-        });
-
-        message.success('Ditt konto är skapat');
+        this.loadFirebase()
     }
 
     nextPart = () => {
@@ -122,6 +128,7 @@ export default class Step2 extends React.Component {
     hideLoading = () => this.setState({ isLoading: false })
 
     sendDataToServer = async () => {
+        let firebase = this.state.firebase
         this.showLoading()
         let user = firebase.auth().currentUser;
 
@@ -129,7 +136,7 @@ export default class Step2 extends React.Component {
 
             const filename = user.uid + "-icon.jpeg"
 
-            let avatarLocation = await putFile(filename, "podcast_icons/", this.state.avatar)
+            let avatarLocation = await putFile(firebase, filename, "podcast_icons/", this.state.avatar)
             if (avatarLocation) {
                 const data = (({
                     description,
@@ -155,9 +162,9 @@ export default class Step2 extends React.Component {
                 data['uid'] = user.uid;
 
                 // TODO: Fix error handling
-                putPodcastProfileInfo(data)
+                putPodcastProfileInfo(firebase, data)
                 this.hideLoading()
-                this.props.nextForm()
+                navigate('signup/step3')
             } else {
                 this.hideLoading()
                 console.error("could not upload image")

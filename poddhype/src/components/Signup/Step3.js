@@ -53,9 +53,9 @@ export default class Step3 extends React.Component {
     render() {
         return (
             <div className='form-content'>
-                <Title level={2}>Du är nu en partner podd! </Title>
+                <Title level={2}>Du är nu en poddhype parner! </Title>
                 <p> Vi planerar att öppna vår platform för Brands senare i vår. </p>
-                <p> Vi håller dig uppdaterad men under tiden kan du nå oss på partner@poddhype.com</p>
+                <p> Vi håller självklart dig uppdaterad hur det går, om du har några funderingar kan du nå oss på partner@poddhype.com</p>
                 <br />
 
                 <span style={{ fontWeight: 600 }}> Team Poddhype</span >

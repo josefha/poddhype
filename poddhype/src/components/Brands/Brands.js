@@ -72,10 +72,10 @@ class Brands extends React.Component {
                         <div className="wrapper-content-box">
                             <img className="header-image" src={workInProgressIcon} />
                             <h1 key="h1" id="lp-title">
-                                Vi öppnar snart vår portal för brands
+                                Podcast Marketing För Brands
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '0px' }}>
-                                Prenumerera gärna på vårt nyhetsbrev så länge.
+                                Vi öppnar snart vår portal för brands, prenumerera gärna på vårt nyhetsbrev så länge.
                             </h2>
                             <Input
                                 placeholder="Din Email"

@@ -13,7 +13,7 @@ const page1Data = [
   {
     img: one,
     name: 'Podcasters',
-    nameEn: 'Podcasters beskriver podden och sin målgrupp.',
+    nameEn: 'Podcasters beskriver sin podd och sin målgrupp.',
     svgBg: (
       <svg width="213px" height="303px" viewBox="0 0 213 303" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-6" fill={themeColor} opacity="0.45" cx="60" cy="157" r="25" />
@@ -28,7 +28,7 @@ const page1Data = [
   {
     img: two,
     name: 'Brands',
-    nameEn: 'Brands hittar passande poddar i portalen.',
+    nameEn: 'Brands hittar passande poddar och skickar förslag om marknadsföring.',
     svgBg: (
       <svg width="207px" height="295px" viewBox="0 0 207 295" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-2" fill={themeColor} opacity="0.45" cx="21.5" cy="90.5" r="21.5" />
@@ -43,7 +43,7 @@ const page1Data = [
   {
     img: three,
     name: 'Förslag',
-    nameEn: 'En förfrågan om sammarbete skickas',
+    nameEn: 'När alla är nöjd kan sammarbetet börja',
     svgBg: (
       <svg width="215px" height="286px" viewBox="0 0 215 286" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" style={{ transform: 'translateX(-30px)' }}>
         <circle id="Oval-12-Copy-4" fill={themeColor} opacity="0.35" cx="77" cy="152" r="10" />

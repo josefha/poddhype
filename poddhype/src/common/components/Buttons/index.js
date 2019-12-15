@@ -14,11 +14,11 @@ const SmallButtonTransparent = (props) => (<Button
         border: '1px solid #314659',
         color: '#314659',
         textShadow: 'none',
-        fontWeight: '300',
+        fontWeight: '400',
         borderRadius: '25px',
         transition: 'all 0.4s ease 0s',
         height: '40px',
-        fontSize: '16px',
+        fontSize: '14px',
         margin: '10px',
         marginLeft: '15px',
     }}
@@ -35,7 +35,7 @@ const SmallButtonPurple = (props) => (<Button
         transition: 'all 0.4s ease 0s',
         borderColor: btnCtaColor,
         height: '40px',
-        fontSize: '16px',
+        fontSize: '14px',
         margin: '10px',
         marginLeft: '15px',
     }}

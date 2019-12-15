@@ -54,13 +54,14 @@ export default class Step3 extends React.Component {
         return (
             <div className='form-content'>
                 <Title level={2}>Du är nu en partner podd! </Title>
-                <p> Vi planerar att öppna vår platform för annonsörer senare i vår. </p>
-                <p> Vi håller självklart dig uppdaterad men under tiden kan du nå oss på partner@poddhype.com</p>
+                <p> Vi planerar att öppna vår platform för Brands senare i vår. </p>
+                <p> Vi håller dig uppdaterad men under tiden kan du nå oss på partner@poddhype.com</p>
                 <br />
+
                 <span style={{ fontWeight: 600 }}> Team Poddhype</span >
                 <br />
-                <Divider style={{ 'marginTop': '0' }} />
-                <h3> Lämna gärna feedback </h3>
+                <Divider />
+                <Text> Lämna gärna feedback </Text>
                 <Input.TextArea style={{ margin: '5px 0 20px 0' }}
                     placeholder="Var det något du tyckte saknades?"
                     autoSize={{ minRows: 2, maxRows: 6 }}

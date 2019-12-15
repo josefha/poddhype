@@ -132,7 +132,7 @@ export default class Step1 extends React.Component {
             <div className='form-content' >
                 <Spin spinning={this.state.isLoading} tip="Skapar konto...">
                     <Title style={{ textAlign: 'center' }} level={2}>Bli en Partner Podd</Title>
-                    <Text>Beskriv din podd och dina mål så sköter vi resten.</Text>
+                    <p>Beskriv din podd och dina mål så sköter vi resten.</p>
                     <Divider />
                     <Input style={{ marginBottom: '20px' }}
                         placeholder="Ditt namn"

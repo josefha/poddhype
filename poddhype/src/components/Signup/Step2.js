@@ -180,10 +180,11 @@ export default class Step2 extends React.Component {
         return (
             <div className='form-content'>
                 <Title level={2}>Beskriv din Podd </Title>
+                <p>Vi behöver veta lite mer om din podcast.</p>
                 <Divider />
                 {part == 0 && (
                     <React.Fragment>
-                        <h3>Bio</h3>
+                        <Text>Podcast beskriving</Text>
                         <TextArea
                             style={{ margin: '10px 0' }}
                             placeholder="Vad handlar din podcast om?"
@@ -225,7 +226,7 @@ export default class Step2 extends React.Component {
                 }
                 {part == 1 && (
                     <React.Fragment>
-                        <h3>Dina lyssnare</h3>
+                        <Text>Dina lyssnare</Text>
                         <div className="text-and-buttons-box">
                             <Text style={{ margin: '5px 0' }}> Ålder: </Text>
                             <ButtonGroup style={{ float: 'right' }}>
@@ -280,7 +281,23 @@ export default class Step2 extends React.Component {
                 {part == 2 && (
                     <Spin spinning={this.state.isLoading} tip="Laddar..">
                         <React.Fragment>
-                            <h3>Länk till din podd</h3>
+                            <Text>Vad är viktigt för ett lyckat sponsorskap?</Text>
+                            <TextArea
+                                style={{ margin: '10px 0' }}
+                                placeholder="Det kan handla om värderingar eller att du helst sammarbetar med vissa brancher"
+                                autoSize={{ minRows: 4, maxRows: 4 }}
+                                value={this.state.description}
+                                onChange={(e) => this.handleChange(e, "description")}>
+                            </TextArea>
+                            <Text>Vilken typ av företag letar du efter att göra sammarbete med?</Text>
+                            <TextArea
+                                style={{ margin: '10px 0' }}
+                                placeholder=""
+                                autoSize={{ minRows: 4, maxRows: 4 }}
+                                value={this.state.description}
+                                onChange={(e) => this.handleChange(e, "description")}>
+                            </TextArea>
+                            <Text>Länk till din podd</Text>
                             <Input style={{ marginBottom: '20px' }}
                                 value={this.state.podcastLink}
                                 placeholder="Vart kan vi hitta mer info om din podcast?"

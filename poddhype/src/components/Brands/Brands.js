@@ -74,13 +74,13 @@ class Brands extends React.Component {
                             <h1 key="h1" id="lp-title">
                                 Vi öppnar snart vår portal för brands
                             </h1>
-                            <h2 id="banner_description" style={{ marginTop: '10px' }}>
+                            <h2 id="banner_description" style={{ marginTop: '0px' }}>
                                 Prenumerera gärna på vårt nyhetsbrev så länge.
                             </h2>
                             <Input
                                 placeholder="Din Email"
                                 style={{
-                                    fontFamily: 'Montserrat',
+                                    fontFamily: 'Source Sans Pro',
                                     height: '90px',
                                     height: '40px',
                                     fontSize: '14px',

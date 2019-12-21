@@ -33,7 +33,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/common/assets/poddhype-logo-blackandwhite.png`,
+        icon: `src/common/assets/poddhype-logo-squere.png`,
       },
     },
     {

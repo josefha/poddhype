@@ -2,6 +2,18 @@
 @import "../../../components/Home/static/custom.less";
 @import "../../theme/theme.less";
 
+#header-large,
+header {
+  box-shadow: none;
+  max-width: 1200px;
+  width: 100%;
+  margin: 26px auto 0;
+  padding: 0 24px;
+  #logo {
+    padding: 0;
+  }
+}
+
 .page-wrapper-component {
   .header-image  {
     width: 300px;
@@ -57,17 +69,6 @@
         text-align: center;
         margin: 120px auto;
         max-width: 600px;
-    }
-  }
-  #header,
-  header {
-    box-shadow: none;
-    max-width: 1200px;
-    width: 100%;
-    margin: 26px auto 0;
-    padding: 0 24px;
-    #logo {
-      padding: 0;
     }
   }
 }

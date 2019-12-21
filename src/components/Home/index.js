@@ -38,15 +38,17 @@ class Home extends React.PureComponent {
     const { appLocale } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <div className="page-wrapper home">
+        <>
           <Header isMobile={this.state.isMobile} />
-          <Banner isMobile={this.state.isMobile} />
-          <Page1 isMobile={this.state.isMobile} />
-          <BrandPart />
-          <Page3 isMobile={this.state.isMobile} />
-          <Footer />
-          <DocumentTitle title="Poddhype | Matchar Podcasters med Brands" key="title" />
-        </div>
+          <div className="page-wrapper home">
+            <Banner isMobile={this.state.isMobile} />
+            <Page1 isMobile={this.state.isMobile} />
+            <BrandPart />
+            <Page3 isMobile={this.state.isMobile} />
+            <Footer />
+            <DocumentTitle title="Poddhype | Matchar Podcasters med Brands" key="title" />
+          </div>
+        </>
       </IntlProvider>
     );
   }

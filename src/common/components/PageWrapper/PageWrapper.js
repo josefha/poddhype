@@ -47,12 +47,14 @@ export default class PageWrapper extends React.PureComponent {
         const { appLocale } = this.state;
         return (
             <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-                <div className="page-wrapper-component">
-                    <DocumentTitle title={this.props.pageTitle} key="title" />
-                    <Header isMobile={this.state.isMobile} />
-                    {this.props.children}
-                    {this.props.footer == true && Footer()}
-                </div>
+                <>
+                    <Header id="header-large" isMobile={this.state.isMobile} />
+                    <div className="page-wrapper-component">
+                        <DocumentTitle title={this.props.pageTitle} key="title" />
+                        {this.props.children}
+                        {this.props.footer == true && Footer()}
+                    </div>
+                </>
             </IntlProvider>
         );
     }

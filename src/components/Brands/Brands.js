@@ -8,7 +8,7 @@ import { ButtonTransparent } from '../../common/components/Buttons/index.js'
 import { Input } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
 import { getFirebase } from "../../common/api/firebase"
-
+import { Link } from 'gatsby'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -72,11 +72,13 @@ class Brands extends React.Component {
                         <div className="wrapper-content-box">
                             <img className="header-image" src={workInProgressIcon} />
                             <h1 key="h1" id="lp-title">
-                                Podcast Marketing För Brands
+                                Marknadsför ditt Företag i Podcasts
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '0px' }}>
-                                Vi öppnar snart vår portal för brands, prenumerera gärna på vårt nyhetsbrev så länge.
+                                Snart öppnar vår portal för Brands, du kan läsa mer <Link to="/#part2">här</Link>.
                             </h2>
+                            <br></br>
+                            <h3>Prenumerera gärna på vårt nyhetsbrev så länge</h3>
                             <Input
                                 placeholder="Din Email"
                                 style={{
@@ -84,7 +86,7 @@ class Brands extends React.Component {
                                     height: '90px',
                                     height: '40px',
                                     fontSize: '14px',
-                                    margin: '20px 0'
+                                    margin: '5px 0 10px 0'
                                 }}
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.target.value })} />

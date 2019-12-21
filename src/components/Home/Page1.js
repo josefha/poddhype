@@ -43,7 +43,7 @@ const page1Data = [
   {
     img: three,
     name: 'Förslag',
-    nameEn: 'Om alla parter är nöjda kan sponsorskapet genomföras och värde skapas!',
+    nameEn: 'Om alla parter är nöjda kan sponsorskapet genomföras och värde skapas.',
     svgBg: (
       <svg width="215px" height="286px" viewBox="0 0 215 286" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" style={{ transform: 'translateX(-30px)' }}>
         <circle id="Oval-12-Copy-4" fill={themeColor} opacity="0.35" cx="77" cy="152" r="10" />

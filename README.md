@@ -2,7 +2,7 @@
 
 TODO:
 * Confirmation Email styling [] 
-* Mobile site menu [] 
+* Mobile site menu [X] 
 
 Link to trello development board:
 https://trello.com/b/GDC8IqrL/poddhype-utveckling
@@ -37,11 +37,15 @@ Firebase for Auth, Database, image storage and hosting.
 ## Dev setup
 
 1. Ask for the enviroments files
-2. Install packages
+2. Install gatsby global
+```
+$ npm install -g gatsby-cli
+```
+3. Install packages
 ```
 $ npm install 
 ```
-3. Start the development server on localhost 8000 
+4. Start the development server on localhost 8000 
 ```
 $ gatsby develop
 ```

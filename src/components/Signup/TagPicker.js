@@ -4,48 +4,31 @@ import { Select } from "antd";
 const { Option } = Select;
 
 const categories = [
-    "True Crime",
-    "Comedy",
-    "Sports",
-    "Fiction",
-    "History",
-    "Business",
-    "Society and Culture",
-    "Kids & Family",
-    "Education",
-    "News",
-    "Religion and Spirituality",
-    "TV & Movies",
-    "Technology",
-    "Arts",
-    "Health and Fitness",
-    "Music",
-    "Science",
-    "Leisure",
-    "Government"
+    "Konst & Kultur",
+    "Utbildning",
+    "Nyheter",
+    "Teknologi",
+    "Fritid",
+    "Komedi & Humor",
+    "Barn & Familj",
+    "Tv & Film",
+    "Skönlitteratur",
+    "Vetenskap",
+    "Samhälle & Kultur",
+    "Verkliga Brott",
+    "Musik",
+    "Historia",
+    "Hälsa & Motion",
+    "Näringsliv",
+    "Religion & Andlighet",
+    "Myndighet & Organiation",
+    "Sport"
 ]
 
-const tags = [
-    "Programmering",
-    "Hårdvara",
-    "Sports",
-    "Fiction",
-    "History",
-    "Business",
-    "Society and Culture",
-    "Kids & Family",
-    "Education",
-    "News",
-    "Religion and Spirituality",
-    "TV & Movies",
-    "Technology",
-    "Arts",
-    "Health and Fitness",
-    "Music",
-    "Science",
-    "Leisure",
-    "Government"
-]
+const subCategories = {
+    "Konst & Kultur": ["Mat", "Mode & Skönhet", "Design", "Visuell Konst"],
+    "Utbildning": [],
+}
 
 const categoriesOptions = [];
 for (let i = 10; i < categories.length; i++) {

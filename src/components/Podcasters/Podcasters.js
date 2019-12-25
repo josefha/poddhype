@@ -24,7 +24,7 @@ const Podcasters = () => {
     const infoBox2 = <ContentImageBox
         img={clockIcon}>
         <h2>Tidseffektivt</h2>
-        <p>Allt du behöver göra är att bli medlem så brands kan hitta dig i vår portal. Du jobbar vidare som vanligt och kontaktas endast när ett brand vill diskutera sammarbete. </p>
+        <p>Allt du behöver göra är att bli medlem så brands kan hitta dig i vår platform. Du jobbar vidare som vanligt och kontaktas endast när ett brand vill diskutera sammarbete. </p>
     </ContentImageBox>
 
     const infoBox3 = <ContentImageBox
@@ -37,22 +37,22 @@ const Podcasters = () => {
     const infoBox4 = <ContentImageBox
         img={mailIcon}>
         <h2>Support hela vägen</h2>
-        <p>Teamet på poddhype ger dig stöd hela vägen. Vi kommer jobba hårt för att sammarbetet mellan dig och de brands du väljer att sammarbete med ska bli så bra som möjligt.  </p>
+        <p>Teamet på poddhype ger dig stöd hela vägen. Vi kommer jobba hårt för att sammarbetet mellan dig och brands du väljer att sammarbete med ska bli så bra som möjligt.  </p>
     </ContentImageBox>
 
     return (
         <PageWrapper
-            pageTitle="Poddhype | Partnerskap för Poddcaters"
+            pageTitle="Poddhype | Partnerskap för podcasters"
             footer={true}
         >
             <div className="page" id="podcasters">
                 <div className="wrapper-content">
                     <img className="header-image" src={podcasterIcon} />
                     <h1 key="h1" id="lp-title">
-                        Partnerskap för Podcasters
+                        Partnerskap för podcasters
                             </h1>
                     <h2 id="banner_description">
-                        Poddhype gör det lätt för dig att hitta sponsorer till din podcast.
+                        Poddhype hjälper dig att hitta sponsorer till din podcast.
                         </h2>
                 </div>
                 {infoBox1}

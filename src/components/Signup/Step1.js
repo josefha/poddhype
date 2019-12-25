@@ -162,13 +162,13 @@ export default class Step1 extends React.Component {
                     We store cookies for analytics on how our users use our site and to keep track if you are a returning visitor.
                     </p>
                     <h2> Why do we store this information? </h2>
-                    <p> Your information is used in our portal to show display your profile. Your email will not be shared or displayed on the website.
+                    <p> Your information is used on our platform to show display your profile. Your email will not be shared or displayed on the website.
                         We will not sell your data to any third party. We have the right to use your podcast name and podcast image in marketing for poddhype.com unless you have told us otherwise.
                         You can at any time tell us you don't want us to store your information, you can do so by sening an email to info@podhype.com.
                     </p>
                 </Modal>
                 <Spin spinning={this.state.isLoading} tip="Skapar konto...">
-                    <Title style={{ textAlign: 'center' }} level={2}>Bli en Partnerpodd</Title>
+                    <Title style={{ textAlign: 'center' }} level={2}>Bli en partnerpodd</Title>
                     <p>Beskriv din podd och dina mål så sköter vi resten.</p>
                     <Divider />
                     <Input style={{ marginBottom: '20px' }}

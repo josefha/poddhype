@@ -47,7 +47,7 @@ class TermsOfUse extends React.Component {
                     <p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>
 
                     <h3><strong>Your Privacy</strong></h3>
-                    <p> We store the information you enter in the sign up. This information is used in our portal to show your profile and match you with brands that use the portal.
+                    <p> We store the information you enter in the sign up. This information is used in our platform to show your profile and match you with brands that use the portal.
                         Your email will not be shared or displayed on the website. We will not sell your data to any third party. We have the right to use your podcast name and podcast image in marketing for poddhype.com unless you have told us otherwise.
                         You can at any time tell us you don't want us to store your information, you can do so by emailing hej@podhype.com.
                     </p>

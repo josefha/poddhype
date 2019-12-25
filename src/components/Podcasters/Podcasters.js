@@ -24,7 +24,7 @@ const Podcasters = () => {
     const infoBox2 = <ContentImageBox
         img={clockIcon}>
         <h2>Tidseffektivt</h2>
-        <p>Allt du behöver göra är att bli medlem så brands kan hitta dig i vår platform. Du jobbar vidare som vanligt och kontaktas endast när ett brand vill diskutera sammarbete. </p>
+        <p>Allt du behöver göra är att bli medlem så brands kan hitta dig i vår plattform. Du jobbar vidare som vanligt och kontaktas endast när ett brand vill diskutera sammarbete. </p>
     </ContentImageBox>
 
     const infoBox3 = <ContentImageBox

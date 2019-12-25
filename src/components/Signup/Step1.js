@@ -11,10 +11,7 @@ import { DefaultButton } from '../../common/components/Buttons'
 import { getFirebase } from "../../common/api/firebase"
 import TermsOfUse from '../TermsOfUse';
 
-
-
-const { Title, Text } = Typography;
-
+const { Title, Text } = Typography
 
 export default class Step1 extends React.Component {
     constructor(props) {
@@ -156,7 +153,7 @@ export default class Step1 extends React.Component {
                         (<DefaultButton title="Nästa" style={{ margin: 'auto' }} onClick={() => this.nextPart()} size='large'></DefaultButton>)
                         : (
                             <div >
-                                <Text> Skapa ett konto hos oss. </Text>
+                                <Text> Skapa ett konto </Text>
                                 <Input style={{ margin: '20px 0' }} placeholder="Email"
                                     value={this.state.email}
                                     onChange={(e) => this.handleChange(e, "email")} />
@@ -185,6 +182,6 @@ export default class Step1 extends React.Component {
                         )
                     }
                 </Spin>
-            </div >)
+            </div>)
     }
 }

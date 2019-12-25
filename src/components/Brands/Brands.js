@@ -75,7 +75,7 @@ class Brands extends React.Component {
                                 Marknadsför ditt företag i podcasts
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '0px' }}>
-                                Snart öppnar vår platform för brands, du kan läsa mer <Link to="/#part2">här</Link>.
+                                Snart öppnar vår plattform för brands, du kan läsa mer <Link to="/#part2">här</Link>.
                             </h2>
                             <br></br>
                             <h3>Prenumerera gärna på vårt nyhetsbrev så länge</h3>

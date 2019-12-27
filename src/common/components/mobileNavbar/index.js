@@ -7,7 +7,7 @@ const logo = require('../../assets/poddhype-logo-blackandwhite.png');
 
 const MobileNavbar = () => {
     return (
-        <header class="header navbar-fixed-top">
+        <header class="header navbar-fixed-top mobile-only">
             <nav class="navbar" role="navigation">
                 <div class="container">
                     <div class="menu-container js_nav-item">

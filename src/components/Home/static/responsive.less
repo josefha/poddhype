@@ -1,11 +1,19 @@
 @import "./default.less";
 @import "../../../common/theme/theme.less";
+@import "../../../common/components/mobileNavbar/style.less";
+
 
 @media only screen and (max-width: @b-mobile-max) {
   #header {
     text-align: left;
     #logo {
       float: initial;
+    }
+    #mobile-logo-img {
+      display: block;
+      margin: auto;
+      margin-top: 28px;
+      height: 40px;
     }
   }
   .home-page-wrapper {

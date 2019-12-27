@@ -14,9 +14,6 @@ const BrandPart = () => (
             <h3>Marknadsför ditt företag i en podcast</h3>
             <p> Få rätt information utan att spendera dagar på google, via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta podcasts med en publik som passar dig.</p>
         </div>
-        {/* <div className="brand-part-subheading">
-            <h2 >Varför podcast marknadsföring?</h2>
-        </div> */}
         <ContentImageBox
             img={target_with_person}
             textPosition='left'>

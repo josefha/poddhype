@@ -9,8 +9,8 @@ const logo = require('./../../common/assets/poddhype-logo-blackandwhite.png');
 
 export default function Header(props) {
   return (
-    props.isMobile != true ?
-      <header {...props} id="header">
+    <>
+      <header {...props} id="header" class="desktop-only">
         <Link to="/">
           <div id="logo">
             <img alt="logo" src={logo} />
@@ -26,7 +26,8 @@ export default function Header(props) {
             title="Skapa konto"
           />
         </div>
-      </header > :
+      </header >
       <MobileNavbar />
+    </>
   );
 }

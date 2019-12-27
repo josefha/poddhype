@@ -73,3 +73,15 @@ html {
 ::-webkit-scrollbar-thumb {
     background: #333;
 }
+
+.desktop-only {
+    @media(max-width: @b-mobile-max) {
+        display: none !important;
+    }
+}
+
+.mobile-only {
+    @media(min-width: @b-mobile-min) {
+        display: none !important;
+    }
+}

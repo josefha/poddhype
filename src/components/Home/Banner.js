@@ -11,7 +11,7 @@ class Banner extends React.PureComponent {
   }
 
   render() {
-    const { className, isMobile } = this.props;
+    const { className } = this.props;
     return (
       <div className="home-page-wrapper banner-wrapper" id="banner">
         <div className="banner-bg-wrapper">

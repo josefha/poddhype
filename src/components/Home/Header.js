@@ -17,8 +17,9 @@ export default function Header(props) {
           </div>
         </Link>
         <div className="header-right">
-          <HeaderLink to="/podcasters">Poddare </HeaderLink>
+          <HeaderLink to="/">Hem</HeaderLink>
           <HeaderLink to="/brands">Brands</HeaderLink>
+          <HeaderLink to="/podcasters">Poddare </HeaderLink>
           <HeaderLink type='normal' to="https://medium.com/poddhype"> Blogg </HeaderLink>
           <ButtonCta
             size="small"

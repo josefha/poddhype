@@ -13,7 +13,7 @@ const page1Data = [
   {
     img: one,
     name: 'Podcasters',
-    nameEn: 'Podcasters beskriver sin podd, sin målgrupp och vad de vill få ut av ett sponsorskap.',
+    nameEn: 'Poddare beskriver sin podd, sin målgrupp och vad de vill få ut av ett sponsorskap.',
     svgBg: (
       <svg width="213px" height="303px" viewBox="0 0 213 303" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <circle id="Oval-12-Copy-6" fill={themeColor} opacity="0.45" cx="60" cy="157" r="25" />

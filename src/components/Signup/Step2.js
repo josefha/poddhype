@@ -1,7 +1,7 @@
 import './style.less';
 import React from 'react';
 
-import { Button, Typography, Divider, Input, Spin } from 'antd'
+import { Button, Typography, Divider, Input, Spin, Slider } from 'antd'
 import Avatar from './Avatar'
 import TagPicker from './TagPicker'
 import { putFile } from '../../common/api/storage'
@@ -24,7 +24,7 @@ export default class Step2 extends React.Component {
             description: "",
             category: [],
             tags: [],
-            listenersAmount: "",
+            listenersAmount: 500,
             avatar: null,
             selectedButton: -1,
             // Step 2
@@ -75,21 +75,6 @@ export default class Step2 extends React.Component {
 
     setAvatar = (file) => {
         this.setState({ avatar: file })
-    }
-
-    onButtonGroupClick = (n) => {
-        this.setState({ selectedButton: n })
-        switch (n) {
-            case 1:
-                this.setState({ listenersAmount: "<1000" })
-                break;
-            case 2:
-                this.setState({ listenersAmount: "2000-5000" })
-            case 3:
-                this.setState({ listenersAmount: "5000+" })
-            default:
-                break;
-        }
     }
 
     onButtonGroupAgeClick = (n) => {
@@ -179,7 +164,7 @@ export default class Step2 extends React.Component {
 
         return (
             <div className='form-content'>
-                <Title level={2}>Beskriv din Podd </Title>
+                <Title level={2}>Beskriv din podd </Title>
                 <p>Vi behöver veta lite mer om din podcast.</p>
                 <Divider />
                 {part == 0 && (
@@ -202,23 +187,17 @@ export default class Step2 extends React.Component {
                             onChange={(v) => this.handlePickerChange(v, "tags")}
                             value={this.state.tags} />
                         <div style={{ margin: '20px 0', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                            <Text style={{ margin: '5px 0' }}> Antal lyssnare per avsnitt: </Text>
+                            <Text style={{ margin: '5px 0' }}> Uppskattad antal lyssnare per avsnitt: {this.state.listenersAmount == 10000 ?
+                                '10000+' : this.state.listenersAmount} </Text>
 
-                            <ButtonGroup style={{ float: 'right' }}>
-                                <Button
-                                    type={this.state.selectedButton == 1 ? "primary" : "default"}
-                                    onClick={() => this.onButtonGroupClick(1)}>
-                                    Under 1000</Button>
-                                <Button
-                                    type={this.state.selectedButton == 2 ? "primary" : "default"}
-                                    onClick={() => this.onButtonGroupClick(2)}>
-                                    1000 - 5000</Button>
-                                <Button
-                                    type={this.state.selectedButton == 3 ? "primary" : "default"}
-                                    onClick={() => this.onButtonGroupClick(3)}>
-                                    Fler än 5000</Button>
-                            </ButtonGroup>
                         </div>
+                        <Slider
+                            min={100}
+                            max={10000}
+                            step={100}
+                            onChange={(e) => this.handlePickerChange(e, 'listenersAmount')}
+                            value={this.state.listenersAmount}
+                        />
                         <Avatar setAvatar={(a) => this.setAvatar(a)} />
                         <Divider />
                         <DefaultButton title="Nästa" onClick={() => this.nextPart()} ></DefaultButton>

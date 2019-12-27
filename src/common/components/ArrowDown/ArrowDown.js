@@ -24,7 +24,7 @@ export class ArrowDown extends React.Component {
     render() {
         return (
             <div >
-                {this.state.isScrolling && <div className="arrow bounce"></div>}
+                {this.state.isScrolling && <div className="arrow bounce desktop-only"></div>}
             </div>
         );
     }

@@ -169,7 +169,7 @@ export default class Page1 extends React.PureComponent {
             component="svg"
             resetStyleBool={false}
           >
-            {(this.props.isMobile || isHover) && this.getSvgChild(item.svgBg.props.children)}
+            {this.getSvgChild(item.svgBg.props.children)}
           </div>
           <div
             className="page1-block"
@@ -191,7 +191,7 @@ export default class Page1 extends React.PureComponent {
       <div className="home-page-wrapper page1" id="page1">
         <div className="page" >
           <h2 id="how-it-works-text"><FormattedMessage id="app.home.design-language" /></h2>
-          {!this.props.isMobile && <ArrowDown />}
+          <ArrowDown />
           <Row
             id="home-number-icons-container"
             justify="center"

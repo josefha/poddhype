@@ -42,8 +42,8 @@ class Signup extends React.Component {
             <div>
                 <Content className='content'>
                     <Steps current={currentPage} className='steps'>
-                        <Step title="Skapa Konto" />
-                        <Step title="Beskriv Podden" />
+                        <Step title="Skapa konto" />
+                        <Step title="Beskriv podden" />
                         <Step title="Färdig" />
                     </Steps>
                     <header id="onboarding-header">

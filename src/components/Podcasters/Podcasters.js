@@ -42,14 +42,14 @@ const Podcasters = () => {
 
     return (
         <PageWrapper
-            pageTitle="Poddhype | Partnerskap för podcasters"
+            pageTitle="Poddhype | Partnerskap för poddar"
             footer={true}
         >
             <div className="page" id="podcasters">
                 <div className="wrapper-content">
                     <img className="header-image" src={podcasterIcon} />
                     <h1 key="h1" id="lp-title">
-                        Partnerskap för podcasters
+                        Partnerskap för poddar
                             </h1>
                     <h2 id="banner_description">
                         Poddhype hjälper dig att hitta sponsorer till din podcast.

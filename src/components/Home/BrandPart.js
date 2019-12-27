@@ -10,7 +10,7 @@ const target_with_person = require('./../../common/assets/target-with-person.svg
 const BrandPart = () => (
     <div className="brand-part-wrapper" id="part2">
         <div className="header-text-box">
-            <h2>Poddhype för brands</h2>
+            <h2>Poddhype för Brands</h2>
             <h3>Marknadsför ditt företag i en podcast</h3>
             <p> Få rätt information utan att spendera dagar på google, via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta podcasts med en publik som passar dig.</p>
         </div>

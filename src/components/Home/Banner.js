@@ -25,7 +25,7 @@ class Banner extends React.PureComponent {
           >
             <img id="home-main-image" src={celebrationIcon}></img>
             <h1 key="h1" id="lp-title">
-              Matchar podcasters med brands
+              Matchar Brands med poddar
             </h1>
             <h2 id="banner_description">
               Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.
@@ -41,7 +41,7 @@ class Banner extends React.PureComponent {
               />
               <ButtonCta
                 to="/podcasters"
-                title="För Podcasters"
+                title="För poddar"
               />
             </div>
           </div>

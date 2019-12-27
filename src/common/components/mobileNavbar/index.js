@@ -19,10 +19,10 @@ const MobileNavbar = () => {
                         <div class="collapse navbar-collapse nav-collapse ">
                             <div class="menu-container">
                                 <ul class="nav navbar-nav container-right ">
-                                    <li class="js_nav-item nav-item"><Link to="/signup"><a class="nav-item-child">Bli Medlem</a></Link></li>
-                                    <li class="js_nav-item nav-item"><Link to="/podcasters"><a class="nav-item-child">Podcasters</a></Link></li>
-                                    <li class="js_nav-item nav-item"><Link to="/brands"><a class="nav-item-child" >Brands</a></Link></li>
                                     <li class="js_nav-item nav-item"><Link to="/"><a class="nav-item-child">Hem</a></Link></li>
+                                    <li class="js_nav-item nav-item"><Link to="/podcasters"><a class="nav-item-child">Poddare</a></Link></li>
+                                    <li class="js_nav-item nav-item"><Link to="/brands"><a class="nav-item-child" >Brands</a></Link></li>
+                                    <li class="js_nav-item nav-item"><Link to="/signup"><a class="nav-item-child">Bli Medlem</a></Link></li>
                                     <li class="js_nav-item nav-item"><a class="nav-item-child" href="medium.com/poddhype">Blogg</a></li>
                                 </ul>
                             </div>

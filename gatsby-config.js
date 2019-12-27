@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Poddhype`,
-    description: `Matchar Brands med Podcasters`,
+    description: `Matchar Brands med Poddar`,
     author: `@poddhype.com`,
   },
 

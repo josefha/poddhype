@@ -75,18 +75,19 @@ class Brands extends React.Component {
                                 Marknadsför ditt företag i podcasts
                             </h1>
                             <h2 id="banner_description" style={{ marginTop: '0px' }}>
-                                Snart öppnar vår plattform för brands, du kan läsa mer <Link to="/#part2">här</Link>.
+                                Vi öppnar snart vår plattform för Brands, läsa mer <Link to="/#part2">här.</Link>
                             </h2>
                             <br></br>
-                            <h3>Prenumerera gärna på vårt nyhetsbrev så länge</h3>
+                            <h3>Prenumerera på vårt nyhetsbrev</h3>
                             <Input
-                                placeholder="Din Email"
+                                placeholder="Email"
                                 style={{
+                                    textAlign: 'center',
                                     fontFamily: 'Source Sans Pro',
-                                    height: '90px',
+                                    maxWidth: '400px',
                                     height: '40px',
                                     fontSize: '14px',
-                                    margin: '5px 0 10px 0'
+                                    margin: '5px 0 0px 0'
                                 }}
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.target.value })} />

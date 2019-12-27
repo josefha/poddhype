@@ -18,7 +18,7 @@ export default function Page3() {
           />
           <ButtonCta
             to="/podcasters"
-            title="För Podcasters"
+            title="För poddar"
           />
         </div>
       </div>

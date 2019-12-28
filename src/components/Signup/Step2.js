@@ -1,7 +1,7 @@
 import './style.less';
 import React from 'react';
 
-import { Button, Typography, Divider, Input, Spin, Slider } from 'antd'
+import { Button, Typography, Divider, Input, Spin, Slider, Checkbox } from 'antd'
 import Avatar from './Avatar'
 import TagPicker from './TagPicker'
 import { putFile } from '../../common/api/storage'
@@ -164,11 +164,11 @@ export default class Step2 extends React.Component {
 
         return (
             <div className='form-content'>
-                <Title level={2}>Beskriv din podd </Title>
-                <p>Vi behöver veta lite mer om din podcast.</p>
-                <Divider />
                 {part == 0 && (
                     <React.Fragment>
+                        <Title level={2}>Beskriv din podd </Title>
+                        <p>Vi behöver veta lite mer om din podcast.</p>
+                        <Divider />
                         <Text>Podcast beskriving</Text>
                         <TextArea
                             style={{ margin: '10px 0' }}
@@ -205,7 +205,9 @@ export default class Step2 extends React.Component {
                 }
                 {part == 1 && (
                     <React.Fragment>
-                        <Text>Dina lyssnare</Text>
+                        <Title level={2}>Beskriv dina lyssnare </Title>
+                        <p>Din målgrupps beskriving kan vara viktigt för sponsorer. </p>
+                        <Divider />
                         <div className="text-and-buttons-box">
                             <Text style={{ margin: '5px 0' }}> Ålder: </Text>
                             <ButtonGroup style={{ float: 'right' }}>
@@ -247,7 +249,7 @@ export default class Step2 extends React.Component {
                         <Text>Beskriv dina lyssnare:</Text>
                         <TextArea
                             style={{ margin: '10px 0' }}
-                            placeholder="Vilka är det som lyssnar?"
+                            placeholder="Försök ge en generell beskrivning. Det kan vara gemensamma intressen, yrken eller ålder."
                             autoSize={{ minRows: 2, maxRows: 6 }}
                             value={this.state.listenersDescription}
                             onChange={(e) => this.handleChange(e, "listenersDescription")}>
@@ -259,6 +261,9 @@ export default class Step2 extends React.Component {
                 )}
                 {part == 2 && (
                     <Spin spinning={this.state.isLoading} tip="Laddar..">
+                        <Title level={2}> Sammarbeteten </Title>
+                        <p> Vad är viktigt för dig? </p>
+                        <Divider />
                         <React.Fragment>
                             <Text>Vad är viktigt för ett lyckat sponsorskap?</Text>
                             <TextArea
@@ -277,10 +282,14 @@ export default class Step2 extends React.Component {
                                 onChange={(e) => this.handleChange(e, "description")}>
                             </TextArea>
                             <Text>Länk till din podd</Text>
-                            <Input style={{ marginBottom: '20px' }}
+                            <Input style={{ margin: '10px 0' }}
                                 value={this.state.podcastLink}
                                 placeholder="Vart kan vi hitta mer info om din podcast?"
                                 onChange={(e) => this.handleChange(e, "podcastLink")} />
+
+                            <Checkbox style={{ 'width': '100%', margin: '10px 0' }}
+                                onChange={this.checkBoxChange}>
+                                <span style={{ display: 'inline' }}>Mina uppgifter är sanning</span></Checkbox>
                             <Divider />
                             <SecondaryButton title="Tillbaka" onClick={() => this.prevPart()} ></SecondaryButton>
                             <DefaultButton title="Klar" onClick={() => this.sendDataToServer()} ></DefaultButton>

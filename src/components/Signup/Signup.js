@@ -1,7 +1,7 @@
 import './style.less';
 import React from 'react';
-import { Link } from "@reach/router"
 import { Steps, Layout, Typography } from 'antd'
+import SEO from '../../common/components/seo'
 
 import Step1 from './Step1'
 import Step2 from './Step2'
@@ -40,6 +40,10 @@ class Signup extends React.Component {
         const currentPage = this.state.currentPage
         return (
             <div>
+                <SEO
+                    title="Poddhype | Bli en parnerpodd"
+                    description="Beskriv din podd och dina mål så sköter vi resten."
+                />
                 <Content className='content'>
                     <Steps current={currentPage} className='steps'>
                         <Step title="Skapa konto" />

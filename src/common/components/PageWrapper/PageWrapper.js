@@ -1,11 +1,8 @@
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { FormattedMessage } from 'react-intl';
-import DocumentTitle from 'react-document-title';
 import { enquireScreen } from 'enquire-js';
 import Header from '../../../components/Home/Header';
-import { Row } from 'antd';
-
 
 import cnLocale from '../../../zh-CN';
 import './style.less';
@@ -50,7 +47,6 @@ export default class PageWrapper extends React.PureComponent {
                 <>
                     <Header id="header-large" isMobile={this.state.isMobile} />
                     <div className="page-wrapper-component">
-                        <DocumentTitle title={this.props.pageTitle} key="title" />
                         {this.props.children}
                         {this.props.footer == true && Footer()}
                     </div>

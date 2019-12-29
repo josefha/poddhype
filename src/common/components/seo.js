@@ -33,7 +33,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s`}
       meta={[
         {
           name: `description`,
@@ -73,9 +73,9 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `sv`,
   meta: [],
-  description: ``,
+  description: `Marknadsför ditt företag i podcasts med en målgrupp som passar dig. Vi bygger en plattform som gör det lättare att hitta värdefulla samarbeten.`,
 }
 
 SEO.propTypes = {

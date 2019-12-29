@@ -4,6 +4,7 @@ import DocumentTitle from 'react-document-title';
 import { enquireScreen } from 'enquire-js';
 import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
+import SEO from '../../common/components/seo'
 import { ButtonTransparent } from '../../common/components/Buttons/index.js'
 import { Input } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
@@ -65,9 +66,11 @@ class Brands extends React.Component {
         const done = this.state.done
         return (
             <div>
-                <PageWrapper
-                    pageTitle="Poddhype förenklar din podcast marknadsföring "
-                >
+                <SEO
+                    title="Poddhype | Marknadsför ditt företag i podcasts"
+                    description="Via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta poddar med en publik som passar dig."
+                />
+                <PageWrapper>
                     <div className="page">
                         <div className="wrapper-content-box">
                             <img className="header-image" src={workInProgressIcon} />

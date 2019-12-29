@@ -12,13 +12,13 @@ const BrandPart = () => (
         <div className="header-text-box">
             <h2>Poddhype för Brands</h2>
             <h3>Marknadsför ditt företag i en podcast</h3>
-            <p> Få rätt information utan att spendera dagar på google, via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta podcasts med en publik som passar dig.</p>
+            <p> Få rätt information utan att spendera dagar på google, via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta poddar med en publik som passar dig.</p>
         </div>
         <ContentImageBox
             img={target_with_person}
             textPosition='left'>
             <h2>Hitta rätt direkt</h2>
-            <p>Nå relevanta kunder genom podcasts med en matchande målgrupp.</p>
+            <p>Nå relevanta kunder genom poddar med en matchande målgrupp.</p>
         </ContentImageBox>
         <ContentImageBox
             img={book_with_girl}>

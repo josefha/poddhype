@@ -1,6 +1,7 @@
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import DocumentTitle from 'react-document-title';
+import SEO from '../../common/components/seo'
 import { enquireScreen } from 'enquire-js';
 import Header from './Header';
 import Banner from './Banner';
@@ -39,6 +40,10 @@ class Home extends React.PureComponent {
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <>
+          <SEO
+            title="Poddhype | Matchar Brands med poddar"
+            description="Marknadsför ditt företag i podcasts med en målgrupp som passar dig. Vi bygger en plattform som gör det lättare att hitta värdefulla samarbeten."
+          />
           <Header />
           <div className="page-wrapper home">
             <Banner isMobile={this.state.isMobile} />

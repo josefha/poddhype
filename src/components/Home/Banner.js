@@ -28,7 +28,7 @@ class Banner extends React.PureComponent {
               Matchar Brands med poddar
             </h1>
             <h2 id="banner_description">
-              Hitta sponsorskap du är stolt över och ger värde till dina lyssnare.
+              Marknadsför ditt företag i podcasts med en målgrupp som passar dig.
               Vi bygger en plattform som gör det lättare att hitta värdefulla samarbeten.
             </h2>
             <div className="ant-divider ant-divider-horizontal ant-divider-with-text-center" role="separator">

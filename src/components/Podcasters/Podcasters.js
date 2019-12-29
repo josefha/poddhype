@@ -3,6 +3,7 @@ import React from "react";
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import { ButtonCta } from '../../common/components/Buttons/index.js'
 import ContentImageBox from '../../common/components/ContentImageBox'
+import SEO from '../../common/components/seo'
 
 import './style.less';
 import '../Home/static/header.less'
@@ -41,10 +42,11 @@ const Podcasters = () => {
     </ContentImageBox>
 
     return (
-        <PageWrapper
-            pageTitle="Poddhype | Partnerskap för poddar"
-            footer={true}
-        >
+        <PageWrapper footer={true}>
+            <SEO
+                title="Poddhype | Hitta sponsorer till din podcast."
+                description="Dina lyssnare är värdefulla, vi hjälper dig ta betalt för din nichade målgrupp genom en bra sponsor matchning."
+            />
             <div className="page" id="podcasters">
                 <div className="wrapper-content">
                     <img className="header-image" src={podcasterIcon} />

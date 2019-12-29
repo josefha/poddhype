@@ -206,7 +206,7 @@ export default class Step2 extends React.Component {
                 {part == 1 && (
                     <React.Fragment>
                         <Title level={2}>Beskriv dina lyssnare </Title>
-                        <p>Din målgrupps beskriving kan vara viktigt för sponsorer. </p>
+                        <p>Beskriving av din målgrupps kan vara viktigt för sponsorer. </p>
                         <Divider />
                         <div className="text-and-buttons-box">
                             <Text style={{ margin: '5px 0' }}> Ålder: </Text>
@@ -250,7 +250,7 @@ export default class Step2 extends React.Component {
                         <TextArea
                             style={{ margin: '10px 0' }}
                             placeholder="Försök ge en generell beskrivning. Det kan vara gemensamma intressen, yrken eller ålder."
-                            autoSize={{ minRows: 2, maxRows: 6 }}
+                            autoSize={{ minRows: 4, maxRows: 6 }}
                             value={this.state.listenersDescription}
                             onChange={(e) => this.handleChange(e, "listenersDescription")}>
                         </TextArea>

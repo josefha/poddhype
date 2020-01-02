@@ -9,7 +9,7 @@ import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
 import { Spin, Typography, Divider, Input, Checkbox, Modal } from 'antd'
 import { DefaultButton } from '../../common/components/Buttons'
 import { getFirebase } from "../../common/api/firebase"
-import TermsOfUse from '../TermsOfUse';
+import TermsOfUse from '../../common/components/TermsOfUse';
 
 const { Title, Text } = Typography
 

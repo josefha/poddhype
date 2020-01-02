@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import { getFirebase } from "../../api/firebase"
 
 import Header from '../../../components/Home/Header';
-
 import cnLocale from '../../../zh-CN';
 import './style.less';
 
@@ -32,15 +31,11 @@ export default class PageWrapper extends React.Component {
         })
     }
 
-
     componentDidMount() {
         this.loadFirebase()
     }
 
-
-
     render() {
-
         const Footer = () =>
             <div className="footer-wrapper">
                 <div className="footer-text">Copyright © <FormattedMessage id="app.footer.company" /></div>

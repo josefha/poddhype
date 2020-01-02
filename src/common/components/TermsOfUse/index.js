@@ -1,6 +1,5 @@
 
 import React from 'react'
-import "../Signup/style.less"
 import { Modal } from 'antd'
 
 const TermsOfUse = (props) => {

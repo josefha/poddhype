@@ -31,12 +31,12 @@ const subCategories = {
 }
 
 const categoriesOptions = [];
-for (let i = 10; i < categories.length; i++) {
+for (let i = 0; i < categories.length; i++) {
     categoriesOptions.push(<Option value={categories[i]}>{categories[i]}</Option>);
 }
 
 const children = [];
-for (let i = 10; i < categories.length; i++) {
+for (let i = 0; i < categories.length; i++) {
     children.push(<Option key={categories[i]}>{categories[i]}</Option>);
 }
 

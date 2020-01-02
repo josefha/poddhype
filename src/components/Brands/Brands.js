@@ -36,10 +36,12 @@ class Brands extends React.Component {
     loadFirebase = () => {
         const app = import("firebase/app");
         const db = import("firebase/firestore");
+        const analytics = import("firebase/analytics");
 
-        Promise.all([app, db]).then(([firebase]) => {
-            const f2 = getFirebase(firebase)
-            this.setState({ firebase: f2 })
+        Promise.all([app, db, analytics]).then(([firebase]) => {
+            const fb = getFirebase(firebase)
+            fb.analytics()
+            this.setState({ firebase: fb })
         })
     }
 

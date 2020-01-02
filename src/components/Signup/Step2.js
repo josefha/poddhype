@@ -182,10 +182,10 @@ export default class Step2 extends React.Component {
                             placeholder="Kategori"
                             onChange={(v) => this.handlePickerChange(v, "category")}
                             value={this.state.category} />
-                        <TagPicker
+                        {/* <TagPicker
                             placeholder="Välj några taggar"
                             onChange={(v) => this.handlePickerChange(v, "tags")}
-                            value={this.state.tags} />
+                            value={this.state.tags} /> */}
                         <div style={{ margin: '20px 0', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                             <Text style={{ margin: '5px 0' }}> Uppskattat antal lyssnare per avsnitt: {this.state.listenersAmount == 10000 ?
                                 '10000+' : this.state.listenersAmount} </Text>

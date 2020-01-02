@@ -34,9 +34,10 @@ export default class Step1 extends React.Component {
         const app = import("firebase/app");
         const db = import("firebase/firestore");
         const auth = import("firebase/auth");
+        const storage = import("firebase/storage");
         const analytics = import("firebase/analytics");
 
-        Promise.all([app, db, auth, analytics]).then(([firebase]) => {
+        Promise.all([app, db, auth, storage, analytics]).then(([firebase]) => {
             const fb = getFirebase(firebase)
             fb.analytics()
             this.setState({ firebase: fb })

@@ -12,16 +12,18 @@ export const addPodcastProfileInfo = (firebase, data) => {
 }
 
 
-export const putPodcastProfileInfo = (firebase, data) => {
+export const putPodcastProfileInfo = (firebase, data, uid) => {
     var db = firebase.firestore();
 
-    db.collection("podcast-profiles-data").add(data)
-        .then(function (docRef) {
-            console.log("Document written");
+    db.collection("podcast-profiles").where("uid", "==", uid)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                console.log(doc.id, " => ", doc.data());
+                // Build doc ref from doc.id
+                db.collection("podcast-profiles").doc(doc.id).update({ data });
+            });
         })
-        .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
 }
 
 export const PostFeedbackForm = (firebase, data) => {

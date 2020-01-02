@@ -23,7 +23,6 @@ export default class Step2 extends React.Component {
             // Step 1
             description: "",
             category: [],
-            tags: [],
             listenersAmount: 500,
             avatar: null,
             selectedButton: -1,
@@ -34,9 +33,14 @@ export default class Step2 extends React.Component {
             selectedAgeButton: -1,
             selectedGenderButton: -1,
             //Step 3
+            typeOfCollaboration: "",
+            importantWhenCollaborating: "",
             podcastLink: "",
-            isLoading: false,
+            facebook: "",
+            instagram: "",
+            homepage: "",
 
+            isLoading: false,
             firebase: null
         }
     }
@@ -81,12 +85,12 @@ export default class Step2 extends React.Component {
         this.setState({ selectedAgeButton: n })
         switch (n) {
             case 1:
-                this.setState({ age: "12-18" })
+                this.setState({ age: "12-24" })
                 break;
             case 2:
-                this.setState({ age: "18-27" })
+                this.setState({ age: "22-30" })
             case 3:
-                this.setState({ age: "27-40" })
+                this.setState({ age: "28-40" })
             case 4:
                 this.setState({ age: "40+" })
             default:
@@ -126,33 +130,42 @@ export default class Step2 extends React.Component {
                 const data = (({
                     description,
                     category,
-                    tags,
+                    listenersAmount,
+                    age,
+                    gender,
+                    podcastLink,
+                    listenersDescription,
+                    typeOfCollaboration,
+                    importantWhenCollaborating,
+                    facebook,
+                    instagram,
+                    homepage,
+                }) => ({
+                    description,
+                    category,
                     listenersAmount,
                     age,
                     gender,
                     listenersDescription,
-                    podcastLink }) => ({
-                        description,
-                        category,
-                        tags,
-                        listenersAmount,
-                        age,
-                        gender,
-                        listenersDescription,
-                        podcastLink,
-                    }))(this.state);
+                    podcastLink,
+                    typeOfCollaboration,
+                    importantWhenCollaborating,
+                    facebook,
+                    instagram,
+                    homepage,
+                }))(this.state);
 
                 // adding the path in cloud-storage to db data obj 
                 data['AvatarPath'] = avatarLocation;
-                data['uid'] = user.uid;
+                // data['uid'] = user.uid;
 
                 // TODO: Fix error handling
-                putPodcastProfileInfo(firebase, data)
+                putPodcastProfileInfo(firebase, data, user.uid)
                 this.hideLoading()
                 navigate('signup/step3')
             } else {
                 this.hideLoading()
-                console.error("could not upload image")
+                console.error("Could not upload image")
             }
         } else {
             console.error("current user not found")
@@ -169,7 +182,7 @@ export default class Step2 extends React.Component {
                         <Title level={2}>Beskriv din podd </Title>
                         <p>Vi behöver veta lite mer om din podcast.</p>
                         <Divider />
-                        <Text>Podcast beskriving</Text>
+                        <Text>Podcast beskriving:</Text>
                         <TextArea
                             style={{ margin: '10px 0' }}
                             placeholder="Vad handlar din podcast om?"
@@ -182,14 +195,9 @@ export default class Step2 extends React.Component {
                             placeholder="Kategori"
                             onChange={(v) => this.handlePickerChange(v, "category")}
                             value={this.state.category} />
-                        {/* <TagPicker
-                            placeholder="Välj några taggar"
-                            onChange={(v) => this.handlePickerChange(v, "tags")}
-                            value={this.state.tags} /> */}
                         <div style={{ margin: '20px 0', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                             <Text style={{ margin: '5px 0' }}> Uppskattat antal lyssnare per avsnitt: {this.state.listenersAmount == 10000 ?
                                 '10000+' : this.state.listenersAmount} </Text>
-
                         </div>
                         <Slider
                             min={100}
@@ -209,16 +217,16 @@ export default class Step2 extends React.Component {
                         <p>Beskriving av din målgrupps kan vara viktigt för sponsorer. </p>
                         <Divider />
                         <div className="text-and-buttons-box">
-                            <Text style={{ margin: '5px 0' }}> Ålder: </Text>
+                            <Text style={{ margin: '5px 0' }}> Din målgrupps ålder: </Text>
                             <ButtonGroup style={{ float: 'right' }}>
                                 <Button
                                     type={this.state.selectedAgeButton == 1 ? "primary" : "default"}
                                     onClick={() => this.onButtonGroupAgeClick(1)}>
-                                    12-18</Button>
+                                    12-24</Button>
                                 <Button
                                     type={this.state.selectedAgeButton == 2 ? "primary" : "default"}
                                     onClick={() => this.onButtonGroupAgeClick(2)}>
-                                    18-27</Button>
+                                    22-30</Button>
                                 <Button
                                     type={this.state.selectedAgeButton == 3 ? "primary" : "default"}
                                     onClick={() => this.onButtonGroupAgeClick(3)}>
@@ -249,7 +257,7 @@ export default class Step2 extends React.Component {
                         <Text>Beskriv dina lyssnare:</Text>
                         <TextArea
                             style={{ margin: '10px 0' }}
-                            placeholder="Försök ge en generell beskrivning. Det kan vara gemensamma intressen, yrken eller ålder."
+                            placeholder="Det kan te.x handla om liknande intressen, specifika brancher eller åldersgrupper."
                             autoSize={{ minRows: 4, maxRows: 6 }}
                             value={this.state.listenersDescription}
                             onChange={(e) => this.handleChange(e, "listenersDescription")}>
@@ -261,35 +269,46 @@ export default class Step2 extends React.Component {
                 )}
                 {part == 2 && (
                     <Spin spinning={this.state.isLoading} tip="Laddar..">
-                        <Title level={2}> Sammarbeteten </Title>
-                        <p> Vad är viktigt för dig? </p>
+                        <Title level={2}> Sammarbeteten och länkar </Title>
                         <Divider />
                         <React.Fragment>
+                            <Text>Vilken typ av företag sammarbetar du helst med?</Text>
+                            <TextArea
+                                style={{ margin: '10px 0' }}
+                                placeholder="T.ex. värderingar eller att du vill hitta sammarbeten inom vissa brancher."
+                                autoSize={{ minRows: 4, maxRows: 4 }}
+                                value={this.state.typeOfCollaboration}
+                                onChange={(e) => this.handleChange(e, "typeOfCollaboration")}>
+                            </TextArea>
                             <Text>Vad är viktigt för ett lyckat sponsorskap?</Text>
                             <TextArea
                                 style={{ margin: '10px 0' }}
-                                placeholder="Det kan handla om värderingar eller att du helst sammarbetar med vissa brancher"
+                                placeholder="Något speciellt du vill att vi ska tänka på när vi matchar dig med företag?"
                                 autoSize={{ minRows: 4, maxRows: 4 }}
-                                value={this.state.description}
-                                onChange={(e) => this.handleChange(e, "description")}>
+                                value={this.state.importantWhenCollaborating}
+                                onChange={(e) => this.handleChange(e, "importantWhenCollaborating")}>
                             </TextArea>
-                            <Text>Vilken typ av företag letar du efter att göra sammarbete med?</Text>
-                            <TextArea
-                                style={{ margin: '10px 0' }}
-                                placeholder=""
-                                autoSize={{ minRows: 4, maxRows: 4 }}
-                                value={this.state.description}
-                                onChange={(e) => this.handleChange(e, "description")}>
-                            </TextArea>
-                            <Text>Länk till din podd</Text>
+                            <Text>Länk till din podd (fällt kan lämnas tomt): </Text>
                             <Input style={{ margin: '10px 0' }}
                                 value={this.state.podcastLink}
-                                placeholder="Vart kan vi hitta mer info om din podcast?"
+                                placeholder="Länk till podden"
                                 onChange={(e) => this.handleChange(e, "podcastLink")} />
 
-                            <Checkbox style={{ 'width': '100%', margin: '10px 0' }}
-                                onChange={this.checkBoxChange}>
-                                <span style={{ display: 'inline' }}>Mina uppgifter är sanning</span></Checkbox>
+                            <Input style={{ margin: '10px 0' }}
+                                value={this.state.facebook}
+                                placeholder="Länk till facebook"
+                                onChange={(e) => this.handleChange(e, "facebook")} />
+
+                            <Input style={{ margin: '10px 0' }}
+                                value={this.state.instagram}
+                                placeholder="Länk till Instagram"
+                                onChange={(e) => this.handleChange(e, "instagram")} />
+
+                            <Input style={{ margin: '10px 0' }}
+                                value={this.state.homepage}
+                                placeholder="Länk till hemsida"
+                                onChange={(e) => this.handleChange(e, "homepage")} />
+
                             <Divider />
                             <SecondaryButton title="Tillbaka" onClick={() => this.prevPart()} ></SecondaryButton>
                             <DefaultButton title="Klar" onClick={() => this.sendDataToServer()} ></DefaultButton>

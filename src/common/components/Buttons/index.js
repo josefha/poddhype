@@ -74,7 +74,7 @@ export const SecondaryButton = (props) => (
 
 export const DefaultButton = (props) => (
     <SmallButtonPurple
-        {...props}
+        title={props.title}
         onClick={() => props.onClick()}
     />)
 

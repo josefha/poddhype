@@ -6,7 +6,7 @@ import './headerLink.less'
 export const HeaderLink = (props) => {
     return (
         props.type == 'normal' ? (
-            <a href={props.to} className="header-link">
+            <a target="_blank" href={props.to} className="header-link">
                 {props.children}
             </a>)
             :

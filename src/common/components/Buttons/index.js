@@ -39,6 +39,7 @@ const SmallButtonPurple = (props) => (<Button
         margin: '10px',
         marginLeft: '15px',
     }}
+    {...props}
     type="primary"
     size='large'
     onClick={() => props.onClick ? props.onClick() : null}>
@@ -73,7 +74,7 @@ export const SecondaryButton = (props) => (
 
 export const DefaultButton = (props) => (
     <SmallButtonPurple
-        title={props.title}
+        {...props}
         onClick={() => props.onClick()}
     />)
 

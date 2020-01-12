@@ -32,13 +32,13 @@ const Podcasters = () => {
         img={worldIcon}
         textPosition='left'>
         <h2>Nå ut till fler</h2>
-        <p>Vi ger dig möjligheten att bli upptäckt av brands som annars inte skulle ha hitta dig. Vi släpper bara in brands som delar våra värderingar.</p>
+        <p>Vi ger dig möjligheten att bli upptäckt av brands som annars inte skulle ha hitta dig. Vi släpper bara in seriösa Brands.</p>
     </ContentImageBox>
 
     const infoBox4 = <ContentImageBox
         img={mailIcon}>
         <h2>Support hela vägen</h2>
-        <p>Teamet på poddhype ger dig stöd hela vägen. Vi kommer jobba hårt för att sammarbetet mellan dig och brands du väljer att sammarbete med ska bli så bra som möjligt.  </p>
+        <p>Teamet på poddhype ger dig stöd hela vägen. Vi jobbar hårt för att sammarbetet mellan dig och Brands ska bli så bra som möjligt.</p>
     </ContentImageBox>
 
     return (

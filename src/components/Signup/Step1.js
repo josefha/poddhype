@@ -4,11 +4,12 @@ import React from 'react';
 import { navigate } from "gatsby"
 
 import "firebase/auth";
-import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
+import { addPodcastProfileInfo, signupIsCompleted } from "../../common/api/db/podcastProfile"
 
 import { Spin, Typography, Divider, Input, Checkbox } from 'antd'
-import { DefaultButton } from '../../common/components/Buttons'
+import { DefaultButton, SecondaryButton } from '../../common/components/Buttons'
 import { getFirebase, getCurrentUser } from "../../common/api/firebase"
+
 import TermsOfUse from '../../common/components/TermsOfUse';
 
 const { Title, Text } = Typography
@@ -46,9 +47,11 @@ export default class Step1 extends React.Component {
     }
 
     getUser = async () => {
-        let user = await getCurrentUser(this.state.firebase)
+        let firebase = this.state.firebase
+        let user = await getCurrentUser(firebase)
         if (user) {
-            this.setState({ user })
+            let completed = await signupIsCompleted(firebase, user.uid)
+            this.setState({ user: user, signupIsCompleted: completed })
         }
     }
 
@@ -58,7 +61,9 @@ export default class Step1 extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         // only update chart if the data has changed
+        console.log(prevState);
         if (prevState.firebase !== this.state.firebase) {
+            console.log("FIREBASE")
             this.getUser()
         }
     }
@@ -148,9 +153,14 @@ export default class Step1 extends React.Component {
         this.setState({ checkBox: e.target.checked });
     }
 
-    render() {
+    signOut = async () => {
+        await this.state.firebase.auth().signOut()
+        //force rerender
+        this.setState({ part: 1, SignupCompleted: false, user: null });
+    }
 
-        const LogginBox = () => (
+    render() {
+        const LogginBox = (
             <Spin spinning={this.state.isLoading}
                 tip="Skapar konto...">
                 <TermsOfUse
@@ -204,22 +214,40 @@ export default class Step1 extends React.Component {
             </Spin>
         )
 
-        const IsLoggedIn = () => (
+        const FailedSignup = (
             <>
                 <Title style={{ textAlign: 'center' }} level={2}>Du har påbörjat skapa ett konto</Title>
                 <p>Fortsätt till nästa sida för att beskriva podden</p>
+
                 <DefaultButton
                     style={{ 'float': 'right' }}
                     title="Beskriv podden"
-                    id="createAccountButton"
+                    id="describePodcast"
                     onClick={() => navigate('signup/step2')}>
                 </DefaultButton>
             </>
         )
 
+        const SignupCompleted = (
+            <>
+                <Title style={{ textAlign: 'center' }} level={2}>Du har redan registrerat ett konto</Title>
+                <p>Poddhype är under utveckling så just nu går det inte att logga in, den funktionaliteten och mycket annat kommer snart.</p>
+                <p>hej@poddhype.com </p>
+                <SecondaryButton
+                    title="Skapa nytt konto"
+                    onClick={() => this.signOut()} >
+                </SecondaryButton>
+                <DefaultButton
+                    style={{ 'float': 'right' }}
+                    title="Gå till startsidan"
+                    id="createAccountButton"
+                    onClick={() => navigate('../')}>
+                </DefaultButton>
+            </>
+        )
         return (
             <div className='form-content' >
-                {this.state.user ? <IsLoggedIn /> : <LogginBox />}
+                {this.state.user ? (this.state.signupIsCompleted ? SignupCompleted : FailedSignup) : LogginBox}
             </div>)
     }
 }

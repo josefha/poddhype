@@ -1,3 +1,4 @@
+import { async } from "q";
 
 export const addPodcastProfileInfo = (firebase, data) => {
     var db = firebase.firestore();
@@ -37,4 +38,26 @@ export const PostFeedbackForm = (firebase, data) => {
         .catch(function (error) {
             console.error("Error adding document: ", error);
         });
+}
+
+export const signupIsCompleted = async (firebase, uid) => {
+    console.log("CHECK", uid)
+
+    var db = firebase.firestore();
+    let podcastProfile;
+    var querySnapshot = await db.collection("podcast-profiles").where("uid", "==", uid).get()
+    console.log(querySnapshot)
+    querySnapshot.forEach(function (doc) {
+        console.log(doc.id, " => ", doc.data());
+        podcastProfile = doc.data()
+    });
+
+    console.log(podcastProfile)
+    if (podcastProfile && podcastProfile.data) {
+        return true;
+    } else {
+        return false;
+    }
+
+
 }

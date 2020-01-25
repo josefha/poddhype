@@ -213,7 +213,7 @@ export default class Step1 extends React.Component {
 
         const FailedSignup = (
             <>
-                <Title style={{ textAlign: 'center' }} level={2}>Du har påbörjat skapa ett konto</Title>
+                <Title style={{ textAlign: 'center' }} level={2}>Du har redan påbörjat registreringen</Title>
                 <p>Fortsätt till nästa sida för att beskriva podden</p>
 
                 <DefaultButton

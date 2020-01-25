@@ -1,6 +1,8 @@
 import './style.less';
 import React from 'react';
 import { Steps, Layout, Typography } from 'antd'
+import { DefaultButton } from '../../common/components/Buttons'
+import { navigate } from "gatsby"
 import SEO from '../../common/components/seo'
 
 import Step1 from './Step1'
@@ -64,7 +66,12 @@ class Signup extends React.Component {
                     {currentPage == 2 && (<Step3 nextForm={() => this.nextForm()} prevForm={() => this.prevForm()} />)}
                     {currentPage == 3 &&
                         (<div className='form-content'>
-                            <Title level={2}>Tack för din feedback :) </Title>
+                            <Title level={2}>Stort tack för din feedback! </Title>
+                            <DefaultButton
+                                title="Gå till startsidan"
+                                id="goToStartPage"
+                                onClick={() => navigate('../../')}>
+                            </DefaultButton>
                         </div>)
                     }
                 </Content>

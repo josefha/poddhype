@@ -21,3 +21,16 @@ export const getFirebase = firebase => {
 
     return firebase
 }
+let userLoaded = false;
+export const getCurrentUser = (firebase) => {
+    return new Promise((resolve, reject) => {
+        if (userLoaded) {
+            resolve(firebase.auth().currentUser);
+        }
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+            userLoaded = true;
+            unsubscribe();
+            resolve(user);
+        }, reject);
+    });
+}

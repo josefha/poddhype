@@ -7,7 +7,7 @@ import TagPicker from './TagPicker'
 import { putFile } from '../../common/api/storage'
 import { putPodcastProfileInfo } from '../../common/api/db/podcastProfile'
 import { DefaultButton, SecondaryButton } from '../../common/components/Buttons'
-import { getFirebase } from "../../common/api/firebase"
+import { getFirebase, getCurrentUser } from "../../common/api/firebase"
 import { navigate } from "gatsby"
 
 const ButtonGroup = Button.Group;
@@ -50,10 +50,12 @@ export default class Step2 extends React.Component {
         const db = import("firebase/firestore");
         const auth = import("firebase/auth");
         const storage = import("firebase/storage");
+        const analytics = import("firebase/analytics");
 
-        Promise.all([app, db, auth, storage]).then(([firebase]) => {
-            const f2 = getFirebase(firebase)
-            this.setState({ firebase: f2 })
+        Promise.all([app, db, auth, storage, analytics]).then(([firebase]) => {
+            const fb = getFirebase(firebase)
+            fb.analytics()
+            this.setState({ firebase: fb })
         })
     }
 
@@ -116,59 +118,65 @@ export default class Step2 extends React.Component {
     showLoading = () => this.setState({ isLoading: true })
     hideLoading = () => this.setState({ isLoading: false })
 
+
+
     sendDataToServer = async () => {
         let firebase = this.state.firebase
         this.showLoading()
-        let user = firebase.auth().currentUser;
 
-        if (user) {
+        var user = await getCurrentUser(firebase)
+        try {
+            if (user) {
+                const filename = user.uid + "-icon.jpeg"
 
-            const filename = user.uid + "-icon.jpeg"
+                let avatarLocation = await putFile(firebase, filename, "podcast_icons/", this.state.avatar)
+                if (avatarLocation) {
+                    const data = (({
+                        description,
+                        category,
+                        listenersAmount,
+                        age,
+                        gender,
+                        podcastLink,
+                        listenersDescription,
+                        typeOfCollaboration,
+                        importantWhenCollaborating,
+                        facebook,
+                        instagram,
+                        homepage,
+                    }) => ({
+                        description,
+                        category,
+                        listenersAmount,
+                        age,
+                        gender,
+                        listenersDescription,
+                        podcastLink,
+                        typeOfCollaboration,
+                        importantWhenCollaborating,
+                        facebook,
+                        instagram,
+                        homepage,
+                    }))(this.state);
 
-            let avatarLocation = await putFile(firebase, filename, "podcast_icons/", this.state.avatar)
-            if (avatarLocation) {
-                const data = (({
-                    description,
-                    category,
-                    listenersAmount,
-                    age,
-                    gender,
-                    podcastLink,
-                    listenersDescription,
-                    typeOfCollaboration,
-                    importantWhenCollaborating,
-                    facebook,
-                    instagram,
-                    homepage,
-                }) => ({
-                    description,
-                    category,
-                    listenersAmount,
-                    age,
-                    gender,
-                    listenersDescription,
-                    podcastLink,
-                    typeOfCollaboration,
-                    importantWhenCollaborating,
-                    facebook,
-                    instagram,
-                    homepage,
-                }))(this.state);
-
-                // adding the path in cloud-storage to db data obj 
-                data['AvatarPath'] = avatarLocation;
-                // data['uid'] = user.uid;
-
-                // TODO: Fix error handling
-                putPodcastProfileInfo(firebase, data, user.uid)
-                this.hideLoading()
-                navigate('signup/step3')
+                    // adding the path in cloud-storage to db data obj 
+                    data['AvatarPath'] = avatarLocation;
+                    // data['uid'] = user.uid;
+                    console.log("BEFORE PODCAST PROFILE")
+                    // TODO: Fix error handling
+                    putPodcastProfileInfo(firebase, data, user.uid)
+                    this.hideLoading()
+                    navigate('signup/step3')
+                } else {
+                    this.hideLoading()
+                    console.error("Could not upload image")
+                }
             } else {
-                this.hideLoading()
-                console.error("Could not upload image")
+                console.error("current user not found")
             }
-        } else {
-            console.error("current user not found")
+        }
+        catch (error) {
+            console.log("ERROR", error)
         }
     }
 

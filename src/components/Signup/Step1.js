@@ -109,6 +109,7 @@ export default class Step1 extends React.Component {
             this.hideLoading()
             return;
         }
+
         let uid = firebase.auth().currentUser.uid;
         let name = this.state.name
         let title = this.state.title

@@ -6,7 +6,7 @@ import { navigate } from "gatsby"
 import "firebase/auth";
 import { addPodcastProfileInfo, signupIsCompleted } from "../../common/api/db/podcastProfile"
 
-import { Spin, Typography, Divider, Input, Checkbox } from 'antd'
+import { Spin, Typography, Divider, Input, Checkbox, message } from 'antd'
 import { DefaultButton, SecondaryButton } from '../../common/components/Buttons'
 import { getFirebase, getCurrentUser } from "../../common/api/firebase"
 
@@ -22,7 +22,7 @@ export default class Step1 extends React.Component {
             isLoading: false,
             checkBox: false,
             name: "",
-            titel: "",
+            title: "",
             email: "",
             password: "",
             repeatPassword: "",
@@ -60,10 +60,7 @@ export default class Step1 extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // only update chart if the data has changed
-        console.log(prevState);
         if (prevState.firebase !== this.state.firebase) {
-            console.log("FIREBASE")
             this.getUser()
         }
     }
@@ -81,31 +78,31 @@ export default class Step1 extends React.Component {
         var password = this.state.password
 
         if (email.length < 4) {
-            alert('Please enter an email address.');
+            message.error('Please enter an email address.');
             return;
         }
         if (password.length < 7) {
-            alert('Password must be longer than 6 characters .');
+            message.error('Password must be longer than 6 characters .');
             return;
         }
 
         if (this.state.name.length < 3) {
-            alert('Please enter a name.');
+            message.error('Please enter a name.');
             return;
         }
 
-        if (this.state.title.length < 4) {
-            alert('Please enter a title.');
+        if (this.state.title.length < 3) {
+            message.error('Please enter a title.');
             return;
         }
 
         if (password != this.state.repeatPassword) {
-            alert('Password do not match');
+            message.error('Password do not match');
             return;
         }
 
         if (this.state.checkBox == false) {
-            alert('Du måste acceptera användarvilkoren');
+            message.error('Du måste acceptera användarvilkoren');
             return;
         }
 
@@ -115,9 +112,9 @@ export default class Step1 extends React.Component {
             await firebase.auth().createUserWithEmailAndPassword(email, password)
         } catch (error) {
             if (error.code == 'auth/weak-password') {
-                alert('The password is too weak.');
+                message.error('The password is too weak.');
             } else {
-                alert(error.message);
+                message.error(error.message);
             }
             this.hideLoading()
             return;
@@ -126,7 +123,7 @@ export default class Step1 extends React.Component {
         try {
             await firebase.auth().currentUser.sendEmailVerification()
         } catch (error) {
-            alert(error.message);
+            message.error(error.message);
             this.hideLoading()
             return;
         }

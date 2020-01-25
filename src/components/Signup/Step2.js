@@ -94,13 +94,59 @@ export default class Step2 extends React.Component {
 
         return result;
     }
+    validatePart2Data = () => {
+
+        let result = true
+
+        if (this.state.age === "") {
+            this.setState({ errorMsg: "Välj en målgrupp" })
+            result = false;
+        }
+        else if (this.state.gender === "") {
+            this.setState({ errorMsg: "Välj köngrupp" }) // TODO SKRIV INTE KONGRUPP
+            result = false;
+        }
+        else if (this.state.listenersDescription === "") {
+            this.setState({ errorMsg: "Fyll i beskrivning för dina lyssnare" })
+            result = false;
+        }
+        return result;
+    }
+
+    validatePart3Data = () => {
+
+        let result = true
+
+        if (this.state.typeOfCollaboration === "") {
+            this.setState({ errorMsg: "Fyll i vilken typ av företag du vill sammarbeta med" })
+            result = false;
+        }
+        else if (this.state.importantWhenCollaborating === "") {
+            this.setState({ errorMsg: "Fyll i vad som är viktigt för dig för ett lyckat sponsorskap" })
+            result = false;
+        }
+        else if (this.state.podcastLink === "") {
+            this.setState({ errorMsg: "Fyll i en länk till din podcast" })
+            result = false;
+        }
+
+        return result;
+    }
 
     nextPart = () => {
         if (this.state.part == 0 && !this.validatePart1Data()) {
         }
+        if (this.state.part == 1 && !this.validatePart2Data()) {
+        }
+        if (this.state.part == 2 && !this.validatePart3Data()) {
+        }
         else {
+            this.setState({ errorMsg: null })
             this.setState({ part: this.state.part + 1 })
         }
+
+
+
     }
 
     prevPart = () => {
@@ -161,62 +207,66 @@ export default class Step2 extends React.Component {
 
 
     sendDataToServer = async () => {
-        let firebase = this.state.firebase
-        this.showLoading()
 
-        var user = await getCurrentUser(firebase)
-        try {
-            if (user) {
-                const filename = user.uid + "-icon.jpeg"
+        if (this.validatePart3Data()) {
 
-                let avatarLocation = await putFile(firebase, filename, "podcast_icons/", this.state.avatar)
-                if (avatarLocation) {
-                    const data = (({
-                        description,
-                        category,
-                        listenersAmount,
-                        age,
-                        gender,
-                        podcastLink,
-                        listenersDescription,
-                        typeOfCollaboration,
-                        importantWhenCollaborating,
-                        facebook,
-                        instagram,
-                        homepage,
-                    }) => ({
-                        description,
-                        category,
-                        listenersAmount,
-                        age,
-                        gender,
-                        listenersDescription,
-                        podcastLink,
-                        typeOfCollaboration,
-                        importantWhenCollaborating,
-                        facebook,
-                        instagram,
-                        homepage,
-                    }))(this.state);
+            let firebase = this.state.firebase
+            this.showLoading()
 
-                    // adding the path in cloud-storage to db data obj 
-                    data['AvatarPath'] = avatarLocation;
-                    // data['uid'] = user.uid;
-                    console.log("BEFORE PODCAST PROFILE")
-                    // TODO: Fix error handling
-                    putPodcastProfileInfo(firebase, data, user.uid)
-                    this.hideLoading()
-                    navigate('signup/step3')
+            var user = await getCurrentUser(firebase)
+            try {
+                if (user) {
+                    const filename = user.uid + "-icon.jpeg"
+
+                    let avatarLocation = await putFile(firebase, filename, "podcast_icons/", this.state.avatar)
+                    if (avatarLocation) {
+                        const data = (({
+                            description,
+                            category,
+                            listenersAmount,
+                            age,
+                            gender,
+                            podcastLink,
+                            listenersDescription,
+                            typeOfCollaboration,
+                            importantWhenCollaborating,
+                            facebook,
+                            instagram,
+                            homepage,
+                        }) => ({
+                            description,
+                            category,
+                            listenersAmount,
+                            age,
+                            gender,
+                            listenersDescription,
+                            podcastLink,
+                            typeOfCollaboration,
+                            importantWhenCollaborating,
+                            facebook,
+                            instagram,
+                            homepage,
+                        }))(this.state);
+
+                        // adding the path in cloud-storage to db data obj 
+                        data['AvatarPath'] = avatarLocation;
+                        // data['uid'] = user.uid;
+                        console.log("BEFORE PODCAST PROFILE")
+                        // TODO: Fix error handling
+                        putPodcastProfileInfo(firebase, data, user.uid)
+                        this.hideLoading()
+                        navigate('signup/step3')
+                    } else {
+                        this.hideLoading()
+                        console.error("Could not upload image")
+                    }
                 } else {
-                    this.hideLoading()
-                    console.error("Could not upload image")
+                    console.error("current user not found")
                 }
-            } else {
-                console.error("current user not found")
             }
-        }
-        catch (error) {
-            console.log("ERROR", error)
+            catch (error) {
+                console.log("ERROR", error)
+            }
         }
     }
 
@@ -313,6 +363,7 @@ export default class Step2 extends React.Component {
                             value={this.state.listenersDescription}
                             onChange={(e) => this.handleChange(e, "listenersDescription")}>
                         </TextArea>
+                        {this.state.errorMsg && <Alert message={this.state.errorMsg} type="error" />}
                         <Divider />
                         <SecondaryButton title="Tillbaka" onClick={() => this.prevPart()} ></SecondaryButton>
                         <DefaultButton title="Nästa" onClick={() => this.nextPart()} ></DefaultButton>
@@ -339,12 +390,12 @@ export default class Step2 extends React.Component {
                                 value={this.state.importantWhenCollaborating}
                                 onChange={(e) => this.handleChange(e, "importantWhenCollaborating")}>
                             </TextArea>
-                            <Text>Länk till din podd (fällt kan lämnas tomt): </Text>
+                            <Text>Länk till din podd : </Text>
                             <Input style={{ margin: '10px 0' }}
                                 value={this.state.podcastLink}
-                                placeholder="Länk till podden"
+                                placeholder="Länk till ex. spotify, itunes, acast osv."
                                 onChange={(e) => this.handleChange(e, "podcastLink")} />
-
+                            <Text>Övriga länkar (fält kan lämnas tomt): </Text>
                             <Input style={{ margin: '10px 0' }}
                                 value={this.state.facebook}
                                 placeholder="Länk till facebook"
@@ -359,7 +410,7 @@ export default class Step2 extends React.Component {
                                 value={this.state.homepage}
                                 placeholder="Länk till hemsida"
                                 onChange={(e) => this.handleChange(e, "homepage")} />
-
+                            {this.state.errorMsg && <Alert message={this.state.errorMsg} type="error" />}
                             <Divider />
                             <SecondaryButton title="Tillbaka" onClick={() => this.prevPart()} ></SecondaryButton>
                             <DefaultButton title="Klar" onClick={() => this.sendDataToServer()} ></DefaultButton>

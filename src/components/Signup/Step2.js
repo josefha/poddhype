@@ -134,19 +134,12 @@ export default class Step2 extends React.Component {
     }
 
     nextPart = () => {
-        if (this.state.part == 0 && !this.validatePart1Data()) {
-        }
-        if (this.state.part == 1 && !this.validatePart2Data()) {
-        }
-        if (this.state.part == 2 && !this.validatePart3Data()) {
-        }
+        if (this.state.part == 0 && !this.validatePart1Data()) { }
+        else if (this.state.part == 1 && !this.validatePart2Data()) { }
         else {
             this.setState({ errorMsg: null })
             this.setState({ part: this.state.part + 1 })
         }
-
-
-
     }
 
     prevPart = () => {

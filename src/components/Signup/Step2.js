@@ -1,7 +1,7 @@
 import './style.less';
 import React from 'react';
 
-import { Button, Typography, Divider, Input, Spin, Slider, Checkbox } from 'antd'
+import { Button, Typography, Divider, Input, Spin, Slider, Alert } from 'antd'
 import Avatar from './Avatar'
 import TagPicker from './TagPicker'
 import { putFile } from '../../common/api/storage'
@@ -23,8 +23,9 @@ export default class Step2 extends React.Component {
             // Step 1
             description: "",
             category: [],
-            listenersAmount: 500,
+            listenersAmount: 0,
             avatar: null,
+            avatarIsLoading: false,
             selectedButton: -1,
             // Step 2
             age: "",
@@ -39,6 +40,8 @@ export default class Step2 extends React.Component {
             facebook: "",
             instagram: "",
             homepage: "",
+
+            errorMsg: null,
 
             isLoading: false,
             firebase: null
@@ -63,8 +66,41 @@ export default class Step2 extends React.Component {
         this.loadFirebase()
     }
 
+    validatePart1Data = () => {
+        let result = true;
+
+        if (this.state.description == "") {
+            this.setState({ errorMsg: "Fyll i beskrivningen" })
+            result = false;
+        }
+        else if (this.state.category.length == 0) {
+            this.setState({ errorMsg: "Välj en kategori" })
+            result = false;
+        }
+
+        else if (this.state.listenersAmount == 0) {
+            this.setState({ errorMsg: "Uppskatta antal lyssnare genom att dra slidern" })
+            result = false;
+        }
+        else if (this.state.avatarIsLoading) {
+            this.setState({ errorMsg: "Vänta tills bilden har laddats upp" })
+            result = false;
+        }
+
+        else if (!this.state.avatar) {
+            this.setState({ errorMsg: "Välj en bild för din podcast" })
+            result = false;
+        }
+
+        return result;
+    }
+
     nextPart = () => {
-        this.setState({ part: this.state.part + 1 })
+        if (this.state.part == 0 && !this.validatePart1Data()) {
+        }
+        else {
+            this.setState({ part: this.state.part + 1 })
+        }
     }
 
     prevPart = () => {
@@ -80,7 +116,11 @@ export default class Step2 extends React.Component {
     }
 
     setAvatar = (file) => {
-        this.setState({ avatar: file })
+        this.setState({ avatar: file, avatarIsLoading: false })
+    }
+
+    setAvatarIsLoading = (isloading) => {
+        this.setState({ avatarIsLoading: isloading })
     }
 
     onButtonGroupAgeClick = (n) => {
@@ -214,7 +254,10 @@ export default class Step2 extends React.Component {
                             onChange={(e) => this.handlePickerChange(e, 'listenersAmount')}
                             value={this.state.listenersAmount}
                         />
-                        <Avatar setAvatar={(a) => this.setAvatar(a)} />
+                        <Avatar
+                            setAvatarIsLoading={(a) => this.setAvatarIsLoading(a)}
+                            setAvatar={(a) => this.setAvatar(a)} />
+                        {this.state.errorMsg && <Alert message={this.state.errorMsg} type="error" />}
                         <Divider />
                         <DefaultButton title="Nästa" onClick={() => this.nextPart()} ></DefaultButton>
                     </React.Fragment>)

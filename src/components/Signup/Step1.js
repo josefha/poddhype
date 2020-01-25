@@ -6,9 +6,9 @@ import { navigate } from "gatsby"
 import "firebase/auth";
 import { addPodcastProfileInfo } from "../../common/api/db/podcastProfile"
 
-import { Spin, Typography, Divider, Input, Checkbox, Modal } from 'antd'
+import { Spin, Typography, Divider, Input, Checkbox } from 'antd'
 import { DefaultButton } from '../../common/components/Buttons'
-import { getFirebase } from "../../common/api/firebase"
+import { getFirebase, getCurrentUser } from "../../common/api/firebase"
 import TermsOfUse from '../../common/components/TermsOfUse';
 
 const { Title, Text } = Typography
@@ -27,6 +27,7 @@ export default class Step1 extends React.Component {
             repeatPassword: "",
             firebase: null,
             showTerms: false,
+            user: null,
         }
     }
 
@@ -44,9 +45,24 @@ export default class Step1 extends React.Component {
         })
     }
 
+    getUser = async () => {
+        let user = await getCurrentUser(this.state.firebase)
+        if (user) {
+            this.setState({ user })
+        }
+    }
+
     componentDidMount = () => {
         this.loadFirebase()
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        // only update chart if the data has changed
+        if (prevState.firebase !== this.state.firebase) {
+            this.getUser()
+        }
+    }
+
 
     handleOk = e => this.setState({ showTerms: false });
     showTerms = () => this.setState({ showTerms: true })
@@ -133,59 +149,77 @@ export default class Step1 extends React.Component {
     }
 
     render() {
+
+        const LogginBox = () => (
+            <Spin spinning={this.state.isLoading}
+                tip="Skapar konto...">
+                <TermsOfUse
+                    showTerms={this.state.showTerms}
+                    handleOk={this.handleOk}
+                    hideTerms={this.hideTerms}
+                />
+                <Title style={{ textAlign: 'center' }} level={2}>Bli en partnerpodd</Title>
+                <p>Beskriv din podd och dina mål så sköter vi resten.</p>
+                <Divider />
+                <Input style={{ marginBottom: '20px' }}
+                    placeholder="Ditt namn"
+                    value={this.state.name}
+                    onChange={(e) => this.handleChange(e, "name")} />
+                <Input placeholder="Podcaststitel"
+                    value={this.state.title}
+                    onChange={(e) => this.handleChange(e, "title")} />
+                <Divider />
+                {this.state.part == 0 ?
+                    (<DefaultButton title="Nästa" style={{ margin: 'auto' }} onClick={() => this.nextPart()} size='large'></DefaultButton>)
+                    : (
+                        <div >
+                            <Text> Skapa ett konto </Text>
+                            <Input style={{ margin: '20px 0' }} placeholder="Email"
+                                value={this.state.email}
+                                onChange={(e) => this.handleChange(e, "email")} />
+                            <Input.Password style={{ marginBottom: '20px' }} placeholder="Lösenord"
+                                value={this.state.password}
+                                onChange={(e) => this.handleChange(e, "password")} />
+                            <Input.Password style={{ marginBottom: '20px' }} placeholder="Upprepa lösenord"
+                                value={this.state.repeatPassword}
+                                onChange={(e) => this.handleChange(e, "repeatPassword")} />
+
+                            <Checkbox style={{ 'width': '100%', margin: '10px 0' }}
+                                onChange={this.checkBoxChange}>
+                                <span style={{ display: 'inline' }}>Jag accepterar </span>
+                                <span
+                                    onClick={this.showTerms}
+                                    style={{ width: '120px', marginBottom: '10px', color: '#333', fontSize: '14px', textDecoration: 'underline' }}>
+                                    användarvilkoren</span>
+                            </Checkbox>
+                            <DefaultButton
+                                style={{ 'float': 'right' }}
+                                title="Skapa konto"
+                                id="createAccountButton"
+                                onClick={() => this.createAccountHandler()}>
+                            </DefaultButton>
+                        </div>
+                    )
+                }
+            </Spin>
+        )
+
+        const IsLoggedIn = () => (
+            <>
+                <Title style={{ textAlign: 'center' }} level={2}>Du har påbörjat skapa ett konto</Title>
+                <p>Fortsätt till nästa sida för att beskriva podden</p>
+                <DefaultButton
+                    style={{ 'float': 'right' }}
+                    title="Beskriv podden"
+                    id="createAccountButton"
+                    onClick={() => navigate('signup/step2')}>
+                </DefaultButton>
+            </>
+        )
+
         return (
             <div className='form-content' >
-                <Spin spinning={this.state.isLoading}
-                    tip="Skapar konto...">
-                    <TermsOfUse
-                        showTerms={this.state.showTerms}
-                        handleOk={this.handleOk}
-                        hideTerms={this.hideTerms}
-                    />
-                    <Title style={{ textAlign: 'center' }} level={2}>Bli en partnerpodd</Title>
-                    <p>Beskriv din podd och dina mål så sköter vi resten.</p>
-                    <Divider />
-                    <Input style={{ marginBottom: '20px' }}
-                        placeholder="Ditt namn"
-                        value={this.state.name}
-                        onChange={(e) => this.handleChange(e, "name")} />
-                    <Input placeholder="Podcaststitel"
-                        value={this.state.title}
-                        onChange={(e) => this.handleChange(e, "title")} />
-                    <Divider />
-                    {this.state.part == 0 ?
-                        (<DefaultButton title="Nästa" style={{ margin: 'auto' }} onClick={() => this.nextPart()} size='large'></DefaultButton>)
-                        : (
-                            <div >
-                                <Text> Skapa ett konto </Text>
-                                <Input style={{ margin: '20px 0' }} placeholder="Email"
-                                    value={this.state.email}
-                                    onChange={(e) => this.handleChange(e, "email")} />
-                                <Input.Password style={{ marginBottom: '20px' }} placeholder="Lösenord"
-                                    value={this.state.password}
-                                    onChange={(e) => this.handleChange(e, "password")} />
-                                <Input.Password style={{ marginBottom: '20px' }} placeholder="Upprepa lösenord"
-                                    value={this.state.repeatPassword}
-                                    onChange={(e) => this.handleChange(e, "repeatPassword")} />
-
-                                <Checkbox style={{ 'width': '100%', margin: '10px 0' }}
-                                    onChange={this.checkBoxChange}>
-                                    <span style={{ display: 'inline' }}>Jag accepterar </span>
-                                    <span
-                                        onClick={this.showTerms}
-                                        style={{ width: '120px', marginBottom: '10px', color: '#333', fontSize: '14px', textDecoration: 'underline' }}>
-                                        användarvilkoren</span>
-                                </Checkbox>
-                                <DefaultButton
-                                    style={{ 'float': 'right' }}
-                                    title="Skapa konto"
-                                    id="createAccountButton"
-                                    onClick={() => this.createAccountHandler()}>
-                                </DefaultButton>
-                            </div>
-                        )
-                    }
-                </Spin>
+                {this.state.user ? <IsLoggedIn /> : <LogginBox />}
             </div>)
     }
 }

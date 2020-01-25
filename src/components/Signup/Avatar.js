@@ -28,6 +28,7 @@ export default class Avatar extends React.Component {
     handleChange = info => {
         if (info.file.status === 'uploading') {
             this.setState({ loading: true });
+            this.props.setAvatarIsLoading(true)
             return;
         }
         if (info.file.status === 'done') {
@@ -39,6 +40,7 @@ export default class Avatar extends React.Component {
                 }),
             );
             this.props.setAvatar(info.file.originFileObj)
+            this.props.setAvatarIsLoading(false)
         }
     };
 

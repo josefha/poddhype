@@ -13,7 +13,7 @@ const busniess_deal = require('../../assets/business-deal.svg');
 const BrandPart = () => (
     <div className="brand-part-wrapper">
         <div className="header-text-box">
-            <img className="header-image" src={busniess_deal} />
+            <img style={{ width: '300px', margin: '0 0 40px 0', height: 'auto' }} src={busniess_deal} />
 
             <h1>Poddhype för Brands</h1>
             <PurpleSubheading>Marknadsför ditt företag i en podcast</PurpleSubheading>

@@ -2,6 +2,7 @@
 import React from "react";
 import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
+import SignupBlock from '../../common/components/SignupBlock'
 import SEO from '../../common/components/seo'
 import { Input, Collapse } from 'antd'
 import './style.less';
@@ -46,7 +47,7 @@ class About extends React.Component {
                             </p>
                             <img id="faq-icon" src={faqIcon} />
                             <h2 id="second-title">Vanliga frågor</h2>
-                            <Collapse style={{ textAlign: 'left' }} bordered={true} defaultActiveKey={['0']}>
+                            <Collapse style={{ textAlign: 'left', marginBottom: '100px' }} bordered={true} defaultActiveKey={['0']}>
                                 {this.question.map((q, i) => (
                                     <Panel header={q.title} key={i}>
                                         <p class="about-answer-text">
@@ -55,6 +56,7 @@ class About extends React.Component {
                                     </Panel>
                                 ))}
                             </Collapse>
+                            <SignupBlock />
                         </div>
                     </div>
                 </PageWrapper>

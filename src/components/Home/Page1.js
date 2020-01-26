@@ -158,7 +158,6 @@ export default class Page1 extends React.PureComponent {
 
   render() {
     const children = page1Data.map((item, i) => {
-      const isHover = item.nameEn === this.state.hoverKey;
       return (
         <Col key={item.nameEn} md={8} xs={24}>
           <div

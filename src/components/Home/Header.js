@@ -20,6 +20,7 @@ export default function Header(props) {
           <HeaderLink to="/">Hem</HeaderLink>
           <HeaderLink to="/brands">Brands</HeaderLink>
           <HeaderLink to="/podcasters">Poddare </HeaderLink>
+          <HeaderLink to="/about-us">Om Poddhype </HeaderLink>
           <HeaderLink type='normal' to="https://medium.com/poddhype"> Nyheter </HeaderLink>
           <ButtonCta
             size="small"

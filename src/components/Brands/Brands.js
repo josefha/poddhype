@@ -3,7 +3,7 @@ import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import SEO from '../../common/components/seo'
 import { ButtonTransparent } from '../../common/components/Buttons/index.js'
-import { Input } from 'antd'
+import { Input, Divider } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
 import { getFirebase } from "../../common/api/firebase"
 import { Link } from 'gatsby'
@@ -61,11 +61,17 @@ class Brands extends React.Component {
                     <BrandPart />
                     <div className="page">
                         <div className="wrapper-content-box">
-
-                            <p>
+                            <Divider />
+                            <p style={{ margin: '20px 0 0 0' }}>
                                 Poddhype är under utveckling, snart öppnar vi upp vår portal för Brands.
                             </p>
-                            <h3>Håll dig informerad, premunera på vårt nyhetsbrev.</h3>
+                            <p style={{
+                                fontFamily: 'Montserrat',
+                                fontSize: '16px',
+                                margin: '0 0 20px 0',
+                                fontWeight: '600',
+                                color: '#8940FA'
+                            }}>Håll dig informerad, prenumerera på nyhetsbrevet.</p>
                             <Input
                                 placeholder="Email"
                                 style={{
@@ -79,7 +85,7 @@ class Brands extends React.Component {
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.target.value })} />
                             <ButtonTransparent
-                                title={this.state.done ? 'Tack!' : 'Sign up'}
+                                title={this.state.done ? 'Tack!' : 'Signup'}
                                 onClick={() => this.emailSignup()}
                             />
                         </div>

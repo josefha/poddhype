@@ -22,7 +22,7 @@ class About extends React.Component {
     }
 
     question = [
-        { title: 'Varför är Poddhype gratis för poddar?', answer: "För en poddcast " },
+        { title: 'Varför är Poddhype gratis för poddar?', answer: "Poddhype matchar podcast med företag" },
         { title: 'Vad betyder det att vara en partnerpodd?', answer: "GRATIS" },
         { title: 'Varför är det gratis att registrera sig?', answer: "För en poddcast " }
     ]

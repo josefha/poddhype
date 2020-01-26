@@ -1,13 +1,11 @@
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
-import DocumentTitle from 'react-document-title';
 import SEO from '../../common/components/seo'
 import { enquireScreen } from 'enquire-js';
 import { getFirebase } from "../../common/api/firebase"
 import Header from './Header';
 import Banner from './Banner';
 import Page1 from './Page1';
-import BrandPart from './BrandPart';
 import Page3 from './Page3';
 import Footer from './Footer';
 import cnLocale from '../../zh-CN';
@@ -58,17 +56,15 @@ class Home extends React.Component {
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <>
           <SEO
-            title="Poddhype | Matchar Brands med poddar"
+            title="Poddhype | Matchar Brands med podcast"
             description="Marknadsför ditt företag i podcasts med en målgrupp som passar dig. Vi bygger en plattform som gör det lättare att hitta värdefulla samarbeten."
           />
           <Header />
           <div className="page-wrapper home">
             <Banner isMobile={this.state.isMobile} />
             <Page1 isMobile={true} />
-            <BrandPart />
             <Page3 isMobile={this.state.isMobile} />
             <Footer />
-            <DocumentTitle title="Poddhype | Matchar Podcasters med Brands" key="title" />
           </div>
         </>
       </IntlProvider>

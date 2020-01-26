@@ -7,6 +7,7 @@ import { Input } from 'antd'
 import { PostBrandEmailSignUp } from '../../common/api/db/brands.js'
 import { getFirebase } from "../../common/api/firebase"
 import { Link } from 'gatsby'
+import BrandPart from '../../common/components/BrandPart/BrandPart'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -56,18 +57,15 @@ class Brands extends React.Component {
                     title="Poddhype | Marknadsför ditt företag i podcasts"
                     description="Via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta poddar med en publik som passar dig."
                 />
-                <PageWrapper>
+                <PageWrapper footer={true}>
+                    <BrandPart />
                     <div className="page">
                         <div className="wrapper-content-box">
-                            <img className="header-image" src={workInProgressIcon} />
-                            <h1 key="h1" id="lp-title">
-                                Marknadsför ditt företag i podcasts
-                            </h1>
-                            <h2 id="banner_description" style={{ marginTop: '0px' }}>
-                                Vi öppnar snart vår plattform för Brands, läsa mer <Link to="/#part2">här.</Link>
-                            </h2>
-                            <br></br>
-                            <h3>Prenumerera på vårt nyhetsbrev</h3>
+
+                            <p>
+                                Poddhype är under utveckling, snart öppnar vi upp vår portal för Brands.
+                            </p>
+                            <h3>Håll dig informerad, premunera på vårt nyhetsbrev.</h3>
                             <Input
                                 placeholder="Email"
                                 style={{

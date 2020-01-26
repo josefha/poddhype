@@ -3,9 +3,7 @@ import React from "react";
 import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import SEO from '../../common/components/seo'
-import { ButtonTransparent } from '../../common/components/Buttons/index.js'
 import { Input, Collapse } from 'antd'
-import { Link } from 'gatsby'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -31,10 +29,10 @@ class About extends React.Component {
         return (
             <div>
                 <SEO
-                    title="Poddhype | Nystartad plattform för"
-                    description="Via poddhypes plattform kan du sortera efter ämne och målgrupp för att sedan direkt kontakta poddar med en publik som passar dig."
+                    title="Poddhype | En plattform som för samman podcasts med sponsorer"
+                    description="Podcasts, sponsorskap, sponsorer, reklam, annonsering"
                 />
-                <PageWrapper>
+                <PageWrapper footer={true}>
                     <div className="page about-page" >
                         <div className="about-wrapper-content-box">
                             <h1 key="h1" id="lp-title">

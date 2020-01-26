@@ -24,9 +24,22 @@ class About extends React.Component {
     }
 
     question = [
-        { title: 'Varför är Poddhype gratis för poddar?', answer: "Poddhype matchar podcast med företag" },
-        { title: 'Vad betyder det att vara en partnerpodd?', answer: "GRATIS" },
-        { title: 'Varför är det gratis att registrera sig?', answer: "För en poddcast " }
+        {
+            title: 'Är det helt gratis för podcast att gå med i Poddhype?',
+            answer: "Ja det helt gratis, Poddhype tar endast betalt av företagen som letar efter marknadsföring."
+        },
+        {
+            title: 'Har jag några skyldigheter efter registrering?',
+            answer: "Nej, du har inga skyldigheter att ingå i något samarbete. Utan när ett företag skickar ett förslag tar du då beslut om det skulle vara något för dig eller inte."
+        },
+        {
+            title: 'När får jag min första förfrågan?',
+            answer: "Poddhype är fortfarande i ett väldigt tidigt stadie, just nu pratar vi med podcasts som skulle vara intresserad av att gå med i vår plattform. Vi utvecklar samtidigt vår företagsportal och planerar att börja marknadsföra Poddhype mot Brands i mitten på mars."
+        },
+        {
+            title: 'Vart kan jag logga in?',
+            answer: "Poddhype webbsida är fortfarande under utveckling så just kan du endast registrera dig. Men oroa dig efter du registrerat din podd kontaktar vi dig via mail när mer funktionalitet är på plats."
+        }
     ]
 
     render() {
@@ -43,10 +56,17 @@ class About extends React.Component {
                                 Om Poddhype
                             </h1>
                             <p>
-                                Poddhype är just nu i en tidig uppstarts fas, vi pratar just nu med poddar som vi tror skulle passa in i vår plattform. Vi planerar att nå ut till annonsörer när vi har en bra bas av podcasts och har färdigutvecklat vår webb platform. Vi tror att marknadsföring i podcasts är något som kommer se en starkt tillväxt under 2020 och vi ser det som vårt uppdrag att sprida kunskap om värdet i det.
+                                Poddhype är en nystartad plattform som matchar poddare med företag som vill marknadsföra sig i podcasts.
+                                Podcast är ett fantastiskt medium att göra reklam i och vi ser att många företag börjar inse just detta.
+                                Poddhype sprider kunskap och förenklar processen för dessa företag att hitta passande podcasts.
+                            </p>
+                            <p>
+                                Det bästa är att den enda en poddare behöver göra är att registrera sitt konto.
+                                Efter det kan företag hitta podden i vår platform och skicka förslag om samarbete.
+                                Under tiden jobbar alla poddare på som vanligt.
                             </p>
                             <img id="faq-icon" src={faqIcon} />
-                            <h2 id="second-title">Vanliga frågor</h2>
+                            {/* <h2 id="second-title">Vanliga frågor</h2> */}
                             <Collapse style={{ textAlign: 'left', marginBottom: '100px' }} bordered={true} defaultActiveKey={['0']}>
                                 {this.question.map((q, i) => (
                                     <Panel header={q.title} key={i}>

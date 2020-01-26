@@ -1,10 +1,9 @@
 
 import React from "react";
-import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import SignupBlock from '../../common/components/SignupBlock'
 import SEO from '../../common/components/seo'
-import { Input, Collapse } from 'antd'
+import { Collapse } from 'antd'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -16,11 +15,6 @@ const { Panel } = Collapse;
 class About extends React.Component {
     constructor(props) {
         super(props);
-        const appLocale = cnLocale;
-        this.state = {
-            appLocale,
-            email: '',
-        };
     }
 
     question = [
@@ -38,7 +32,7 @@ class About extends React.Component {
         },
         {
             title: 'Vart kan jag logga in?',
-            answer: "Poddhype webbsida är fortfarande under utveckling så just kan du endast registrera dig. Men oroa dig efter du registrerat din podd kontaktar vi dig via mail när mer funktionalitet är på plats."
+            answer: "Poddhype webbsida är fortfarande under utveckling så just kan du endast registrera dig. Men oroa dig inte efter du registrerat din podd kontaktar vi dig via mail när mer funktionalitet är på plats."
         }
     ]
 
@@ -55,19 +49,19 @@ class About extends React.Component {
                             <h1 key="h1" id="lp-title">
                                 Om Poddhype
                             </h1>
-                            <p>
+                            <p style={{ lineHeight: '1.7' }}>
                                 Poddhype är en nystartad plattform som matchar poddare med företag som vill marknadsföra sig i podcasts.
                                 Podcast är ett fantastiskt medium att göra reklam i och vi ser att många företag börjar inse just detta.
-                                Poddhype sprider kunskap och förenklar processen för dessa företag att hitta passande podcasts.
+                                Poddhype sprider kunskap och förenklar processen för dessa företag hittar passande podcasts.
                             </p>
-                            <p>
-                                Det bästa är att den enda en poddare behöver göra är att registrera sitt konto.
-                                Efter det kan företag hitta podden i vår platform och skicka förslag om samarbete.
-                                Under tiden jobbar alla poddare på som vanligt.
+                            <p style={{ lineHeight: '1.7' }}>
+                                <b>Det bästa</b> är att den enda en poddare behöver göra är att registrera sitt konto.
+                                    Efter det kan företag hitta podden i vår platform och skicka förslag om samarbete.
+                                    Under tiden jobbar alla poddare på som vanligt.
                             </p>
                             <img id="faq-icon" src={faqIcon} />
                             {/* <h2 id="second-title">Vanliga frågor</h2> */}
-                            <Collapse style={{ textAlign: 'left', marginBottom: '100px' }} bordered={true} defaultActiveKey={['0']}>
+                            <Collapse style={{ textAlign: 'left', marginBottom: '100px' }} bordered={true} defaultActiveKey={['0', '1']}>
                                 {this.question.map((q, i) => (
                                     <Panel header={q.title} key={i}>
                                         <p class="about-answer-text">

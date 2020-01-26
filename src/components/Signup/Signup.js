@@ -70,7 +70,7 @@ class Signup extends React.Component {
                             <DefaultButton
                                 title="Gå till startsidan"
                                 id="goToStartPage"
-                                onClick={() => navigate('../../')}>
+                                onClick={() => navigate('/')}>
                             </DefaultButton>
                         </div>)
                     }

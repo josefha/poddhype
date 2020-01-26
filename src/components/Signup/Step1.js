@@ -121,6 +121,17 @@ export default class Step1 extends React.Component {
         }
 
         try {
+            let uid = firebase.auth().currentUser.uid;
+            let name = this.state.name
+            let title = this.state.title
+            await addPodcastProfileInfo(firebase, { uid, name, title })
+        } catch (error) {
+            message.error(error.message);
+            this.hideLoading()
+            return
+        }
+
+        try {
             await firebase.auth().currentUser.sendEmailVerification()
         } catch (error) {
             message.error(error.message);
@@ -128,10 +139,7 @@ export default class Step1 extends React.Component {
             return;
         }
 
-        let uid = firebase.auth().currentUser.uid;
-        let name = this.state.name
-        let title = this.state.title
-        addPodcastProfileInfo(firebase, { uid, name, title })
+
         this.hideLoading()
         navigate('signup/step2')
     }
@@ -238,7 +246,7 @@ export default class Step1 extends React.Component {
                     style={{ 'float': 'right' }}
                     title="Gå till startsidan"
                     id="createAccountButton"
-                    onClick={() => navigate('../')}>
+                    onClick={() => navigate('/')}>
                 </DefaultButton>
             </>
         )

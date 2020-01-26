@@ -1,15 +1,8 @@
-import { async } from "q";
-
-export const addPodcastProfileInfo = (firebase, data) => {
+export const addPodcastProfileInfo = async (firebase, data) => {
     var db = firebase.firestore();
 
-    db.collection("podcast-profiles").add(data)
-        .then(function (docRef) {
-            console.log("Document written");
-        })
-        .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
+    await db.collection("podcast-profiles").add(data)
+    console.log("Document written");
 }
 
 
@@ -53,4 +46,5 @@ export const signupIsCompleted = async (firebase, uid) => {
     } else {
         return false;
     }
+
 }

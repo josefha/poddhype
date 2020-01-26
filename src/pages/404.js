@@ -12,7 +12,7 @@ export default function PageNotFound() {
                 <Result
                     status="404"
                     title="404"
-                    subTitle="Ledsen, sidan du leter efter existerar inte"
+                    subTitle="Ledsen, sidan du leter efter existerar inte."
                     extra={<DefaultButton
                         title="Gå till startsidan"
                         id="goToStartPage"

@@ -11,8 +11,6 @@ import BrandPart from '../../common/components/BrandPart/BrandPart'
 import './style.less';
 import '../Home/static/header.less'
 
-const workInProgressIcon = require("../../common/assets/work-in-progress-icon.svg")
-
 class Brands extends React.Component {
     constructor(props) {
         super(props);
@@ -63,7 +61,7 @@ class Brands extends React.Component {
                         <div className="wrapper-content-box">
                             <Divider />
                             <p style={{ margin: '20px 0 0 0' }}>
-                                Poddhype är under utveckling, snart öppnar vi upp vår portal för Brands.
+                                Poddhype är under utveckling, snart öppnar vi upp vår plattform för Brands.
                             </p>
                             <p style={{
                                 fontFamily: 'Montserrat',
@@ -80,7 +78,7 @@ class Brands extends React.Component {
                                     maxWidth: '400px',
                                     height: '40px',
                                     fontSize: '14px',
-                                    margin: '5px 0 0px 0'
+                                    margin: '0px 0 5px 0'
                                 }}
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.target.value })} />

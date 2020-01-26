@@ -50,9 +50,9 @@ const PodcastersPart = (props) => {
                 <h1 key="h1" id="lp-title">
                     Partnerskap för poddar
                 </h1>
-                <PurpleSubheading>
+                {/* <PurpleSubheading>
                     test text
-                </PurpleSubheading>
+                </PurpleSubheading> */}
 
                 <h2 id="banner_description">
                     Poddhype hjälper dig att hitta sponsorer till din podcast.

@@ -105,16 +105,6 @@ export default class Page1 extends React.PureComponent {
     };
   }
 
-  onMouseOver = (key) => {
-    this.setState({
-      hoverKey: key,
-    });
-  }
-  onMouseOut = () => {
-    this.setState({
-      hoverKey: null,
-    });
-  }
   getEnter = (i, e) => {
     const ii = e.index;
     const r = (Math.random() * 2) - 1;
@@ -135,23 +125,6 @@ export default class Page1 extends React.PureComponent {
     ];
   };
 
-  getSvgChild = child => child.map((item, i) => {
-    const props = { ...item.props };
-    if (item.type === 'g') {
-      props.transform = null;
-    } else {
-      ['x', 'y', 'cx', 'cy'].forEach((str) => {
-        if (str in props) {
-          props[str] = null;
-        }
-      });
-    }
-    return (
-      <g key={i.toString()} >
-        {React.cloneElement(item, props)}
-      </g>
-    );
-  });
   leave = {
     opacity: 0, duration: 300, x: 100, y: 150, ease: 'easeInBack',
   };
@@ -168,14 +141,11 @@ export default class Page1 extends React.PureComponent {
             component="svg"
             resetStyleBool={false}
           >
-            {this.getSvgChild(item.svgBg.props.children)}
           </div>
           <div
             className="page1-block"
             type="bottom"
             componentProps={{ to: item.to }}
-            onMouseEnter={() => { this.onMouseOver(item.nameEn); }}
-            onMouseLeave={this.onMouseOut}
           >
             <div className="page1-image">
               <img className="number-icons" src={item.img} />

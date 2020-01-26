@@ -141,9 +141,9 @@ html {
   .ant-row {
     left: 12%;
   }
-  min-height: 744px;
+  min-height: 720px;
   background: @home-bg-color;
-  background: linear-gradient(to bottom, @home-bg-color 0%, #1e2328 70%);
+  background: linear-gradient(to bottom, @home-bg-color 0%, #1e2328 60%);
   
   h2 {
     color: #fff !important;
@@ -309,3 +309,38 @@ html {
   }
 }
 
+
+@divider-color: @home-bg-color;
+#HomeDivider {
+  margin: 150px 0 20px 0;
+  background: @divider-color;
+  height: 180px;
+}
+
+#HomeDivider:before {
+  content: "";
+  display: block;
+  position: relative;
+  background-color: @divider-color;
+
+  width: 120%;
+  height: 100px;
+  background: @divider-color;
+  top: -100px;
+  left: -10%;
+  transform-origin: 0;
+  transform: rotate(3deg);
+}
+#HomeDivider:after {
+  content: "";
+  display: block;
+  position: relative;
+
+  width: 120%;
+  height: 100px;
+  background: @divider-color;
+  bottom: 25px;
+  left: -10%;
+  transform-origin: 0;
+  transform: rotate(3deg);
+}

@@ -3,12 +3,14 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import SEO from '../../common/components/seo'
 import PodcastersPart from '../../common/components/PodcastersPart/PodcastersPart'
 import SignupBlock from '../../common/components/SignupBlock'
+import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import BrandPart from '../../common/components/BrandPart/BrandPart'
 import { enquireScreen } from 'enquire-js';
 import { getFirebase } from "../../common/api/firebase"
 import Header from './Header';
 import Banner from './Banner';
 import Page1 from './Page1';
+import HomeDivider from './HomeDivider'
 import Footer from './Footer';
 import cnLocale from '../../zh-CN';
 import './static/style';
@@ -66,6 +68,7 @@ class Home extends React.Component {
             <Banner isMobile={this.state.isMobile} />
             <Page1 isMobile={true} />
             <PodcastersPart isHomePage={true} />
+            <HomeDivider />
             <BrandPart isHomePage={true} />
             <div style={{ marginBottom: '100px' }} >
               <SignupBlock />

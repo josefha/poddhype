@@ -22,7 +22,8 @@ const MobileNavbar = () => {
                                     <li class="js_nav-item nav-item"><Link to="/"><a class="nav-item-child">Hem</a></Link></li>
                                     <li class="js_nav-item nav-item"><Link to="/brands"><a class="nav-item-child" >Brands</a></Link></li>
                                     <li class="js_nav-item nav-item"><Link to="/podcasters"><a class="nav-item-child">Poddare</a></Link></li>
-                                    <li class="js_nav-item nav-item"><a class="nav-item-child" target="_blank" href="medium.com/poddhype">Nyheter</a></li>
+                                    <li class="js_nav-item nav-item"><Link to="/about-us"><a class="nav-item-child">Om Poddhype</a></Link></li>
+                                    {/* <li class="js_nav-item nav-item"><a class="nav-item-child" target="_blank" href="medium.com/poddhype">Nyheter</a></li> */}
                                     <li class="js_nav-item nav-item"><Link to="/signup"><a class="nav-item-child">Bli medlem</a></Link></li>
                                 </ul>
                             </div>

@@ -19,7 +19,7 @@ class About extends React.Component {
 
     question = [
         {
-            title: 'Är det helt gratis för podcast att gå med i Poddhype?',
+            title: 'Är det helt gratis för podcasts att gå med i Poddhype?',
             answer: "Ja det helt gratis, Poddhype tar endast betalt av företagen som letar efter marknadsföring."
         },
         {
@@ -41,7 +41,7 @@ class About extends React.Component {
             <div>
                 <SEO
                     title="Poddhype | En plattform som för samman podcasts med sponsorer"
-                    description="Podcasts, sponsorskap, sponsorer, reklam, annonsering"
+                    description="Podcasts, sponsorskap, sponsorer, reklam, annonsering, poddar"
                 />
                 <PageWrapper footer={true}>
                     <div className="page about-page" >
@@ -49,15 +49,15 @@ class About extends React.Component {
                             <h1 key="h1" id="lp-title">
                                 Om Poddhype
                             </h1>
-                            <p style={{ lineHeight: '1.7' }}>
+                            <p>
                                 Poddhype är en nystartad plattform som matchar poddare med företag som vill marknadsföra sig i podcasts.
                                 Podcast är ett fantastiskt medium att göra reklam i och vi ser att många företag börjar inse just detta.
-                                Poddhype sprider kunskap och förenklar processen för dessa företag hittar passande podcasts.
+                                Poddhype sprider kunskap och förenklar processen för dessa företag att hitta passande poddar.
                             </p>
-                            <p style={{ lineHeight: '1.7' }}>
-                                <b>Det bästa</b> är att den enda en poddare behöver göra är att registrera sitt konto.
-                                    Efter det kan företag hitta podden i vår platform och skicka förslag om samarbete.
-                                    Under tiden jobbar alla poddare på som vanligt.
+                            <p>
+                                <b>Det bästa</b> är att den enda en poddare behöver göra är att registrera ett konto.
+                                    Efter det kan företag hitta podden i vår portal och skicka förslag om samarbete.
+                                    Under tiden jobbar poddarna på som vanligt.
                             </p>
                             <img id="faq-icon" src={faqIcon} />
                             {/* <h2 id="second-title">Vanliga frågor</h2> */}

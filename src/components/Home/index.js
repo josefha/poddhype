@@ -3,7 +3,6 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import SEO from '../../common/components/seo'
 import PodcastersPart from '../../common/components/PodcastersPart/PodcastersPart'
 import SignupBlock from '../../common/components/SignupBlock'
-import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import BrandPart from '../../common/components/BrandPart/BrandPart'
 import { enquireScreen } from 'enquire-js';
 import { getFirebase } from "../../common/api/firebase"

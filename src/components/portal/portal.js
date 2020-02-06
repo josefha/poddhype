@@ -1,7 +1,7 @@
 import React from "react";
-import { getFirebase } from "../../common/api/firebase"
+import { getFirebase, getCurrentUser } from "../../common/api/firebase"
 import antd from "antd"
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -35,6 +35,23 @@ class Portal extends React.Component {
 
     componentDidMount() {
         this.loadFirebase()
+    }
+
+    componentDidUpdate(_, prevState) {
+        if (prevState.firebase !== this.state.firebase) {
+            this.getUser()
+        }
+    }
+
+    getUser = async () => {
+        let firebase = this.state.firebase
+        let user = await getCurrentUser(firebase)
+
+        if (!user) {
+            navigate('/login')
+        }
+
+        console.log("User is logged in")
     }
 
     render() {

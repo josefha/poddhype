@@ -44,7 +44,9 @@ class Login extends React.Component {
                         <div style={{ textAlign: 'center' }}>
                             <h2>Podcast login</h2>
                         </div>
-                        <LoginForm />
+                        <LoginForm
+                            firebase={this.state.firebase}
+                        />
                     </div>
                 </PageWrapper>
             </div >

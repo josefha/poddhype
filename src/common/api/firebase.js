@@ -21,6 +21,7 @@ export const getFirebase = firebase => {
 
     return firebase
 }
+
 let userLoaded = false;
 export const getCurrentUser = (firebase) => {
     return new Promise((resolve, reject) => {

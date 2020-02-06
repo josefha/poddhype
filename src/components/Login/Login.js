@@ -1,15 +1,14 @@
 import React from "react";
-import cnLocale from '../../zh-CN'
 import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import SEO from '../../common/components/seo'
-import { ButtonTransparent } from '../../common/components/Buttons/index.js'
+import LoginForm from '../../common/components/LoginForm/LoginForm'
 import { Input, Divider } from 'antd'
 import { getFirebase } from "../../common/api/firebase"
 import { Link } from 'gatsby'
 import './style.less';
 import '../Home/static/header.less'
 
-class Brands extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,9 +39,12 @@ class Brands extends React.Component {
                     title="Poddhype | Login"
                     description="Logga in för att se vilka sponsorer som vill nå dig."
                 />
-                <PageWrapper footer={true}>
-                    <div>
-                        <h1>LOGIN</h1>
+                <PageWrapper footer={false}>
+                    <div class="login-box-wrapper">
+                        <div style={{ textAlign: 'center' }}>
+                            <h2>Podcast login</h2>
+                        </div>
+                        <LoginForm />
                     </div>
                 </PageWrapper>
             </div >
@@ -50,4 +52,4 @@ class Brands extends React.Component {
     }
 }
 
-export default Brands
+export default Login

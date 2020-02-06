@@ -46,5 +46,21 @@ export const signupIsCompleted = async (firebase, uid) => {
     } else {
         return false;
     }
+}
+
+export const getPodcastProfile = async (firebase, user) => {
+    let uid = user.uid
+    var db = firebase.firestore()
+    let podcastProfile
+    var querySnapshot = await db.collection("podcast-profiles").where("uid", "==", uid).get()
+    querySnapshot.forEach(function (doc) {
+        podcastProfile = doc.data()
+    });
+
+    if (podcastProfile) {
+        return { success: true, profile: podcastProfile };
+    } else {
+        return { success: false, error: "could not find profile" };
+    }
 
 }

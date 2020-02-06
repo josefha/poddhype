@@ -1,5 +1,6 @@
 import React from "react";
 import { getFirebase, getCurrentUser } from "../../common/api/firebase"
+import { getPodcastProfile } from "../../common/api/db/podcastProfile"
 import antd from "antd"
 import { Link, navigate } from 'gatsby'
 import './style.less';
@@ -17,7 +18,8 @@ class Portal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            firebase: null
+            firebase: null,
+            profile: null
         };
     }
 
@@ -39,11 +41,11 @@ class Portal extends React.Component {
 
     componentDidUpdate(_, prevState) {
         if (prevState.firebase !== this.state.firebase) {
-            this.getUser()
+            this.initUser()
         }
     }
 
-    getUser = async () => {
+    initUser = async () => {
         let firebase = this.state.firebase
         let user = await getCurrentUser(firebase)
 
@@ -51,7 +53,13 @@ class Portal extends React.Component {
             navigate('/login')
         }
 
-        console.log("User is logged in")
+        let result = await getPodcastProfile(firebase, user)
+        if (!result.sucess) {
+            // ERROR
+        }
+        let profile = result.profile
+        this.setState({ profile })
+        console.log("User is logged in:", result)
     }
 
     render() {
@@ -60,6 +68,9 @@ class Portal extends React.Component {
                 <div className="portal-header">
                     <div className="portal-logo" >
                         <img alt="logo" src={logo} />
+                    </div>
+                    <div>
+                        <p style={{ color: '#fff' }}>{"this.state.profile.name"}</p>
                     </div>
                 </div>
                 <Layout>

@@ -1,8 +1,9 @@
 import React from "react";
+import antd from "antd"
 import { getFirebase, getCurrentUser } from "../../common/api/firebase"
 import { getPodcastProfile } from "../../common/api/db/podcastProfile"
-import antd from "antd"
 import { Link, navigate } from 'gatsby'
+import { SecondaryButton } from '../../common/components/Buttons'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -52,7 +53,7 @@ class Portal extends React.Component {
         if (!user) {
             navigate('/login')
         }
-
+        console.log("user", user)
         let result = await getPodcastProfile(firebase, user)
         if (!result.sucess) {
             // ERROR
@@ -62,7 +63,14 @@ class Portal extends React.Component {
         console.log("User is logged in:", result)
     }
 
+    signOut = async () => {
+        await this.state.firebase.auth().signOut()
+        this.setState({ user: null, profile: null })
+        navigate('/')
+    }
+
     render() {
+        let profile = this.state.profile
         return (
             <Layout>
                 <div className="portal-header">
@@ -70,7 +78,13 @@ class Portal extends React.Component {
                         <img alt="logo" src={logo} />
                     </div>
                     <div>
-                        <p style={{ color: '#fff' }}>{"this.state.profile.name"}</p>
+                        {/* <p style={{ color: '#fff' }}>{"this.state.profile.name"}</p> */}
+                    </div>
+                    <div style={{ float: 'right' }}>
+                        <SecondaryButton
+                            title="Logga ut"
+                            onClick={() => this.signOut()} >
+                        </SecondaryButton>
                     </div>
                 </div>
                 <Layout>
@@ -115,8 +129,13 @@ class Portal extends React.Component {
                                 minHeight: '1000px',
                             }}
                         >
-                            Content
-                </Content>
+                            {profile &&
+                                <>
+                                    <p>{profile.name}</p>
+                                    <p>{profile.title}</p>
+                                </>
+                            }
+                        </Content>
                     </Layout>
                 </Layout>
             </Layout >

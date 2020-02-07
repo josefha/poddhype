@@ -56,7 +56,8 @@ export const getPodcastProfile = async (firebase, user) => {
     querySnapshot.forEach(function (doc) {
         podcastProfile = doc.data()
     });
-
+    console.log(querySnapshot)
+    console.log(podcastProfile)
     if (podcastProfile) {
         return { success: true, profile: podcastProfile };
     } else {

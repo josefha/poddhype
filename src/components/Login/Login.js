@@ -3,8 +3,8 @@ import PageWrapper from '../../common/components/PageWrapper/PageWrapper'
 import SEO from '../../common/components/seo'
 import LoginForm from '../../common/components/LoginForm/LoginForm'
 import { Input, Divider } from 'antd'
-import { getFirebase } from "../../common/api/firebase"
-import { Link } from 'gatsby'
+import { getFirebase, getCurrentUser } from "../../common/api/firebase"
+import { Link, navigate } from 'gatsby'
 import './style.less';
 import '../Home/static/header.less'
 
@@ -30,6 +30,22 @@ class Login extends React.Component {
 
     componentDidMount() {
         this.loadFirebase()
+    }
+
+    componentDidUpdate(_, prevState) {
+        if (prevState.firebase !== this.state.firebase) {
+            this.checkIfLoggedin()
+        }
+    }
+
+    checkIfLoggedin = async () => {
+        let firebase = this.state.firebase
+        let user = await getCurrentUser(firebase)
+
+        if (user) {
+            navigate('/portal')
+            return
+        }
     }
 
     render() {

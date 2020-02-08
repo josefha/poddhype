@@ -10,3 +10,20 @@ export const putFile = async (firebase, name, folder, file) => {
         return null
     }
 }
+
+export const getFile = async (firebase, path) => {
+    console.log(firebase)
+    var storageRef = firebase.storage().ref();
+
+    // Create a reference to the file we want to download
+    var starsRef = storageRef.child(path);
+
+    // Get the download URL
+    try {
+        let url = await starsRef.getDownloadURL()
+        console.log(url)
+        return { success: true, url }
+    } catch (error) {
+        return { success: false, error: error.code }
+    }
+}

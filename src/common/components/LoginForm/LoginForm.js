@@ -18,13 +18,12 @@ class LoginForm extends React.Component {
         };
     }
 
+
     login = async () => {
         this.showLoading()
-        console.log(this.state);
         let result = await firebaseLogin(this.props.firebase, this.state.email, this.state.password)
         console.log(result)
         if (result.sucess) {
-            console.log("Login Sucess")
             navigate('/portal')
         } else {
             this.setState({ error: result.error })
@@ -82,12 +81,11 @@ class LoginForm extends React.Component {
                     <div style={{ marginTop: '10px', textAlign: 'center' }}>
                         <a
                             onClick={() => this.forgotPassword()}> Glömt ditt Lösenord?
-                </a>
+                        </a>
                     </div>
                     <div>
                         {this.state.error && <Alert style={{ margin: '20px 0' }} message={this.state.error} type="error" />}
                         {this.state.userMsg && <Alert style={{ margin: '20px 0' }} message={this.state.userMsg} />}
-
                     </div>
                 </Spin>
             </>

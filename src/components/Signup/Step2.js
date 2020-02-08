@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Button, Typography, Divider, Input, Spin, Slider, Alert } from 'antd'
 import Avatar from './Avatar'
-import TagPicker from './TagPicker'
+import TagPicker from '../../common/components/TagPicker'
 import { putFile } from '../../common/api/storage'
 import { putPodcastProfileInfo } from '../../common/api/db/podcastProfile'
 import { DefaultButton, SecondaryButton } from '../../common/components/Buttons'
@@ -170,10 +170,13 @@ export default class Step2 extends React.Component {
                 break;
             case 2:
                 this.setState({ age: "22-30" })
+                break;
             case 3:
                 this.setState({ age: "28-40" })
+                break;
             case 4:
                 this.setState({ age: "40+" })
+                break
             default:
                 break;
         }
@@ -187,6 +190,7 @@ export default class Step2 extends React.Component {
                 break;
             case 2:
                 this.setState({ gender: "female" })
+                break;
             case 3:
                 this.setState({ gender: "mixed" })
             default:

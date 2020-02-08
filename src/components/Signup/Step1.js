@@ -180,7 +180,8 @@ export default class Step1 extends React.Component {
                     placeholder="Ditt namn"
                     value={this.state.name}
                     onChange={(e) => this.handleChange(e, "name")} />
-                <Input placeholder="Podcaststitel"
+                <Input
+                    placeholder="Podcaststitel"
                     value={this.state.title}
                     onChange={(e) => this.handleChange(e, "title")} />
                 <Divider />

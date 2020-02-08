@@ -52,6 +52,7 @@ class Portal extends React.Component {
 
         if (!user) {
             navigate('/login')
+            return
         }
         console.log("user", user)
         let result = await getPodcastProfile(firebase, user)

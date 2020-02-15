@@ -103,7 +103,6 @@ class Portal extends React.Component {
                     <span className="portal-logo" >
                         <Link to="/"><img alt="logo" src={logo} /></Link>
                     </span>
-                    {/* <p style={{ color: '#fff' }}>{name}</p> */}
                     <div style={{ float: 'right' }}>
                         <DefaultButton
                             title="Editera Profil"

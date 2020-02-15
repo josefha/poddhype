@@ -10,19 +10,12 @@ const { Typography, Icon, Input, Divider, Alert, Spin, Row, Col, Tag, Slider, Bu
 export default function ProfileRow(props) {
 
     let profile = props.profile;
-    let description = null
 
-    if (!profile) {
-        return (<div></div>)
-    }
-
-    if (!profile.data) {
+    if (!profile || !profile.data) {
         return null
     }
 
-
-
-    const TagStyle = { margin: '8px 6px', padding: '5px', fontSize: '12px', fontWeight: '500' }
+    const TagStyle = { margin: '8px 6px', padding: '5px', fontSize: '12px', fontWeight: '500' }
     console.log(profile)
     return (
         <>

@@ -110,7 +110,7 @@ class ProfileList extends React.Component {
                     </div>
                     :
                     <div className="profile-listing-container">
-                        <Spin style={{ marginTop: '100px' }} spinning={this.state.isLoading}
+                        <Spin style={{ color: '#fff', marginTop: '100px' }} spinning={this.state.isLoading}
                             tip="Hämtar data...">
                             {profileList &&
                                 profileList.map((profile) => {

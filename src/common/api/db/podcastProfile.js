@@ -56,12 +56,27 @@ export const getPodcastProfile = async (firebase, user) => {
     querySnapshot.forEach(function (doc) {
         podcastProfile = doc.data()
     });
-    console.log(querySnapshot)
-    console.log(podcastProfile)
+
     if (podcastProfile) {
         return { success: true, profile: podcastProfile };
     } else {
         return { success: false, error: "could not find profile" };
     }
+}
 
+export const getAllPodcastProfiles = async (firebase) => {
+    let db = firebase.firestore()
+    let collection = db.collection("podcast-profiles")
+    let querySnapshot = await collection.get()
+
+    let profileList = []
+    querySnapshot.forEach(function (doc) {
+        profileList.push(doc.data())
+    });
+
+    if (profileList.length > 0) {
+        return { success: true, data: profileList }
+    } else {
+        return { success: false, error: "could not get profiles" }
+    }
 }

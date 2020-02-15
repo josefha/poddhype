@@ -52,7 +52,8 @@ export default function PodcastCard(props) {
                             </Tag>
                         </div>}
                         <div>
-                            <a href={profile.data.podcastLink} target="_blank"><SecondaryButton title="Gå till podcast" size='large'></SecondaryButton></a>
+                            <a href={profile.data.podcastLink} target="_blank">
+                                <SecondaryButton title="Gå till podcast" size='large' /></a>
                         </div>
                         <span class="socialmedia-icon">
                             {profile.instagram != "" &&

@@ -1,0 +1,42 @@
+.profile-row-container {
+    display: flex;
+    justify-content: start; /* align horizontal */
+    align-items: flex-start; /* align vertical */
+    border: 1px solid #ccc;
+    max-width: 700px;
+    width: 100vw;
+    margin: 15px;
+    height: 160px;
+    margin: 10px 15px;
+    border-radius: 5px;
+    background: #fff;
+    -webkit-box-shadow: 0px 1px 32px -11px rgba(227, 227, 227, 0.75);
+    -moz-box-shadow: 0px 1px 32px -11px rgba(227, 227, 227, 0.75);
+    box-shadow: 0px 1px 32px -11px rgba(227, 227, 227, 0.75);
+
+    p {
+        font-size: 14px;
+    }
+
+    & .row-body {
+        padding: 15px;
+        max-width: 500px;
+    }
+
+    & .row-footer {
+        height: 100px;
+        width: 100vw;
+    }
+
+    & .icon-containter {
+        width: 150px;
+        height: 150px;
+        img {
+            align-self: center;
+            border-radius: 20px;
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+        }
+    }
+}

@@ -6,6 +6,63 @@ import './buttons.less'
 
 const btnCtaColor = '#8940fa';
 
+export const SecondaryButton = (props) => (
+    <SmallButtonTransparent
+        title={props.title}
+        onClick={() => props.onClick()}
+    />)
+
+export const DefaultButton = (props) => (
+    <SmallButtonPurple
+        title={props.title}
+        onClick={() => props.onClick()}
+    />)
+
+export const ButtonCta = (props) => {
+    return (
+        <Link to={props.to}>
+            {props.size == "small" ?
+                <SmallButtonPurple title={props.title}> </SmallButtonPurple>
+                :
+                <LargeButtonPurple title={props.title}> </LargeButtonPurple>
+            }
+        </Link>)
+}
+
+export const ButtonTransparent = (props) => {
+    const StyledButton = (props) => (<Button
+        className="btn-cta-transparent"
+        {...props}
+        style={{
+            borderRadius: '25px',
+            background: 'rgba(255, 255, 255, 0)',
+            transition: 'all 0.4s ease 0s',
+            border: '2px solid #292F37',
+            color: '#292F37',
+            textShadow: 'none',
+            height: '50px',
+            width: '210px',
+            fontWeight: '600',
+            fontSize: '16px',
+            margin: '20px',
+        }}
+        type="primary"
+        size='large'>
+        {props.title}
+    </Button>)
+    const Result = props.onClick ?
+        (
+            <StyledButton
+                title={props.title}
+                onClick={() => props.onClick()} />
+        ) : (
+            < Link to={props.to} >
+                <StyledButton
+                    title={props.title} />
+            </Link >)
+
+    return Result
+}
 
 const SmallButtonTransparent = (props) => (<Button
     className="btn-cta-transparent-small"
@@ -65,61 +122,3 @@ const LargeButtonPurple = (props) => (
         {props.title}
     </Button>
 )
-
-export const SecondaryButton = (props) => (
-    <SmallButtonTransparent
-        title={props.title}
-        onClick={() => props.onClick()}
-    />)
-
-export const DefaultButton = (props) => (
-    <SmallButtonPurple
-        title={props.title}
-        onClick={() => props.onClick()}
-    />)
-
-export const ButtonCta = (props) => {
-    return (
-        <Link to={props.to}>
-            {props.size == "small" ?
-                <SmallButtonPurple title={props.title}> </SmallButtonPurple>
-                :
-                <LargeButtonPurple title={props.title}> </LargeButtonPurple>
-            }
-        </Link>)
-}
-
-export const ButtonTransparent = (props) => {
-    const StyledButton = (props) => (<Button
-        className="btn-cta-transparent"
-        {...props}
-        style={{
-            borderRadius: '25px',
-            background: 'rgba(255, 255, 255, 0)',
-            transition: 'all 0.4s ease 0s',
-            border: '2px solid #292F37',
-            color: '#292F37',
-            textShadow: 'none',
-            height: '50px',
-            width: '210px',
-            fontWeight: '600',
-            fontSize: '16px',
-            margin: '20px',
-        }}
-        type="primary"
-        size='large'>
-        {props.title}
-    </Button>)
-    const Result = props.onClick ?
-        (
-            <StyledButton
-                title={props.title}
-                onClick={() => props.onClick()} />
-        ) : (
-            < Link to={props.to} >
-                <StyledButton
-                    title={props.title} />
-            </Link >)
-
-    return Result
-}

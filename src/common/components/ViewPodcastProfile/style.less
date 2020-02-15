@@ -2,6 +2,8 @@
 
 
 .podcast-profile-contatiner {
+    margin: 0 auto;
+
     p {
         font-size: 15px;
         color: @c-black;
@@ -10,6 +12,7 @@
     }
     & .left-contatiner {
         padding: 10px;
+        text-align: center;
     }
 
     h2 {
@@ -21,11 +24,18 @@
     }
 
     & .left-contatiner {
+        width: 180px;
+        padding: 0;
     & .profile-icon {
-        text-align: center;
         width: 150px;
         height: 150px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center; /* align horizontal */
+        align-items: center; /* align vertical */
         img {
+            align-self: center;
+            border-radius: 20px;
             width: auto;
             height: 100%;
             max-width: 100%;
@@ -52,6 +62,9 @@
 .podcast-profile-body {
     max-width: 600px;
     padding: 20px;
+    border-left: 1px solid #e8e8e8;
+    margin-left: 15px;
+    border-right: 1px solid #e8e8e8;
 }
 
 

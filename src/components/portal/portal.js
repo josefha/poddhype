@@ -4,14 +4,14 @@ import { getFirebase, getCurrentUser } from "../../common/api/firebase"
 import { getPodcastProfile } from "../../common/api/db/podcastProfile"
 import { getFile } from '../../common/api/storage'
 import { Link, navigate } from 'gatsby'
-import { SecondaryButton } from '../../common/components/Buttons'
+import { SecondaryButton, ButtonCta, DefaultButton } from '../../common/components/Buttons'
 import ViewPodcastProfile from '../../common/components/ViewPodcastProfile/ViewPodcastProfile'
-import EditPodcastProfile from '../../common/components/EditPodcastProfile/EditPodcastProfile'
+
 
 import './style.less';
 import '../Home/static/header.less'
 
-const { Layout, Menu, Breadcrumb, Icon } = antd;
+const { Layout, Menu, Spin } = antd;
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -27,6 +27,8 @@ class Portal extends React.Component {
             profile: null,
             user: null,
 
+            isLoading: true,
+            editMode: false
         };
     }
 
@@ -76,7 +78,7 @@ class Portal extends React.Component {
             console.log(fileResult)
             profile['avatarUrl'] = ""
         }
-        this.setState({ user, profile })
+        this.setState({ user, profile, isLoading: false })
 
     }
 
@@ -86,41 +88,54 @@ class Portal extends React.Component {
         navigate('/')
     }
 
+    showLoading = () => this.setState({ isLoading: true })
+    hideLoading = () => this.setState({ isLoading: false })
+
     render() {
         let profile = this.state.profile
+        let name
+        if (profile) {
+            name = profile.name
+        }
         return (
-            <Layout>
+            <>
                 <div className="portal-header">
-                    <div className="portal-logo" >
+                    <span className="portal-logo" >
                         <Link to="/"><img alt="logo" src={logo} /></Link>
-                    </div>
-                    {/* <p style={{ color: '#fff' }}>{"this.state.profile.name"}</p> */}
-                    {/* <div style={{ float: 'right' }}>
-                        <SecondaryButton
+                    </span>
+                    {/* <p style={{ color: '#fff' }}>{name}</p> */}
+                    <div style={{ float: 'right' }}>
+                        <DefaultButton
+                            title="Editera Profil"
+                            onClick={() => {
+                                console.log("Click");
+                                this.setState({ editMode: true })
+                            }}
+                            size='small' />
+                        <ButtonCta
+                            size="small"
                             title="Logga ut"
-                            onClick={() => this.signOut()} >
-                        </SecondaryButton>
-                    </div> */}
-                </div>
-                <Layout style={{ height: '100%' }}>
-                    <Content
-                        style={{
+                            to="/"
+                            onClick={() => this.signOut()} />
+                    </div>
 
-                            background: '#fff',
-                            padding: 24,
-                            margin: '20px',
-                            minHeight: '600px',
-                            maxWidth: '900px',
-                        }}
-                    >
+                </div>
+
+                {/* <div className="portal-toolbar">
+
+                </div> */}
+                <div className="profile-container">
+                    <Spin style={{ marginTop: '100px' }} spinning={this.state.isLoading}
+                        tip="Hämtar data...">
                         {profile && <ViewPodcastProfile
+                            editMode={this.state.editMode}
                             profile={profile}
                             user={this.state.user}
                             firebase={this.state.firebase}
                         />}
-                    </Content>
-                </Layout>
-            </Layout >
+                    </Spin>
+                </div>
+            </>
         )
     }
 }

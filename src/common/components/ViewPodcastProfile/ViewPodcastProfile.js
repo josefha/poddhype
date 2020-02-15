@@ -6,6 +6,7 @@ import { putPodcastProfileInfo } from '../../api/db/podcastProfile'
 
 import "./style.less"
 import TagPicker from '../TagPicker'
+import PodcastCard from '../PodcastCard/PodcastCard'
 
 const { Typography, Icon, Input, Divider, Alert, Spin, Row, Col, Tag, Slider, Button } = antd;
 const { TextArea } = Input;
@@ -18,7 +19,6 @@ const instagramIcon = require("../../assets/instagram-icon.png")
 class ViewPodcastProfile extends React.Component {
     constructor(props) {
         super(props);
-        let profile = props.profile.data
         const resolveAgeButton = (age) => {
             switch (age) {
                 case "12-24":
@@ -46,28 +46,30 @@ class ViewPodcastProfile extends React.Component {
             }
         }
 
+        if (props.profile.data) {
+            let profile = props.profile.data
 
-        this.state = {
-            editMode: false,
-            title: props.profile.title,
-            description: profile.description,
-            category: profile.category,
-            listenersAmount: profile.listenersAmount,
-            selectedGenderButton: resolveGenderButton(profile.gender), // switcha pa gender sa man vet va button ska vara ifyllt
-            age: profile.age,
-            gender: profile.gender,
-            listenersDescription: profile.listenersDescription,
-            selectedAgeButton: resolveAgeButton(profile.age), // se ovan
-            typeOfCollaboration: profile.typeOfCollaboration,
-            importantWhenCollaborating: profile.importantWhenCollaborating,
-            podcastLink: profile.podcastLink,
-            facebook: profile.facebook,
-            instagram: profile.instagram,
-            homepage: profile.homepage,
-            name: props.profile.name,
+            this.state = {
+                title: props.profile.title,
+                description: profile.description,
+                category: profile.category,
+                listenersAmount: profile.listenersAmount,
+                selectedGenderButton: resolveGenderButton(profile.gender),
+                age: profile.age,
+                gender: profile.gender,
+                listenersDescription: profile.listenersDescription,
+                selectedAgeButton: resolveAgeButton(profile.age),
+                typeOfCollaboration: profile.typeOfCollaboration,
+                importantWhenCollaborating: profile.importantWhenCollaborating,
+                podcastLink: profile.podcastLink,
+                facebook: profile.facebook,
+                instagram: profile.instagram,
+                homepage: profile.homepage,
+                name: props.profile.name,
 
-            isLoading: false,
-        };
+                isLoading: false,
+            };
+        }
     }
 
     updateProfile = async () => {
@@ -100,20 +102,13 @@ class ViewPodcastProfile extends React.Component {
             homepage,
         }))(this.state);
 
-        // adding the path in cloud-storage to db data obj 
         data['AvatarPath'] = this.props.profile.data.AvatarPath;
-        // data['uid'] = user.uid;
-        console.log("BEFORE PODCAST PROFILE")
+
         // TODO: Fix error handling
+        // Change call to update title and name too 
         await putPodcastProfileInfo(this.props.firebase, data, this.props.user.uid)
-        //this.setState({ editMode: false })
         this.hideLoading()
-
-
-
-
     }
-
 
     genderText = (gender) => {
         if (gender == "male") {
@@ -125,16 +120,15 @@ class ViewPodcastProfile extends React.Component {
         return null
     }
 
-
     handleChange = (e, field) => {
         this.setState({ [field]: e.target.value });
     }
+
     handlePickerChange = (value, field) => {
         this.setState({ [field]: value });
     }
 
     onButtonGroupAgeClick = (n) => {
-        console.log(n)
         this.setState({ selectedAgeButton: n })
         switch (n) {
             case 1:
@@ -172,97 +166,18 @@ class ViewPodcastProfile extends React.Component {
     showLoading = () => this.setState({ isLoading: true })
     hideLoading = () => this.setState({ isLoading: false })
 
-
-
-
-
     render() {
         let profile = this.props.profile
         let instagramUrl = profile.data.instagram
         let facebookUrl = profile.data.facebook
-        console.log(profile)
 
-        if (!this.state.editMode) {
-
+        if (!this.props.editMode) {
             let genderText = this.genderText(this.props.profile.data.gender)
-
             return (
-                <div class="podcast-profile-contatiner">
-                    <Row>
-                        <Col span={6} >
-                            <div class="left-contatiner">
-                                <div class="profile-icon">
-                                    <img src={profile.avatarUrl}></img>
-                                </div>
-                                <div>
-                                    <Tag color="volcano" style={{ margin: '8px 0', padding: '5px', fontSize: '12px' }}>
-                                        {profile.data.category}
-                                    </Tag>
-                                </div>
-                                <div>
-                                    <Tag color="geekblue" style={{ margin: '8px 0', padding: '3px 5px', fontSize: '12px' }}>
-                                        {profile.data.listenersAmount} lyssnare per avsnitt
-                                </Tag>
-                                </div>
-                                <div>
-                                    <Tag color="volcano" style={{ margin: '8px 0', padding: '5px', fontSize: '12px' }}>
-                                        Åldersgrupp {profile.data.age}
-                                    </Tag>
-                                </div>
-                                {genderText && <div>
-                                    <Tag color="green" style={{ margin: '8px 0', padding: '5px', fontSize: '12px' }}>
-                                        {genderText}
-                                    </Tag>
-                                </div>}
-                                <span class="socialmedia-icon">
-                                    {instagramUrl != "" &&
-                                        <a href={instagramUrl} target="_blank">
-                                            <img src={instagramIcon} />
-                                        </a>}
-                                    {facebookUrl != "" &&
-                                        <a href={facebookUrl} target="_blank">
-                                            <img src={facebookIcon} />
-                                        </a>}
-                                </span>
-                                <div>
-                                    <a href={profile.data.podcastLink} target="_blank"><SecondaryButton title="Gå till podcast" size='large'></SecondaryButton></a>
-                                </div>
-                                <div style={{ margin: '50px 0px' }}>
-                                    <DefaultButton title="Editera Profil" onClick={() => this.setState({ editMode: true })} size='large'></DefaultButton>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col span={18} >
-                            <div class="podcast-profile-body">
-                                <h2> {profile.title}</h2>
-                                <p> {profile.data.description}</p>
-
-                                <Divider />
-                                <div>
-                                    <h3>Målgrupps beskrivning</h3>
-                                    <p>{}</p>
-                                    <p>{profile.data.listenersDescription}</p>
-                                </div>
-                                <Divider />
-                                <div>
-                                    <h3>Sponsorskap</h3>
-                                    <p><b>Vad är viktigt för ett lyckat Sponsorskap?</b></p>
-                                    <p>{profile.data.importantWhenCollaborating}</p>
-                                    <p><b>Vilka företag sammarbetar du helst med?</b></p>
-                                    <p>{profile.data.typeOfCollaboration}</p>
-                                </div>
-                                <Divider />
-                                <div>
-                                    <p> Podden är skapad av {profile.name} </p>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                </div >
+                <PodcastCard profile={profile} genderText={genderText} />
             );
         }
         else {
-
             let genderText = this.genderText(this.state.gender)
             return (
                 <div class="podcast-profile-contatiner">
@@ -439,7 +354,6 @@ class ViewPodcastProfile extends React.Component {
                                     placeholder="Länk till hemsida"
                                     onChange={(e) => this.handleChange(e, "homepage")} />
                                 <Divider />
-
                             </div>
                         </Col>
                     </Row>

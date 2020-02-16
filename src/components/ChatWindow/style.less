@@ -1,0 +1,22 @@
+.chat-window-message {
+    background-color: #ccc;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    align-items: flex-start;
+    align-self: flex-start;
+    padding: 8px 15px;
+
+    &.is-users-message {
+        background-color: #1185FC;
+        justify-content: flex-end; /* align horizontal */
+    }
+
+    p {
+        display: flex;
+        align-self: flex-start;
+        color: #fff;
+        margin: 0;
+        font-size: 14px;
+    }
+}

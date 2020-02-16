@@ -1,21 +1,15 @@
 import React from "react";
 import antd from "antd"
 import { getFirebase, getCurrentUser } from "../../common/api/firebase"
-import { getPodcastProfile } from "../../common/api/db/podcastProfile"
+import { getPodcastProfile, putPodcastProfileInfo } from "../../common/api/db/podcastProfile"
 import { getFile } from '../../common/api/storage'
 import { Link, navigate } from 'gatsby'
 import { SecondaryButton, ButtonCta, DefaultButton } from '../../common/components/Buttons'
 import ViewPodcastProfile from '../../common/components/ViewPodcastProfile/ViewPodcastProfile'
 
-
 import './style.less';
-import '../Home/static/header.less'
 
 const { Layout, Menu, Spin } = antd;
-
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-
 const logo = require('../../common/assets/poddhype-logo-white-small.png')
 
 
@@ -92,43 +86,39 @@ class Portal extends React.Component {
     hideLoading = () => this.setState({ isLoading: false })
 
     render() {
-        let profile = this.state.profile
-        let name
-        if (profile) {
-            name = profile.name
-        }
         return (
             <>
                 <div className="portal-header">
                     <span className="portal-logo" >
                         <Link to="/"><img alt="logo" src={logo} /></Link>
                     </span>
-                    <div style={{ float: 'right' }}>
-                        <DefaultButton
-                            title="Editera Profil"
-                            onClick={() => {
-                                console.log("Click");
-                                this.setState({ editMode: true })
-                            }}
-                            size='small' />
-                        <ButtonCta
-                            size="small"
-                            title="Logga ut"
-                            to="/"
-                            onClick={() => this.signOut()} />
-                    </div>
-
                 </div>
 
-                {/* <div className="portal-toolbar">
-
-                </div> */}
+                <span className="profile-toolbar">
+                    <SecondaryButton
+                        title="See profil"
+                        size='large'
+                        onClick={() => {
+                            this.setState({ editMode: false })
+                        }} />
+                    <SecondaryButton
+                        title="Editera profil"
+                        size='large'
+                        onClick={() => {
+                            this.setState({ editMode: true })
+                        }} />
+                    <SecondaryButton
+                        title="Logga ut"
+                        size='large'
+                        onClick={() => this.signOut()} />
+                </span>
                 <div className="profile-container">
                     <Spin style={{ marginTop: '100px' }} spinning={this.state.isLoading}
                         tip="Hämtar data...">
-                        {profile && <ViewPodcastProfile
+                        {this.state.profile && <ViewPodcastProfile
                             editMode={this.state.editMode}
-                            profile={profile}
+                            profile={this.state.profile}
+                            // updateProfile={(e) => this.updateProfile(e)}
                             user={this.state.user}
                             firebase={this.state.firebase}
                         />}

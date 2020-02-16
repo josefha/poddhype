@@ -31,20 +31,13 @@ export default function PodcastCard(props) {
                         </div>
                         <div>
                             <Tag color="#8940FA" style={TagStyle}>
-                                Kategori: {' ' + profile.data.category}
+                                {' ' + profile.data.category}
                             </Tag>
                         </div>
                         <div>
                             <Tag color="#8940FA" style={TagStyle}>
-                                {profile.data.listenersAmount} Lyssnare / avsnitt
+                                {profile.data.listenersAmount} lyssnare
                                 </Tag>
-                        </div>
-                        {/* <Divider></Divider> */}
-                        {/* <h4 style={{ margin: '10px 0' }}>Målgrupp</h4> */}
-                        <div>
-                            <Tag color="#8940FA" style={TagStyle}>
-                                {profile.data.age} år
-                                    </Tag>
                         </div>
                         {props.genderText && <div>
                             <Tag color="#8940FA" style={TagStyle}>
@@ -52,8 +45,13 @@ export default function PodcastCard(props) {
                             </Tag>
                         </div>}
                         <div>
+                            <Tag color="#8940FA" style={TagStyle}>
+                                {profile.data.age} år
+                                    </Tag>
+                        </div>
+                        <div>
                             <a href={profile.data.podcastLink} target="_blank">
-                                <SecondaryButton title="Gå till podcast" size='large' /></a>
+                                <SecondaryButton title="Lyssna på podden" size='large' /></a>
                         </div>
                         <span class="socialmedia-icon">
                             {profile.instagram != "" &&
@@ -69,18 +67,18 @@ export default function PodcastCard(props) {
                 </Col>
                 <Col span={18} >
                     <div class="podcast-profile-body">
-                        <h2> {profile.title}</h2>
+                        <h2 style={{ color: '#333' }}> {profile.title}</h2>
                         <p> {profile.data.description}</p>
 
                         <Divider />
                         <div>
-                            <h3>Målgrupps beskrivning</h3>
+                            <h3 style={{ color: '#333' }}>Målgrupps beskrivning</h3>
                             <p>{}</p>
                             <p>{profile.data.listenersDescription}</p>
                         </div>
                         <Divider />
                         <div>
-                            <h3>Sponsorskap</h3>
+                            <h3 style={{ color: '#333' }}>Sponsorskap</h3>
                             <p><b>Vad är viktigt för ett lyckat Sponsorskap?</b></p>
                             <p>{profile.data.importantWhenCollaborating}</p>
                             <p><b>Vilka företag sammarbetar du helst med?</b></p>
